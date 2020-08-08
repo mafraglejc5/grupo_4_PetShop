@@ -15,4 +15,24 @@ Las personsas amantes de las mascotas.
 
 Ofreciendo productos de calidad e innovadores.
 
+Integrantes
+
+👩 Villagra, Vanesa
+
+21 años
+
+Secretaria - Estudiante de Programacion Web Full Stack.
+
+👨 Mendieta, Sergio
+
+25 años
+
+Estudiante de Programacion Web Full Stack.
+
+👨 Muñoz, Gabriel
+
+34 años
+
+Gestión calidad constructiva (Ezentis) - Estudiante de Programacion Web Full Stack.
+
 
