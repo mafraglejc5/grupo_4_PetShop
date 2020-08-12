@@ -1,3 +1,4 @@
+![WhatsApp Image 2020-08-11 at 17 51 28](https://user-images.githubusercontent.com/67521085/89964741-5f5a3400-dc21-11ea-88f2-9f5e3c69e679.jpeg)
 # grupo_4_PetShop
 
 📌 Primer Sprint (Fecha de entrega: 17-07)
