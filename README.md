@@ -58,14 +58,15 @@ https://trello.com/b/jqtlFOWP/grupo4
 
 https://wireframepro.mockflow.com/view/M0a858a65342e853c1c27d15d3ea656c91597005007309
 
-Home
+Home:✓✓✓
 
-Detalle de producto
+Detalle del producto: ✓✓✓
 
-Carrito de compras
+Carrito de compras: ✓✓✓
 
-Formulario de registro
+Formulario de registr: ✓✓✓
 
+Formulario de carga de producto(para el administrador): ✓✓✓
 
 ✏️ Diseño (en proceso)
 
