@@ -56,8 +56,7 @@ https://trello.com/b/jqtlFOWP/grupo4
 
 📂 Wireframe
 
-https://wireframepro.mockflow.com/view/ 
-M0a858a65342e853c1c27d15d3ea656c91597005007309
+https://wireframepro.mockflow.com/view/M0a858a65342e853c1c27d15d3ea656c91597005007309
 
 Home
 
@@ -72,7 +71,7 @@ Formulario de registro
 
 Logos:
 
-Colores:
+Colores:https://colorhunt.co/palette/14114
 
 Fuentes:
 
