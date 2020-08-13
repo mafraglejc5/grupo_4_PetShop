@@ -63,13 +63,13 @@ https://trello.com/b/jqtlFOWP/grupo4
 
 https://wireframepro.mockflow.com/view/M0a858a65342e853c1c27d15d3ea656c91597005007309
 
-Home:✓✓✓
+Home: ✓✓✓
 
 Detalle del producto: ✓✓✓
 
 Carrito de compras: ✓✓✓
 
-Formulario de registr: ✓✓✓
+Formulario de registro: ✓✓✓
 
 Formulario de carga de producto(para el administrador): ✓✓✓
 
@@ -77,7 +77,7 @@ Formulario de carga de producto(para el administrador): ✓✓✓
 
 Logos: Se encuentra en la parte superior del repositorio.
 
-Colores:https://colorhunt.co/palette/14114
+Colores: https://colorhunt.co/palette/14114
 
 Fuentes: Vamos a usar, por el momento este tipo de fuente: Arial, Helvetica, sans-serif;
 
