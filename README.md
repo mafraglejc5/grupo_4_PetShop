@@ -11,7 +11,7 @@ Como novedad y a diferencia de las páginas tradicionales, tendremos una seccion
 
 ¿Quién será nuestra audiencia objetivo? 
 
-Las personsas amantes de las mascotas.
+Las personas amantes de las mascotas.
 
 
 ¿Cómo ajustaremos nuestra oferta a ese público?
@@ -37,6 +37,10 @@ Estudiante de Programacion Web Full Stack.
 34 años
 
 Gestión calidad constructiva (Ezentis) - Estudiante de Programacion Web Full Stack.
+
+¿Quiénes somos?
+
+Somos un grupo de tres visionarios comprometidos con los objetivos del trabajo integrador. La modalidad que aplicamos es colaborativa, sin dejar de lado las creatividades individuales, priorizando la acción grupal.
 
 -------------------------------------------------------------------------------------------------------
 
@@ -71,10 +75,10 @@ Formulario de carga de producto(para el administrador): ✓✓✓
 
 ✏️ Diseño (en proceso)
 
-Logos:
+Logos: Se encuentra en la parte superior del repositorio.
 
 Colores:https://colorhunt.co/palette/14114
 
-Fuentes:
+Fuentes: Vamos a usar, por el momento este tipo de fuente: Arial, Helvetica, sans-serif;
 
 
