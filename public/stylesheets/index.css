@@ -1,0 +1,84 @@
+*{
+  box-sizing: border-box;
+  margin: 0%;
+}
+body{
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  font-weight: 300;
+  background-color: #f3e6e3;
+}
+a{
+  text-decoration: none;
+  color: white;
+}
+a:hover{
+  text-decoration: none;
+  color: aqua;
+}
+li{
+  list-style: none;
+}
+
+/*  HEADER  */
+header{
+  background-color: #ff5722;
+  height: 160px;
+  padding: 20px;
+}
+header .logo{
+  position: relative;
+  padding: 0px;
+}
+header form{
+  margin: 10px 0px 0px 30px;
+  position: relative;
+  display: flex;
+  align-items: center;
+  font-size: 0.8rem;
+}
+header form input{
+  border: solid 1px var(--color-grisClaro);
+  display: block;
+  width: 100%;
+  padding: 7px 35px 7px 7px;
+  border-radius: 5px;
+  height: 40px;
+}
+header form button{
+  position: absolute;
+  right: 2px;
+  height: 60%;
+  background-color: white;
+  /*le saco los bordes al boton*/
+  border: none;
+  border-left: solid 1px gray;
+}
+/*envio login y carrito a la derecha*/
+header ul.usuario{
+  margin: 10px;
+  text-align: right;
+  color: black;
+}
+/*edito los titulos p*/
+header .tituloP{
+  color: green;
+  height: 50px;
+}
+/*ajusto el ancho de la ventana que contiene todas las opciones*/
+header .multi-columna{
+  width: 600px;
+  padding-left: 15px;
+}
+/*edito las opciones del menu <a>*/
+header .dropdown-item{
+  padding: 0px;
+  color: gray;
+}
+header .dropdown-item:hover{
+  background-color: rgb(202, 245, 238);
+}
+/*edito el enlace donde me tendria que enviar en la parte de la pagina donde explica como comprar*/
+header .envios{
+  color: white;
+  text-align: right;
+}

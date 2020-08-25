@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Home - PetShop</title>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
+    integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css" />
+  <link rel="stylesheet" href="/stylesheets/index.css">
+</head>
+
+<body>
+  <header class="container-fluid">
+    <div class="container">
+      <!--FILA 1 - logotipo, buscador, usuario-->
+      <div class="row">
+        <!--fila-->
+        <div class="col-2 logo">
+          <a href="/"><img src="/images/Logo-PetShop.png" alt="CatDog" title="CatDog" height="100" width="200"></a>
+        </div>
+        <!--CIERRE LOGO-->
+        <div class="col-7 buscador">
+          <form action="">
+            <input type="text" name="search" id="search" placeholder="Buscar productos...">
+            <button type="submit"><i class="fas fa-search"></i></button>
+          </form>
+        </div>
+        <div class="col-3 ">
+          <ul class="usuario">
+            <li><a href="">Ingresá <i class="far fa-address-card"></i></a></li>
+            <li><a href="">Creá tu cuenta <i class="fas fa-address-book"></i></a></li>
+            <li><a href="">Mis compras <i class="fas fa-cart-arrow-down"></i></a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="row">
+        <!--FILA 2- dos menu-->
+        <div class="col-1 menu">
+          <div class="dropdown">
+            <button class="btn btn-success dropdown-toggle" type="button" id="dropdownMenuPerro" data-toggle="dropdown"
+              aria-haspopup="true" aria-expanded="true">Perros</button>
+            <div class="dropdown-menu multi-columna" aria-labelledby="dropdownMenuPerro">
+              <div class="row">
+                <!--APERTURA FILA-->
+                <div class="col-2">
+                  <p class="tituloP">Alimento balanceado</p>
+                  <div class="dropdown-divider"></div>
+                  <a href="#" class="dropdown-item">Secos</a>
+                  <a href="#" class="dropdown-item">Húmedos</a>
+                  <a href="#" class="dropdown-item">Medicados</a>
+                </div>
+                <div class="col-2">
+                  <p class="tituloP">Higiene</p>
+                  <div class="dropdown-divider"></div>
+                  <a href="#" class="dropdown-item">Ver todos</a>
+                </div>
+                <div class="col-2">
+                  <p class="tituloP">Juguetes y snacks</p>
+                  <div class="dropdown-divider"></div>
+                  <a href="#" class="dropdown-item">Ver todos</a>
+                </div>
+                <div class="col-2">
+                  <p class="tituloP">Antipulgas</p>
+                  <div class="dropdown-divider"></div>
+                  <a href="#" class="dropdown-item">Ver todos</a>
+                </div>
+                <div class="col-2">
+                  <p class="tituloP">Chiches tecnologicos</p>
+                  <div class="dropdown-divider"></div>
+                  <a href="#" class="dropdown-item">Ver todos</a>
+                </div>
+              </div>
+              <!--CIERRE FILA-->
+            </div>
+          </div>
+        </div>
+        <!--CIERRE MENU PERROS-->
+        <div class="col-1 menu">
+          <div class="dropdown">
+            <button class="btn btn-success dropdown-toggle" type="button" id="dropdownMenuGato" data-toggle="dropdown"
+              aria-haspopup="true" aria-expanded="true">Gatos</button>
+            <div class="dropdown-menu multi-columna" aria-labelledby="dropdownMenuGato">
+              <!--APERTURA FILA-->
+              <div class="row">
+                <div class="col-2">
+                  <p class="tituloP">Alimento balanceado</p>
+                  <div class="dropdown-divider"></div>
+                  <a href="#" class="dropdown-item">Secos</a>
+                  <a href="#" class="dropdown-item">Húmedos</a>
+                  <a href="#" class="dropdown-item">Medicados</a>
+                </div>
+                <div class="col-2">
+                  <p class="tituloP">Higiene</p>
+                  <div class="dropdown-divider"></div>
+                  <a href="#" class="dropdown-item">Ver todos</a>
+                </div>
+                <div class="col-2">
+                  <p class="tituloP">Juguetes y snacks</p>
+                  <div class="dropdown-divider"></div>
+                  <a href="#" class="dropdown-item">Ver todos</a>
+                </div>
+                <div class="col-2">
+                  <p class="tituloP">Antipulgas</p>
+                  <div class="dropdown-divider"></div>
+                  <a href="#" class="dropdown-item">Ver todos</a>
+                </div>
+                <div class="col-2">
+                  <p class="tituloP">Chiches tecnologicos</p>
+                  <div class="dropdown-divider"></div>
+                  <a href="#" class="dropdown-item">Ver todos</a>
+                </div>
+              </div>
+              <!--CIERRE FILA-->
+            </div>
+          </div>
+        </div>
+        <!--CIERRE MENU GATOS-->
+        <div class="col-10 envios">
+          <a href="#">¿Cómo comprar con envíos?</a>
+        </div>
+      </div>
+    </div>
+  </header>
+  <!--preguntar que hace esta cosa!!!!-->
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js "
+    integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj "
+    crossorigin="anonymous "></script>
+  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js "
+    integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo "
+    crossorigin="anonymous "></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js "
+    integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI "
+    crossorigin="anonymous "></script>
+
+</body>
+
+</html>
