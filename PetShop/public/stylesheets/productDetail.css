@@ -1,0 +1,123 @@
+div.cuerpo{
+    margin-top: 10px ;
+}
+div.imgProducto img{
+    width: 90%;
+}
+div h2.tituloProducto{
+    text-align: center;
+}
+div .tarjetas p{
+    padding-top: 10px;
+}
+div .tituloPrecios{
+    padding: 10px;
+    text-align:center;
+    background-color: #f0f0f0;
+}
+div p.tituloPrecio{
+    color: black;
+    font-size: 18px;
+}
+div p.precioOff{
+    color: blue;
+}
+div p.precioTotal{
+    color: green;
+}
+div.botonMinPlus{
+    justify-content: center;
+    margin: 10px;
+}
+div .btn-minus{
+    cursor:pointer;
+    align-items:center;
+    padding:5px;
+    padding-right:10px;
+    border:1px solid gray;
+    border-radius:5px;
+    width: 100px;
+}
+div span.valorCant{
+    color: black;
+    font-size: 18px;
+    margin: 10px;
+}
+div .btn-plus{
+    cursor:pointer;
+    align-items:center;
+    padding:5px;
+    padding-right:10px;
+    border:1px solid gray;
+    border-radius:5px;
+    width: 100px;
+}
+div .btn-primary{
+    margin-top: 20px;
+    margin-left: 33px;
+    width: 60%;
+}
+div .iconoPago{
+    font-size: 50px;
+}
+div .acordeon input{
+    display: none;
+}
+div .acordeon_titulo{
+    display: block;
+    padding: 15px;
+    background-color: f0f0f0;
+    color: gray;
+    font-size: 20px;
+    cursor: pointer;
+    border:  2px solid #fff;
+}
+div .acordeon_titulo:hover{
+    background: rgba(211, 214, 218, 0.8) ;
+}
+div .acordeon_contenido{
+    height: 0;
+    overflow: hidden;
+    margin:0;
+    transition: all 0.5s;
+}
+/*en el momeno que hago click, se despliega*/
+div .acordeon input:checked ~ .acordeon_contenido{
+    height: auto;
+    margin: 15px 0px;
+    padding-left: 20px;
+}
+div .icono.izquierdo{
+    float: right;
+}
+div .icono.derecho{
+    color: gray;
+    ;
+}
+/*
+                    VISUALIZACION PARA TABLET (768PX)
+*/
+@media(min-width:768px){
+    div .botonMinPlus{
+        margin: 30px;
+    }
+    div .tarjetas{
+        display: flex;
+        justify-content: center;
+        justify-items: center;
+    }
+}
+@media(min-width:1024px){
+    div .btn-minus{        
+        width: 70px;
+    }
+    div .btn-plus{
+        width: 70px;
+    }
+    div .btn-primary{
+        position: absolute;
+        left: 36px;
+        bottom: 25px;
+        width: 30%;
+    }
+}

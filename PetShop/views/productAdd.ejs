@@ -1,0 +1,44 @@
+<%- include('./partials/head.ejs') %>
+<%- include('./partials/header.ejs') %>
+
+<div class="container">
+    <div class="row">
+        <div class="col-12 titulo">
+            <h5>Registro de productos</h5>
+        </div>
+        <div class="col-12 productosForm">
+            <form action="" method="POST">
+                <div class="grupo-form">
+                    <label for="marca">Marca </label>
+                    <br>
+                    <input type="text" class="cajaForm" id="marca" required>
+                </div>
+                <div class="grupo-form">
+                    <label for="producto">Producto </label>
+                    <br>
+                    <input type="text" class="cajaForm" id="producto" required>
+                </div>
+                <div class="grupo-form">
+                    <label for="precio">Precio </label>
+                    <br>
+                    <input type="text" class="cajaForm" id="precio" required>
+                </div>
+                <div class="grupo-form">
+                    <label for="cantidad">Cantidad </label>
+                    <br>
+                    <input type="text" class="cajaForm" id="cantidad" required>
+                </div>
+                <div class="grupo-form">
+                    <label for="subirArchivo">Foto del producto</label>
+                    <br>
+                    <input type="file" class="form-control-file" id="subirArchivo">
+                </div>
+                <div class="botones">
+                    <button class="btn btn-success" type="button">Aceptar</button>
+                    <button class="btn btn-success" type="button">Cancelar</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+<%- include('./partials/footer.ejs') %>

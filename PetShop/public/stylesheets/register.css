@@ -1,0 +1,11 @@
+div .modal-content{
+    width: 70%;
+}
+div .login__title{
+    text-align:center;
+}
+@media(min-width:768px){
+    div .modal-content{
+        width: 100%;
+    }
+}

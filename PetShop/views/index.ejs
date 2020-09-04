@@ -1,159 +1,429 @@
-<!DOCTYPE html>
-<html lang="es">
+<!--HEAD MODULARIZADO-->
+<%- include('./partials/head.ejs')%>
+<!--HEADER MODULARIZADO-->
+<%-include('./partials/header.ejs')%>
 
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title img src="/images/icono-tienda.svg" alt="">Home - PetShop</title>
-  <link rel="icon" href="/images/icono-tienda.ico">
-  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
-    integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous" />
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css" />
-  <link rel="stylesheet" href="/stylesheets/index.css">
-
-</head>
-
-<body>
-  <header class="container-fluid">
-    <div class="container">
-      <!--FILA 1 - logotipo, buscador, usuario-->
+<!--ventanas emergentes-->
+<div class="container-fluid">
+  <div class="container">
+    <!--marquesina -->
+    <marquee behavior="alternate">
+      <!--FILA NUEVA-->
       <div class="row">
-        <!--fila-->
-        <div class="col-2 logo">
-          <a href="/"><img src="/images/Logo-PetShop.png" alt="CatDog" title="CatDog" height="100" width="200"></a>
+
+        <br>
+
+        <!--ESTAN DIVIDIDOS -->
+        <div class="col-6 col-md-3 col-lg-3">
+          <img src="/images/Productos/EE.png" alt="" a href="#ventana1" class="btn btn-link btn-lg" data-toggle="modal">
         </div>
-        <!--CIERRE LOGO-->
-        <div class="col-7 buscador">
-          <form action="">
-            <input type="text" name="search" id="search" placeholder="Buscar productos...">
-            <button type="submit"><i class="fas fa-search"></i></button>
-          </form>
+        <div class="col-6 col-md-3 col-lg-3">
+          <img src="/images/Productos/ED.png" alt="" a href="#ventana2" class="btn btn-link btn-lg" data-toggle="modal">
         </div>
-        <div class="col-3 ">
-          <ul class="usuario">
-            <li><a href="" class="aHeader">Ingresá <i class="far fa-address-card"></i></a></li>
-            <li><a href="" class="aHeader">Creá tu cuenta <i class="fas fa-address-book"></i></a></li>
-            <li><a href="" class="aHeader">Mis compras <i class="fas fa-cart-arrow-down"></i></a></li>
-          </ul>
+        <div class="col-6 col-md-3 col-lg-3">
+          <img src="/images/Productos/RG.png" alt="" a href="#ventana3" class="btn btn-link btn-lg" data-toggle="modal">
+        </div>
+        <div class="col-6 col-md-3 col-lg-3">
+          <img src="/images/Productos/MP.png" alt="" a href="#ventana4" class="btn btn-link btn-lg" data-toggle="modal">
         </div>
       </div>
-      <div class="row">
-        <!--FILA 2- dos menu-->
-        <div class="col-1 menu">
-          <div class="dropdown">
-            <button class="btn btn-success dropdown-toggle" type="button" id="dropdownMenuPerro" data-toggle="dropdown"
-              aria-haspopup="true" aria-expanded="true">Gatos</button>
-            <div class="dropdown-menu multi-columna" aria-labelledby="dropdownMenuPerro">
-              <div class="row">
-                <!--APERTURA FILA-->
-                <div class="col-2">
-                  <p class="tituloP">Alimento balanceado</p>
-                  <div class="dropdown-divider"></div>
-                  <a href="#" class="dropdown-item">Secos</a>
-                  <a href="#" class="dropdown-item">Húmedos</a>
-                  <a href="#" class="dropdown-item">Medicados</a>
-                </div>
-                <div class="col-2">
-                  <p class="tituloP">Higiene</p>
-                  <div class="dropdown-divider"></div>
-                  <a href="#" class="dropdown-item">Ver todos</a>
-                </div>
-                <div class="col-2">
-                  <p class="tituloP">Juguetes y snacks</p>
-                  <div class="dropdown-divider"></div>
-                  <a href="#" class="dropdown-item">Ver todos</a>
-                </div>
-                <div class="col-2">
-                  <p class="tituloP">Antipulgas</p>
-                  <div class="dropdown-divider"></div>
-                  <a href="#" class="dropdown-item">Ver todos</a>
-                </div>
-                <div class="col-2">
-                  <p class="tituloP">Chiches tecnologicos</p>
-                  <div class="dropdown-divider"></div>
-                  <a href="#" class="dropdown-item">Ver todos</a>
-                </div>
+    </marquee>
+    <!--fin marquesina -->
+    <!--FILA NUEVA-->
+    <div class="row ">
+      <div class="col-12 emergentes">
+        <div class="modal fade" id="ventana1">
+          <div class="modal-dialog">
+            <div class="modal-content">
+              <!--header de la ventana emergente1-->
+              <div class="modal-header">
+
+                <h4 class="modal-title">ENTREGA EXPRESS</h4>
               </div>
-              <!--CIERRE FILA-->
+              <!--contenido de la ventana emergente1-->
+              <div class="modal-body">
+                <p>Si lo necesitaras cuanto antes, trabajamos con las principales plataformas especializadas en
+                  trasladar los pedidos online desde la tienda a tu hogar</p>
+              </div>
+              <!--footer de la ventana emergente1-->
+              <div class="modal-footer">
+                <button type="button" class="btn btn-primary btn-lg" data-dismiss="modal">Cerrar</button>
+                <h4 class="modal-title"> Vas a recibir tu pedido rápidamente y de forma eficiente.
+
+                </h4>
+
+              </div>
             </div>
           </div>
         </div>
-        <!--CIERRE MENU PERROS-->
-        <div class="col-1 menu">
-          <div class="dropdown">
-            <button class="btn btn-success dropdown-toggle" type="button" id="dropdownMenuGato" data-toggle="dropdown"
-              aria-haspopup="true" aria-expanded="true">Perros</button>
-            <div class="dropdown-menu multi-columna" aria-labelledby="dropdownMenuGato">
-              <!--APERTURA FILA-->
-              <div class="row">
-                <div class="col-2">
-                  <p class="tituloP">Alimento balanceado</p>
-                  <div class="dropdown-divider"></div>
-                  <a href="#" class="dropdown-item">Secos</a>
-                  <a href="#" class="dropdown-item">Húmedos</a>
-                  <a href="#" class="dropdown-item">Medicados</a>
-                </div>
-                <div class="col-2">
-                  <p class="tituloP">Higiene</p>
-                  <div class="dropdown-divider"></div>
-                  <a href="#" class="dropdown-item">Ver todos</a>
-                </div>
-                <div class="col-2">
-                  <p class="tituloP">Juguetes y snacks</p>
-                  <div class="dropdown-divider"></div>
-                  <a href="#" class="dropdown-item">Ver todos</a>
-                </div>
-                <div class="col-2">
-                  <p class="tituloP">Antipulgas</p>
-                  <div class="dropdown-divider"></div>
-                  <a href="#" class="dropdown-item">Ver todos</a>
-                </div>
-                <div class="col-2">
-                  <p class="tituloP">Chiches tecnologicos</p>
-                  <div class="dropdown-divider"></div>
-                  <a href="#" class="dropdown-item">Ver todos</a>
-                </div>
+        <div class="modal fade" id="ventana2">
+          <div class="modal-dialog">
+            <div class="modal-content">
+              <!--header de la ventana emergente2-->
+              <div class="modal-header">
+
+                <h4 class="modal-title">ENVÍO A DOMICILIO</h4>
+
               </div>
-              <!--CIERRE FILA-->
+              <!--contenido de la ventana emergente2-->
+              <div class="modal-body">
+                <p>GRATIS, para compras mayores a $1.199
+                  Si tenés más de 60 años, tu envío es gratis sin monto mínimo de compra.
+                  En Puppis hacemos entregas en la mayor parte de Capital Federal y GBA con nuestro delivery para que
+                  tu
+                  compra llegue en tiempo y forma.
+
+                  Disponemos de los mejores repartidores y una moderna flota de vehículos propios, que nos permite
+                  ampliar la franja horaria de entregas para poder realizar envíos en el día.
+
+                  Trabajamos con los proveedores líderes del mercado para ofrecerte un envió rápido, seguro, y
+                  eficiente.</p>
+              </div>
+              <!--footer de la ventana emergente2-->
+              <div class="modal-footer">
+                <button type="button" class="btn btn-primary btn-lg" data-dismiss="modal">Cerrar</button>
+                <h4 class="modal-title"> En la mayoría de las zonas que cubrimos con nuestra logística, al día
+                  siguiente
+                  a partir de las 13 hs.</h4>
+
+              </div>
             </div>
           </div>
         </div>
-        <!--CIERRE MENU GATOS-->
-        <div class="col-10 envios">
-          <a href="#" class="aHeader">¿Cómo comprar con envíos?</a>
+        <div class="modal fade" id="ventana3">
+          <div class="modal-dialog">
+            <div class="modal-content">
+              <!--header de la ventana emergente3-->
+              <div class="modal-header">
+
+                <h4 class="modal-title"> Comprá y retirá en sucursal</h4>
+
+              </div>
+              <!--contenido de la ventana emergente3-->
+              <div class="modal-body">
+                <p>En PETSHOP-VSG podés hacer tu pedido, seleccionar la opción "Retiro en Sucursal" y elegir tu
+                  sucursal
+                  Puppis más cercana para retirarlo.
+
+                  Como los pedidos salen de nuestro depósito central, en la mayoría de las sucursales podés retirar tu
+                  compra de un día hábil para otro a partir de las 17hs. Dado que las sucursales Pilar, Magnolias y
+                  Quilmes no son cubiertas por nuestra logística todos los días, los pedidos estarán disponibles los
+                  lunes en Pilar y Magnolias y los martes en Quilmes.</p>
+              </div>
+              <!--footer de la ventana emergente3-->
+              <div class="modal-footer">
+                <button type="button" class="btn btn-primary btn-lg" data-dismiss="modal">Cerrar</button>
+                <h4 class="modal-title"> si tus productos están disponibles en la sucursal,te avisaremos para
+                  retirarlo
+                  en el acto.</h4>
+
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="modal fade" id="ventana4">
+          <div class="modal-dialog">
+            <div class="modal-content">
+              <!--header de la ventana emergente4-->
+              <div class="modal-header">
+
+                <h4 class="modal-title">Medios de pago</h4>
+
+              </div>
+              <!--contenido de la ventana emergente4-->
+              <div class="modal-body">
+                <p>Paga con tarjetas de crédito y aprovechá nuestras promociones bancarias con ahorros y cuotas sin
+                  interés</p>
+              </div>
+              <!--footer de la ventana emergente4-->
+              <div class="modal-footer">
+                <button type="button" class="btn btn-primary btn-lg" data-dismiss="modal">Cerrar</button>
+                <h4 class="modal-title"> Consultá las Promociones</h4>
+
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </div>
-  </header>
-  <!--              CIERRE DEL HEAVER                            -->
-  <!--              APERTURA COMPRA POR CATEGORIA                -->
-  <section id="compraCategoria">
-    <div class="container">
-      <h5>Comprá por categoria</h5>
-      <div class="row">
-        <div class="col-2">
+  </div>
+
+  <!--Termina ventana emergentes-->
+</div>
+
+<!--CARRUSEL-->
+<div class="container">
+  <h5 class="tituloProductos">Lo más vendido </h5>
+  <!--slider-->
+  <div id="carouselExampleControls" class="carousel slide carousel-fade" data-ride="carousel">
+
+    <div class="carousel-inner">
+
+      <!--CarruselFILA1-->
+      <div class="carousel-item active">
+        <div class="row">
+
+          <div class="col-12 col-md-4 col-lg-3"> <img src="/images/Productos/1.webp" class="d-block w-100" alt="Foto0">
+            <article>
+              <p>Alimento Excellent Perro adulto mix 20kg <i class="fas fa-truck"></i></p>
+              <h4>
+                $2.449
+              </h4>
+
+            </article>
+
+          </div>
+          <div class="col-12 col-md-4 col-lg-3"> <img src="/images/Productos/2.webp" class="d-block w-100" alt="Foto1">
+            <article>
+              <p>Alimento Royal Canin Club Performance mix 20kg <i class="fas fa-truck"></i></p>
+              <h4>
+                $3.055
+              </h4>
+
+            </article>
+          </div>
+          <div class="col-12 col-md-4 col-lg-3"> <img src="/images/Productos/3.webp" class="d-block w-100" alt="Foto2">
+            <article>
+              <p>Alimento Vitalcan Balanced 15kg <i class="fas fa-truck"></i></p>
+              <h4>
+                $1.840
+              </h4>
+
+            </article>
+          </div>
+          <div class="col-12 col-md-4 col-lg-3"> <img src="/images/Productos/4.webp" class="d-block w-100" alt="Foto3">
+            <article>
+              <p>Alimento Vitalcan Balanced Control de Peso 20kg <i class="fas fa-truck"></i></p>
+              <h4>
+                $2.839
+              </h4>
+
+            </article>
+          </div>
+        </div>
+      </div>
+      <!--FINCarruselFILA1-->
+      <!--CarruselFILA2-->
+      <div class="carousel-item">
+        <div class="row">
+          <div class="col-12 col-md-4 col-lg-3"> <img src="/images/Productos/5.webp" class="d-block w-100" alt="Foto4">
+            <article>
+              <p>Alimento Pro Plan OptiHealth 15kg <i class="fas fa-truck"></i></p>
+              <h4>
+                $3.530
+              </h4>
+
+            </article>
+          </div>
+          <div class="col-12 col-md-4 col-lg-3"> <img src="/images/Productos/6.webp" class="d-block w-100" alt="Foto5">
+            <article>
+              <p>Alimento Pro Plan Adult Complete 15kg <i class="fas fa-truck"></i></p>
+              <h4>
+                $3.540
+              </h4>
+
+            </article>
+          </div>
+          <div class="col-12 col-md-4 col-lg-3"> <img src="/images/Productos/7.webp" class="d-block w-100" alt="Foto6">
+            <article>
+              <p>Alimento Excellent Puppy 20kg <i class="fas fa-truck"></i></p>
+              <h4>
+                $2.710
+              </h4>
+
+            </article>
+          </div>
+          <div class="col-12 col-md-4 col-lg-3"> <img src="/images/Productos/8.webp" class="d-block w-100" alt="Foto7">
+            <article>
+              <p>Alimento Vitalcan Balanced 20kg <i class="fas fa-truck"></i></p>
+              <h4>
+                $2.720
+              </h4>
+
+            </article>
+          </div>
+        </div>
+      </div>
+      <!--FINCarruselFILA2-->
+      <!--CarruselFILA3-->
+      <div class="carousel-item">
+        <div class="row">
+          <div class="col-12 col-md-4 col-lg-3"> <img src="/images/Productos/8.webp" class="d-block w-100" alt="Foto8">
+            <article>
+              <p>Alimento Pro Plan Puppy 18kg<i class="fas fa-truck"></i></p>
+              <h4>
+                $3.889
+              </h4>
+
+            </article>
+          </div>
+          <div class="col-12 col-md-4 col-lg-3"> <img src="/images/Productos/9.webp" class="d-block w-100" alt="Foto9">
+            <article>
+              <p>Alimento Sieger Super Premium 15kg<i class="fas fa-truck"></i></p>
+              <h4>
+                $3.139
+              </h4>
+
+            </article>
+          </div>
+          <div class="col-12 col-md-4 col-lg-3"> <img src="/images/Productos/10.webp" class="d-block w-100" alt="Foto10">
+            <article>
+              <p>Alimento Pro Plan OptiFit Reduced Calorie 15kg <i class="fas fa-truck"></i></p>
+              <h4>
+                $3.620
+              </h4>
+
+            </article>
+          </div>
+          <div class="col-12 col-md-4 col-lg-3"> <img src="/images/Productos/11.webp" class="d-block w-100" alt="Foto11">
+            <article>
+              <p>Alimento Pro Plan OptiStart Puppy 18kg <i class="fas fa-truck"></i></p>
+              <h4>
+                $3.889
+              </h4>
+
+            </article>
+          </div>
+        </div>
+      </div>
+      <!--FINCarrusel3-->
+      <!--CarruselFILA4-->
+      <div class="carousel-item">
+        <div class="row">
+          <div class="col-12 col-md-4 col-lg-3"> <img src="/images/Productos/12.webp" class="d-block w-100" alt="Foto12">
+            <article>
+              <p>Alimento Pedigree Etapa 2 21kg<i class="fas fa-truck"></i></p>
+              <h4>
+                $1.890
+              </h4>
+
+            </article>
+          </div>
+          <div class="col-12 col-md-4 col-lg-3"> <img src="/images/Productos/13.webp" class="d-block w-100" alt="Foto13">
+            <article>
+              <p>Alimento Royal Canin Club Performance 15kg <i class="fas fa-truck"></i></p>
+              <h4>
+                $2.738
+              </h4>
+
+            </article>
+          </div>
+          <div class="col-12 col-md-4 col-lg-3"> <img src="/images/Productos/14.webp" class="d-block w-100" alt="Foto14">
+            <article>
+              <p>Alimento Cat Chow 15kg <i class="fas fa-truck"></i></p>
+              <h4>
+                $2.990
+              </h4>
+
+            </article>
+          </div>
+          <div class="col-12 col-md-4 col-lg-3"> <img src="/images/Productos/15.webp" class="d-block w-100" alt="Foto15">
+            <article>
+              <p>Alimento Sieger Super Premium Criadores 20kg <i class="fas fa-truck"></i></p>
+              <h4>
+                $3.099
+              </h4>
+
+            </article>
+          </div>
+        </div>
+      </div>
+      <!--FINCarruselFILA4-->
+      <!--CarruselFILA5-->
+      <div class="carousel-item">
+        <div class="row">
+          <div class="col-12 col-md-4 col-lg-3"> <img src="/images/Productos/16.webp" class="d-block w-100" alt="Foto16">
+            <article>
+              <p>Alimento Old Prince Special Recipe Dermadefense 15kg <i class="fas fa-truck"></i></p>
+              <h4>
+                $2.900
+              </h4>
+
+            </article>
+          </div>
+          <div class="col-12 col-md-4 col-lg-3"> <img src="/images/Productos/17.webp" class="d-block w-100" alt="Foto17">
+            <article>
+              <p>Alimento Royal Canin Feline Care 7.5kg <i class="fas fa-truck"></i></p>
+              <h4>
+                $3.149
+              </h4>
+
+            </article>
+          </div>
+          <div class="col-12 col-md-4 col-lg-3"> <img src="/images/Productos/18.webp" class="d-block w-100" alt="Foto18">
+            <article>
+              <p>Alimento Royal Canin Feline mix 7.5kg <i class="fas fa-truck"></i></p>
+              <h4>
+                $3.249
+              </h4>
+
+            </article>
+          </div>
+          <div class="col-12 col-md-4 col-lg-3"> <img src="/images/Productos/19.webp" class="d-block w-100" alt="Foto19">
+            <article>
+              <p>Alimento Eukanuba Weight Control 15kg <i class="fas fa-truck"></i></p>
+              <h4>
+                $3.300
+              </h4>
+
+            </article>
+          </div>
+        </div>
+      </div>
+      <!--FINCarruselFILA5-->
+      <!--controles carrusel-->
+    </div>
+    <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
+      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+      <span class="sr-only">Previous</span>
+    </a>
+    <a class="carousel-control-next" href="#carouselExampleControls" role="button" data-slide="next">
+      <span class="carousel-control-next-icon" aria-hidden="true"></span>
+      <span class="sr-only">Next</span>
+    </a>
+  </div>
+  <!--controles carrusel-->
+</div>
+<!--FIN CARRUSEL-->
+
+<!--              APERTURA COMPRA POR CATEGORIA                -->
+
+<section class="container-fluid">
+  <div class="container">
+    <h5 class="tituloProductos">Comprá por categoria</h5>
+    <div class="row">
+      <div class="col-2">
+        <div class="cuadroCategoria">
           <img src="/images/Menu-Categoria/comida.png" alt="Comida" title="Comida" height="50" width="50">
           <p>Alimento balanceado</p>
           <button type="submit" class="btn btn-success">Ver todos</button>
         </div>
-        <div class="col-2">
+      </div>
+      <div class="col-2">
+        <div class="cuadroCategoria">
           <img src="/images/Menu-Categoria/higiene.png" alt="Higiene" title="Higiene" height="73" width="73">
           <p>Higiene</p>
           <button type="submit" class="btn btn-success">Ver todos</button>
         </div>
-        <div class="col-2">
+      </div>
+      <div class="col-2">
+        <div class="cuadroCategoria">
           <img src="/images/Menu-Categoria/juguetes-snak.png" alt="juguetes-snak" title="juguetes-snak" height="73"
             width="73">
           <p>juguetes-snak</p>
           <button type="submit" class="btn btn-success">Ver todos</button>
         </div>
-        <div class="col-2">
+      </div>
+      <div class="col-2">
+        <div class="cuadroCategoria">
           <img src="/images/Menu-Categoria/anti-pulgas.png" alt="Anti-pulgas" title="Anti-pulgas" height="73"
             width="73">
           <p>Anti pulgas</p>
           <button type="submit" class="btn btn-success">Ver todos</button>
         </div>
-        <div class="col-2">
+      </div>
+      <div class="col-2">
+        <div class="cuadroCategoria">
           <img src="/images/Menu-Categoria/chiche-tecno.png" alt="chiche-tecno" title="chiche-tecno" height="50"
             width="50">
           <p>Chiches tecnologicos</p>
@@ -161,149 +431,183 @@
         </div>
       </div>
     </div>
-  </section>
-  <!--              CIERRE COMPRA POR CATEGORIA                -->
-  <!--              APERTURA COMPRA POR MARCA                  -->
-  <div class="container">
-    <h5>Comprá por marca</h5>
-    <div class="row">
-      <div class="col-2">
-        <a href="#">
-          <div class="cuadroMarca">
-            <article class="promoMarca">              
-              <img src="/images/Marcas/img-catchow.png" alt="Cat Chow" title="Cat Chow">
-              <i class="fab fa-hotjar"><span> Hasta 10% OFF</span></i>
-            </article>
-          </div>
-        </a>
-      </div>
-      <div class="col-2">
-        <a href="#">
-          <div class="cuadroMarca">
-            <article class="promoMarca">              
-              <img src="/images/Marcas/img-clubperformance.png" alt="Club Performance" title="Club Performance">
-              <i class="fab fa-hotjar"><span> Hasta 10% OFF</span></i>
-            </article>
-          </div>
-        </a>
-      </div>
-      <div class="col-2">
-        <a href="#">
-          <div class="cuadroMarca">
-            <article class="promoMarca">              
-              <img src="/images/Marcas/img-dogchow.png" alt="Dog Chow" title="Dog Chow">
-              <i class="fab fa-hotjar"><span> Hasta 10% OFF</span></i>
-            </article>
-          </div>
-        </a>
-      </div>
-      <div class="col-2">
-        <a href="#">
-          <div class="cuadroMarca">
-            <article class="promoMarca">              
-              <img  class="marcaEucanuba" src="/images/Marcas/img-eukanuba.png" alt="Eucanuba" title="Eucanuba" height="25">
-              <i class="fab fa-hotjar"><span> Hasta 10% OFF</span></i>
-            </article>
-          </div>
-        </a>
-      </div>
-      <div class="col-2">
-        <a href="#">
-          <div class="cuadroMarca">
-            <article class="promoMarca">              
-              <img src="/images/Marcas/img-hollidaymv.png" alt="Hollidaymv" title="Hollidaymv">
-              <i class="fab fa-hotjar"><span> Hasta 10% OFF</span></i>
-            </article>
-          </div>
-        </a>
-      </div>
-      <div class="col-2">
-        <a href="#">
-          <div class="cuadroMarca">
-            <article class="promoMarca">              
-              <img src="/images/Marcas/img-iams.png" alt="Iams" title="Iams">
-              <i class="fab fa-hotjar"><span> Hasta 10% OFF</span></i>
-            </article>
-          </div>
-        </a>
-      </div>
-    </div>
-    <div class="row">
-      <!--      SEGUNDA FILA      -->
-      <div class="col-2">
-        <a href="#">
-          <div class="cuadroMarca">
-            <article class="promoMarca">              
-              <img src="/images/Marcas/img-monami.png" alt="Monami" title="Monami">
-              <i class="fab fa-hotjar"><span> Hasta 10% OFF</span></i>
-            </article>
-          </div>
-        </a>
-      </div>
-      <div class="col-2">
-        <a href="#">
-          <div class="cuadroMarca">
-            <article class="promoMarca">              
-              <img src="/images/Marcas/img-oldprince.png" alt="Old Prince" title="Old Prince" height="50">
-              <i class="fab fa-hotjar"><span> Hasta 10% OFF</span></i>
-            </article>
-          </div>
-        </a>
-      </div>
-      <div class="col-2">
-        <a href="#">
-          <div class="cuadroMarca">
-            <article class="promoMarca">              
-              <img src="/images/Marcas/img-pedigree.png" alt="Pedrigree" title="Pedrigree" height="80">
-              <i class="fab fa-hotjar"><span> Hasta 10% OFF</span></i>
-            </article>
-          </div>
-        </a>
-      </div>
-      <div class="col-2">
-        <a href="#">
-          <div class="cuadroMarca">
-            <article class="promoMarca">              
-              <img src="/images/Marcas/img-proplan.png" alt="Pro Plan" title="Pro Plan">
-              <i class="fab fa-hotjar"><span> Hasta 10% OFF</span></i>
-            </article>
-          </div>
-        </a>
-      </div>
-      <div class="col-2">
-        <a href="#">
-          <div class="cuadroMarca">
-            <article class="promoMarca">              
-              <img src="/images/Marcas/img-purinaexcellent.png" alt="Purina Excellent" title="Purina Excellent">
-              <i class="fab fa-hotjar"><span> Hasta 10% OFF</span></i>
-            </article>
-          </div>
-        </a>
-      </div>
-      <div class="col-2">
-        <a href="#">
-          <div class="cuadroMarca">
-            <article class="promoMarca">              
-              <img src="/images/Marcas/img-royalcanin.png" alt="Royal Canin" title="Royal Canin">
-              <i class="fab fa-hotjar"><span> Hasta 10% OFF</span></i>
-            </article>
-          </div>
-        </a>
-      </div>
-    </div>
-
   </div>
-  <!--preguntar que hace esta cosa!!!!-->
-  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js "
-    integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj "
-    crossorigin="anonymous "></script>
-  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js "
-    integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo "
-    crossorigin="anonymous "></script>
-  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js "
-    integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI "
-    crossorigin="anonymous "></script>
+</section>
+<!--              CIERRE COMPRA POR CATEGORIA                -->
 
-</body>
+<!--              APERTURA COMPRA POR MARCA                  -->
+<div class="container">
+  <h5 class="tituloProductos">Comprá por marca</h5>
+  <div class="row">
+    <div class="col-2">
+      <a href="#">
+        <div class="cuadroMarca">
+          <article class="promoMarca">
+            <img src="/images/Marcas/img-catchow.png" alt="Cat Chow" title="Cat Chow">
+            <i class="fab fa-hotjar"><span> Hasta 10% OFF</span></i>
+          </article>
+        </div>
+      </a>
+    </div>
+    <div class="col-2">
+      <a href="#">
+        <div class="cuadroMarca">
+          <article class="promoMarca">
+            <img src="/images/Marcas/img-clubperformance.png" alt="Club Performance" title="Club Performance">
+            <i class="fab fa-hotjar"><span> Hasta 10% OFF</span></i>
+          </article>
+        </div>
+      </a>
+    </div>
+    <div class="col-2">
+      <a href="#">
+        <div class="cuadroMarca">
+          <article class="promoMarca">
+            <img src="/images/Marcas/img-dogchow.png" alt="Dog Chow" title="Dog Chow">
+            <i class="fab fa-hotjar"><span> Hasta 10% OFF</span></i>
+          </article>
+        </div>
+      </a>
+    </div>
+    <div class="col-2">
+      <a href="#">
+        <div class="cuadroMarca">
+          <article class="promoMarca">
+            <img class="marcaEucanuba" src="/images/Marcas/img-eukanuba.png" alt="Eucanuba" title="Eucanuba"
+              height="25">
+            <i class="fab fa-hotjar"><span> Hasta 10% OFF</span></i>
+          </article>
+        </div>
+      </a>
+    </div>
+    <div class="col-2">
+      <a href="#">
+        <div class="cuadroMarca">
+          <article class="promoMarca">
+            <img src="/images/Marcas/img-hollidaymv.png" alt="Hollidaymv" title="Hollidaymv">
+            <i class="fab fa-hotjar"><span> Hasta 10% OFF</span></i>
+          </article>
+        </div>
+      </a>
+    </div>
+    <div class="col-2">
+      <a href="#">
+        <div class="cuadroMarca">
+          <article class="promoMarca">
+            <img src="/images/Marcas/img-iams.png" alt="Iams" title="Iams">
+            <i class="fab fa-hotjar"><span> Hasta 10% OFF</span></i>
+          </article>
+        </div>
+      </a>
+    </div>
+  </div>
+  <div class="row">
+    <!--      SEGUNDA FILA      -->
+    <div class="col-2">
+      <a href="#">
+        <div class="cuadroMarca">
+          <article class="promoMarca">
+            <img src="/images/Marcas/img-monami.png" alt="Monami" title="Monami">
+            <i class="fab fa-hotjar"><span> Hasta 10% OFF</span></i>
+          </article>
+        </div>
+      </a>
+    </div>
+    <div class="col-2">
+      <a href="#">
+        <div class="cuadroMarca">
+          <article class="promoMarca">
+            <img src="/images/Marcas/img-oldprince.png" alt="Old Prince" title="Old Prince" height="50">
+            <i class="fab fa-hotjar"><span> Hasta 10% OFF</span></i>
+          </article>
+        </div>
+      </a>
+    </div>
+    <div class="col-2">
+      <a href="#">
+        <div class="cuadroMarca">
+          <article class="promoMarca">
+            <img src="/images/Marcas/img-pedigree.png" alt="Pedrigree" title="Pedrigree" height="80">
+            <i class="fab fa-hotjar"><span> Hasta 10% OFF</span></i>
+          </article>
+        </div>
+      </a>
+    </div>
+    <div class="col-2">
+      <a href="#">
+        <div class="cuadroMarca">
+          <article class="promoMarca">
+            <img src="/images/Marcas/img-proplan.png" alt="Pro Plan" title="Pro Plan">
+            <i class="fab fa-hotjar"><span> Hasta 10% OFF</span></i>
+          </article>
+        </div>
+      </a>
+    </div>
+    <div class="col-2">
+      <a href="#">
+        <div class="cuadroMarca">
+          <article class="promoMarca">
+            <img src="/images/Marcas/img-purinaexcellent.png" alt="Purina Excellent" title="Purina Excellent">
+            <i class="fab fa-hotjar"><span> Hasta 10% OFF</span></i>
+          </article>
+        </div>
+      </a>
+    </div>
+    <div class="col-2">
+      <a href="#">
+        <div class="cuadroMarca">
+          <article class="promoMarca">
+            <img src="/images/Marcas/img-royalcanin.png" alt="Royal Canin" title="Royal Canin">
+            <i class="fab fa-hotjar"><span> Hasta 10% OFF</span></i>
+          </article>
+        </div>
+      </a>
+    </div>
+  </div>
 
-</html>
+</div>
+<!--FIN DEL CATEGORIA MARCA-->
+
+<!--Apertura del como funciona-->
+<div class="container-fluid caja" id="comoComprar">
+  <div class="container">
+    <div class="row">
+      <div class="col-12">
+        <h5 class="tituloProductos">¿Cómo funciona?</h5>
+      </div>
+    </div>
+    <div class="row ">
+      <!--paso 1-->
+      <div class="col-4">
+        <div class="cuadro">
+          <img src="/images/footer/uno.svg" alt="paso uno" height="40px" width="40px" align="left">
+          <img src="/images/footer/perrito.svg" alt="" height="150px" width="150px" align="middle">
+          <h3>Seleccioná tu producto</h3>
+          <h5 class="cinco">Según gato, perro, peso o edad</h5>
+        </div>
+      </div>
+      <!--termina paso 1-->
+      <div class="col-4 ">
+        <!--paso 2-->
+        <img src="/images/footer/dos.svg" alt="paso 2" height="40px" width="40px" align="left">
+        <img src="/images/footer/horario.svg" alt="" height="150px" width="150px" align="middle">
+        <h3>Elegí el horario</h3>
+        <h5 class="cinco">y la forma de pago</h5>
+      </div>
+      <!--termina el paso 2-->
+      <div class="col-4">
+        <!--paso 3-->
+        <img src="/images/footer/tres.svg" alt="paso 3" height="40px" width="40px" align="left">
+        <img src="/images/footer/casa.svg" Alt="" height="150px" width="150px" align="middle">
+        <h3>Recibilo en tu casa</h3>
+        <h5 class="cinco">en el dia y horario que elijas</h5>
+      </div>
+      <!--termina el paso 3-->
+    </div>
+  </div>
+
+</div>
+<!--terminacion del como funciona-->
+<!--APERTURA-FOOTER-->
+<%- include('./partials/footer.ejs')%>
+<!--CIERRE-FOOTER-->
