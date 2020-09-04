@@ -5,15 +5,7 @@
 body{
   font-family: Verdana, Geneva, Tahoma, sans-serif;
   font-weight: 300;
-  background-color: #f3e6e3;
-}
-a{
-  text-decoration: none;
-  color: white;
-}
-a:hover{
-  text-decoration: none;
-  color: aqua;
+  background-color: white;
 }
 li{
   list-style: none;
@@ -28,6 +20,16 @@ header{
 header .logo{
   position: relative;
   padding: 0px;
+}
+/*saco las lineas de los que contienen A y cambia de color al pasar mouse*/
+header .aHeader:hover{
+  text-decoration: none;
+  color: aqua;
+}
+/*saco las lineas a los que contienen A*/
+header .aHeader{
+  text-decoration: none;
+  color: white;
 }
 header form{
   margin: 10px 0px 0px 30px;
@@ -57,11 +59,10 @@ header form button{
 header ul.usuario{
   margin: 10px;
   text-align: right;
-  color: black;
 }
 /*edito los titulos p*/
 header .tituloP{
-  color: green;
+  color: #008000;
   height: 50px;
 }
 /*ajusto el ancho de la ventana que contiene todas las opciones*/
@@ -79,6 +80,69 @@ header .dropdown-item:hover{
 }
 /*edito el enlace donde me tendria que enviar en la parte de la pagina donde explica como comprar*/
 header .envios{
-  color: white;
   text-align: right;
+}
+/*  COMPRA POR CATEGORIA    */
+section {
+  background-color: #ff5722;
+  height: 200px;
+  margin-top: 20px;
+}
+h5{
+  padding-top: 10px;
+  text-align: left;
+  color: #080808ab;
+  margin-left: 100px;
+}
+section p{
+  color: white;
+}
+/*centro las columnas dentro de las filas con margenes iguales determinados*/
+section .row{
+  display: flex;
+  justify-content: center;
+}
+/*posiciono img,p,butoon al centro*/
+section,img,p,button{
+  text-align: center;
+}
+/*  COMPRA POR MARCA  */
+
+div .cuadroMarca{
+  background-color: rgb(255, 255, 255);
+  /*sombras alrededor del cuadro*/
+  box-shadow: 0 3px 3px 0 grey;
+  height: 150px;
+  width: 150px;
+  text-align: center;
+  margin-bottom: 20px;
+}
+div .cuadroMarca:hover{
+  /*al pasar el mouse por el cuadro, la sombra se nota mas*/
+  box-shadow: 0 3px 8px 0 #193047;
+}
+div article img{
+  position: relative;
+  margin-top: 30px;
+  padding-bottom: 10px;
+}
+div article img.marcaEucanuba{
+  margin-top: 60px;
+}
+div article i{
+  position: absolute;
+  background-color: green;
+  color: #e70202;
+  height: 40px;
+  width: 110px;
+  border-radius: 3px;
+  padding: 10px;
+  bottom: 25px;
+  left: 40px
+}
+div article span{
+  color:white;
+}
+div article i,span{
+  padding-top: 5px;
 }

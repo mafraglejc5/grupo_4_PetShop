@@ -4,11 +4,13 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Home - PetShop</title>
+  <title img src="/images/icono-tienda.svg" alt="">Home - PetShop</title>
+  <link rel="icon" href="/images/icono-tienda.ico">
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
     integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css" />
   <link rel="stylesheet" href="/stylesheets/index.css">
+
 </head>
 
 <body>
@@ -29,9 +31,9 @@
         </div>
         <div class="col-3 ">
           <ul class="usuario">
-            <li><a href="">Ingresá <i class="far fa-address-card"></i></a></li>
-            <li><a href="">Creá tu cuenta <i class="fas fa-address-book"></i></a></li>
-            <li><a href="">Mis compras <i class="fas fa-cart-arrow-down"></i></a></li>
+            <li><a href="" class="aHeader">Ingresá <i class="far fa-address-card"></i></a></li>
+            <li><a href="" class="aHeader">Creá tu cuenta <i class="fas fa-address-book"></i></a></li>
+            <li><a href="" class="aHeader">Mis compras <i class="fas fa-cart-arrow-down"></i></a></li>
           </ul>
         </div>
       </div>
@@ -40,7 +42,7 @@
         <div class="col-1 menu">
           <div class="dropdown">
             <button class="btn btn-success dropdown-toggle" type="button" id="dropdownMenuPerro" data-toggle="dropdown"
-              aria-haspopup="true" aria-expanded="true">Perros</button>
+              aria-haspopup="true" aria-expanded="true">Gatos</button>
             <div class="dropdown-menu multi-columna" aria-labelledby="dropdownMenuPerro">
               <div class="row">
                 <!--APERTURA FILA-->
@@ -80,7 +82,7 @@
         <div class="col-1 menu">
           <div class="dropdown">
             <button class="btn btn-success dropdown-toggle" type="button" id="dropdownMenuGato" data-toggle="dropdown"
-              aria-haspopup="true" aria-expanded="true">Gatos</button>
+              aria-haspopup="true" aria-expanded="true">Perros</button>
             <div class="dropdown-menu multi-columna" aria-labelledby="dropdownMenuGato">
               <!--APERTURA FILA-->
               <div class="row">
@@ -118,11 +120,179 @@
         </div>
         <!--CIERRE MENU GATOS-->
         <div class="col-10 envios">
-          <a href="#">¿Cómo comprar con envíos?</a>
+          <a href="#" class="aHeader">¿Cómo comprar con envíos?</a>
         </div>
       </div>
     </div>
   </header>
+  <!--              CIERRE DEL HEAVER                            -->
+  <!--              APERTURA COMPRA POR CATEGORIA                -->
+  <section id="compraCategoria">
+    <div class="container">
+      <h5>Comprá por categoria</h5>
+      <div class="row">
+        <div class="col-2">
+          <img src="/images/Menu-Categoria/comida.png" alt="Comida" title="Comida" height="50" width="50">
+          <p>Alimento balanceado</p>
+          <button type="submit" class="btn btn-success">Ver todos</button>
+        </div>
+        <div class="col-2">
+          <img src="/images/Menu-Categoria/higiene.png" alt="Higiene" title="Higiene" height="73" width="73">
+          <p>Higiene</p>
+          <button type="submit" class="btn btn-success">Ver todos</button>
+        </div>
+        <div class="col-2">
+          <img src="/images/Menu-Categoria/juguetes-snak.png" alt="juguetes-snak" title="juguetes-snak" height="73"
+            width="73">
+          <p>juguetes-snak</p>
+          <button type="submit" class="btn btn-success">Ver todos</button>
+        </div>
+        <div class="col-2">
+          <img src="/images/Menu-Categoria/anti-pulgas.png" alt="Anti-pulgas" title="Anti-pulgas" height="73"
+            width="73">
+          <p>Anti pulgas</p>
+          <button type="submit" class="btn btn-success">Ver todos</button>
+        </div>
+        <div class="col-2">
+          <img src="/images/Menu-Categoria/chiche-tecno.png" alt="chiche-tecno" title="chiche-tecno" height="50"
+            width="50">
+          <p>Chiches tecnologicos</p>
+          <button type="submit" class="btn btn-success">Ver todos</button>
+        </div>
+      </div>
+    </div>
+  </section>
+  <!--              CIERRE COMPRA POR CATEGORIA                -->
+  <!--              APERTURA COMPRA POR MARCA                  -->
+  <div class="container">
+    <h5>Comprá por marca</h5>
+    <div class="row">
+      <div class="col-2">
+        <a href="#">
+          <div class="cuadroMarca">
+            <article class="promoMarca">              
+              <img src="/images/Marcas/img-catchow.png" alt="Cat Chow" title="Cat Chow">
+              <i class="fab fa-hotjar"><span> Hasta 10% OFF</span></i>
+            </article>
+          </div>
+        </a>
+      </div>
+      <div class="col-2">
+        <a href="#">
+          <div class="cuadroMarca">
+            <article class="promoMarca">              
+              <img src="/images/Marcas/img-clubperformance.png" alt="Club Performance" title="Club Performance">
+              <i class="fab fa-hotjar"><span> Hasta 10% OFF</span></i>
+            </article>
+          </div>
+        </a>
+      </div>
+      <div class="col-2">
+        <a href="#">
+          <div class="cuadroMarca">
+            <article class="promoMarca">              
+              <img src="/images/Marcas/img-dogchow.png" alt="Dog Chow" title="Dog Chow">
+              <i class="fab fa-hotjar"><span> Hasta 10% OFF</span></i>
+            </article>
+          </div>
+        </a>
+      </div>
+      <div class="col-2">
+        <a href="#">
+          <div class="cuadroMarca">
+            <article class="promoMarca">              
+              <img  class="marcaEucanuba" src="/images/Marcas/img-eukanuba.png" alt="Eucanuba" title="Eucanuba" height="25">
+              <i class="fab fa-hotjar"><span> Hasta 10% OFF</span></i>
+            </article>
+          </div>
+        </a>
+      </div>
+      <div class="col-2">
+        <a href="#">
+          <div class="cuadroMarca">
+            <article class="promoMarca">              
+              <img src="/images/Marcas/img-hollidaymv.png" alt="Hollidaymv" title="Hollidaymv">
+              <i class="fab fa-hotjar"><span> Hasta 10% OFF</span></i>
+            </article>
+          </div>
+        </a>
+      </div>
+      <div class="col-2">
+        <a href="#">
+          <div class="cuadroMarca">
+            <article class="promoMarca">              
+              <img src="/images/Marcas/img-iams.png" alt="Iams" title="Iams">
+              <i class="fab fa-hotjar"><span> Hasta 10% OFF</span></i>
+            </article>
+          </div>
+        </a>
+      </div>
+    </div>
+    <div class="row">
+      <!--      SEGUNDA FILA      -->
+      <div class="col-2">
+        <a href="#">
+          <div class="cuadroMarca">
+            <article class="promoMarca">              
+              <img src="/images/Marcas/img-monami.png" alt="Monami" title="Monami">
+              <i class="fab fa-hotjar"><span> Hasta 10% OFF</span></i>
+            </article>
+          </div>
+        </a>
+      </div>
+      <div class="col-2">
+        <a href="#">
+          <div class="cuadroMarca">
+            <article class="promoMarca">              
+              <img src="/images/Marcas/img-oldprince.png" alt="Old Prince" title="Old Prince" height="50">
+              <i class="fab fa-hotjar"><span> Hasta 10% OFF</span></i>
+            </article>
+          </div>
+        </a>
+      </div>
+      <div class="col-2">
+        <a href="#">
+          <div class="cuadroMarca">
+            <article class="promoMarca">              
+              <img src="/images/Marcas/img-pedigree.png" alt="Pedrigree" title="Pedrigree" height="80">
+              <i class="fab fa-hotjar"><span> Hasta 10% OFF</span></i>
+            </article>
+          </div>
+        </a>
+      </div>
+      <div class="col-2">
+        <a href="#">
+          <div class="cuadroMarca">
+            <article class="promoMarca">              
+              <img src="/images/Marcas/img-proplan.png" alt="Pro Plan" title="Pro Plan">
+              <i class="fab fa-hotjar"><span> Hasta 10% OFF</span></i>
+            </article>
+          </div>
+        </a>
+      </div>
+      <div class="col-2">
+        <a href="#">
+          <div class="cuadroMarca">
+            <article class="promoMarca">              
+              <img src="/images/Marcas/img-purinaexcellent.png" alt="Purina Excellent" title="Purina Excellent">
+              <i class="fab fa-hotjar"><span> Hasta 10% OFF</span></i>
+            </article>
+          </div>
+        </a>
+      </div>
+      <div class="col-2">
+        <a href="#">
+          <div class="cuadroMarca">
+            <article class="promoMarca">              
+              <img src="/images/Marcas/img-royalcanin.png" alt="Royal Canin" title="Royal Canin">
+              <i class="fab fa-hotjar"><span> Hasta 10% OFF</span></i>
+            </article>
+          </div>
+        </a>
+      </div>
+    </div>
+
+  </div>
   <!--preguntar que hace esta cosa!!!!-->
   <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js "
     integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj "
