@@ -4,8 +4,14 @@ div .modal-content{
 div .login__title{
     text-align:center;
 }
+
 @media(min-width:768px){
     div .modal-content{
         width: 100%;
+    }
+    div.footerRegistro .bt-cerrar{
+        position: relative;
+        top: 0px;
+        left: 0px;
     }
 }
