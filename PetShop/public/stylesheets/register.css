@@ -12,6 +12,7 @@ div .login__title{
     div.footerRegistro .bt-cerrar{
         position: relative;
         top: 0px;
-        left: 0px;
+        left: 0px
+        ;
     }
 }
