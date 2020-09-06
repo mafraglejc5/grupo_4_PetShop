@@ -1,0 +1,89 @@
+/*Header carrito de compras*/
+div.cajaTuCompra{
+    padding-left: 80px ;
+}
+
+.span-header{
+    color: orange;
+}
+div .btn-cerrarCarrito{
+    position: absolute;
+    left: 254px;
+    top: 78px;
+}
+div .imgCarrito{
+    margin: auto;
+}
+div .descripcion-producto{
+    margin: auto;
+}
+
+div .totalBoton{
+    margin: auto;
+}
+div span.precioTotal{
+    padding: 20px;
+}
+div .btn-izq{
+    width: 56px;
+}
+div .btn-der{
+    width: 56px;
+}
+div.footerCarrito{
+    height: auto;
+}
+div.footerCarrito .btn-cancelarCarrito{
+    height: 38px;
+    width: 90px;
+}
+
+div.footerCarrito .btn-FinalizarCompra{
+    position: absolute;
+    left: 12px;
+    width: 159px;
+    bottom: 13px;
+}
+@media(min-width:768px){
+    div .btn-cerrarCarrito{
+        position: absolute;
+        left: 4px;
+        top: 120px;
+    }
+    div .btn-izq{
+        width: 20px;
+    }
+    div .btn-der{
+        width: 20px;
+    }
+    div .imgCarrito{
+        margin-top: 39px;
+    }
+    div .descripcion-producto{
+        margin: 0px;
+    }
+    div .btn-carritoMinPlus{
+        margin-left: -8px;
+    }
+    div .totalBoton{
+        margin-right: 3px;
+    }
+    div.footerCarrito .btn-FinalizarCompra{
+        position: absolute;
+        left: 200px;
+        width: 159px;
+        bottom: 13px;
+    }
+}
+@media(min-width:1024px){
+    div.footerCarrito{ 
+        height: auto;
+    }
+    div.footerCarrito .btn-cancelarCarrito{
+        height: 38px;
+        width: 90px;
+        position: relative;
+        left: 16px;
+        bottom: 0px;
+    }
+}
