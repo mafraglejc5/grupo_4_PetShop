@@ -15,3 +15,51 @@ div .login__title{
         left: 0px;
     }
 }
+@import 
+div .botonMinPlus{
+    justify-content: center;
+    margin: 10px;
+}
+div .btn-minus {
+    cursor:pointer;
+    align-items:center;
+    padding:5px;
+    padding-right:10px;
+    border:1px solid gray;
+    border-radius:5px;
+    width: 100px;
+}
+div span.valorCant{
+    color: black;
+    font-size: 18px;
+    margin: 10px;
+}
+div .btn-plus{
+    cursor:pointer;
+    align-items:center;
+    padding:5px;
+    padding-right:10px;
+    border:1px solid gray;
+    border-radius:5px;
+    width: 100px;
+}
+div .btn-primary{
+    margin-top: 20px;
+    margin-left: 33px;
+    width: 60%;
+}
+/*Header carrito de compras*/
+
+.span-header{
+    color: orange;
+     }
+h3.modal-titulo{
+    padding-left: 150px;;
+}
+
+.btn-carrito{
+    position: absolute;
+    bottom: 0px;
+    right: 0px;
+    
+}
