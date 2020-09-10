@@ -5,22 +5,24 @@
     <!-- APERTURA PRIMER FILA-->
     <div class="row">
         <div class="col-12 col-md-12 col-lg-4 imgProducto">
-            <img src="images/Productos/royal-canin-mini-adult.png" alt="">
+            <img  src="/images/Productos/<%= producto.image %> " alt=<%= producto.image %>>
         </div>
         <div class="col-12 col-md-12 col-lg-8 DetalleProducto">
             <!--SEGUNDA FILA-->
             <div class="row">
                 <!--APERTURA CAJA TITULO-->
                 <div class="col-12">
-                    <h2 class="tituloProducto">Royal Canin</h2>
+                    <h2 class="tituloProducto"><%= title %></h2>
                 </div>
                 <!--CIERRE CAJA TITULO-->
                 <!--APERTURA CAJA DEL PRECIO-->
                 <div class="col-12 col-md-6 col-lg-4 tituloPrecios">
                     <p class="tituloPrecio">Precio</p>
-                    <p class="precioOff"><strike>$2.700,12</strike> -12%</p>
+                    <p class="precioOff"><strike>$<%= producto.price.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".") %></strike> <strong> <%= producto.discount %>  % OFF -12%</p>
                     <p class="precioTotal">
-                        $2.389
+                        <h2>
+                            $<%- (producto.price - producto.price * producto.discount / 100).toFixed(0).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".") %> 
+                          </h2>
                     </p>
                 </div>
                 <!--CIERRE CAJA DEL PRECIO-->
@@ -62,28 +64,8 @@
                 <input type="checkbox" name="acordeon" id="item1">
                 <label for="item1" class="acordeon_titulo"><i class="icono derecho far fa-file-alt"></i> Descripción <i
                         class="icono izquierdo fas fa-chevron-down"></i></label>
-                <p class="acordeon_contenido">Royal Canin Mini Adult <br>
-                    Royal Canin Mini Adult es un alimento Super Premium recomendado para perros adultos de razas
-                    pequeñas (de 1 a 10 kg) . <br>
-                    Desde los 10 meses hasta los 8 años de edad. <br>
-                    <br>
-                    MANTENIMIENTO DEL PESO IDEAL : <br>
-                    Contribuye a mantener el peso ideal de los perros de talla pequeña, teniendo en cuenta sus
-                    elevadas necesidades energticas a travs de un contenido adaptado en calorías (3914 kcal/kg)
-                    y proteínas (27%). Se encuentra enriquecido con L-carnitina, que promueve el metabolismo de
-                    las grasas <br>
-                    <br> 
-                    PALATABILIDAD REFORZADA: <br>
-                    Ayuda a satisfacer el apetito caprichoso de los perros de talla pequeña gracias a su fórmula
-                    y a la selección de saborizantes exclusivos. <br>
-                    <br> 
-                    CALIDAD DEL PELAJE: <br>
-                    Contribuye a mejorar el estado de la piel y el pelo, gracias al aporte de nutrientes
-                    específicos y su alto contenido de EPA-DHA. <br>
-                    <br>
-                    CONTROL DEL SARRO: <br>
-                    Ayuda a reducir la formación de sarro gracias a la adición en su fórmula de agentes
-                    quelantes de calcio (politrifosfato de sodio). <br>
+                <p class="acordeon_contenido">   $<%-(producto.name) %> <br>
+                    $<%-(producto.description) %>
                 </p>
             </div>
             <div class="acordeon_item">
@@ -91,16 +73,12 @@
                 <label for="item2" class="acordeon_titulo"><i class="icono derecho fas fa-clipboard-list"></i> Ficha tecnica <i
                         class="icono izquierdo fas fa-chevron-down"></i></label>
                 <p class="acordeon_contenido">
-                    EDAD <br>
-                    Adulto <br>
-                    TAMAÑO DE LA RAZA <br>
-                    Chico <br>
-                    MARCA <br>
-                    Royal Canin <br>
-                    TAMAñOS <br>
-                    3 kgs - 7.5 kgs - 2 x 7.5 Kg <br>
-                    ALIMENTO MEDICADO <br>
-                    No <br>
+                    $<%-(producto.name) %>
+                    $<%-(producto.marca) %>
+                    $<%-(producto.categoria) %>
+                    $<%-(producto.price) %>
+                    $<%-(producto.description) %>
+                    $<%-(producto.peso) %>
                 </p>
             </div>
         </div>

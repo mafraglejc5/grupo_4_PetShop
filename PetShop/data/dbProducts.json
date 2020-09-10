@@ -6,6 +6,8 @@
         "categoria": "Alimento Balanceado",
         "price": 2449,
         "description": "Alimento Excellent Perro adulto mix 20kg ",
+        "peso": "20kg",
+        "discount":50,
         "image":"1.webp"
     },
     {
@@ -15,6 +17,8 @@
         "categoria": "Alimento Balanceado",
         "price": 3055,
         "description": "Alimento Royal Canin Club Performance mix 20kg ",
+        "peso": "20kg",
+        "discount":50,
         "image": "2.webp" 
     },
     {
@@ -24,6 +28,8 @@
         "categoria": "Alimento Balanceado",
         "price": 1840,
         "description": "Alimento Vitalcan Balanced 15kg",
+        "peso": "15kg",
+        "discount":50,
         "image": "3.webp"
     },
     {
@@ -33,6 +39,8 @@
         "categoria": "Alimento Balanceado",
         "price": 2839,
         "description": "Alimento Vitalcan Balanced Control de Peso 20kg",
+        "peso": "20kg",
+        "discount":50,
         "image":"4.webp" 
     
     },
@@ -43,6 +51,8 @@
         "categoria": "Alimento Balanceado",
         "price": 3530,
         "description": "Alimento Pro Plan OptiHealth 15kg",
+        "peso": "15kg",
+        "discount":50,
         "image": "5.webp" 
     },
     {
@@ -52,6 +62,8 @@
         "categoria": "Alimento Balanceado",
         "price": 3540,
         "description": "Alimento Pro Plan Adult Complete 15kg ",
+        "peso": "15kg",
+        "discount":50,
         "image":"6.webp"
     },
     {
@@ -61,6 +73,8 @@
         "categoria": "Alimento Balanceado",
         "price": 2710,
         "description": "Alimento Excellent Puppy 20kg",
+        "peso": "20kg",
+        "discount":50,
         "image": "7.webp"
 
     },
@@ -71,6 +85,8 @@
         "categoria": "Alimento Balanceado",
         "price": 2720,
         "description": "Alimento Vitalcan Balanced 20kg ",
+        "peso": "20kg",
+        "discount":50,
         "image": "8.webp"
     },
     {
@@ -80,6 +96,8 @@
         "categoria": "Alimento Balanceado",
         "price": 3889,
         "description": "Alimento Pro Plan Puppy 18kg",
+        "peso": "18g",
+        "discount":50,
         "image": "9.webp"
 
     },
@@ -90,6 +108,8 @@
         "categoria": "Alimento Balanceado",
         "price": 3139,
         "description": "Alimento Sieger Super Premium 15kg",
+        "peso": "15kg",
+        "discount":50,
         "image": "10.webp"
     },
     {
@@ -99,7 +119,10 @@
         "categoria": "Alimento Balanceado",
         "price": 3620,
         "description": "Alimento Pro Plan OptiFit Reduced Calorie 15kg",
+        "peso": "15kg",
+        "discount":50,
         "image": "11.webp"
+ 
     },
     {
         "id": 12,
@@ -108,6 +131,8 @@
         "categoria": "Alimento Balanceado",
         "price": 3889,
         "description": "Alimento Pro Plan OptiStart Puppy 18kg ",
+        "peso": "18kg",
+        "discount":50,
         "image": "12.webp"
     },
     {
@@ -117,6 +142,8 @@
         "categoria": "Alimento Balanceado",
         "price": 1890,
         "description": "Alimento Pedigree Etapa 2 21kg",
+        "peso": "21kg",
+        "discount":50,
         "image": "13.webp"
     },
     {
@@ -126,6 +153,8 @@
         "categoria": "Alimento Balanceado",
         "price": 2738,
         "description": "Alimento Royal Canin Club Performance 15kg ",
+        "peso": "15kg",
+        "discount":50,
         "image": "14.webp"
     
     },
@@ -136,6 +165,8 @@
         "categoria": "Alimento Balanceado",
         "price": 2990,
         "description": "Alimento Cat Chow 15kg ",
+        "peso": "15kg",
+        "discount":50,
         "image": "15.webp"
 
     },
@@ -146,6 +177,8 @@
         "categoria": "Alimento Balanceado",
         "price":3099,
         "description": "Alimento Sieger Super Premium Criadores 20kg",
+        "peso": "20kg",
+        "discount":50,
         "image": "16.webp"
     },
     {
@@ -155,6 +188,8 @@
         "categoria": "Alimento Balanceado",
         "price": 2900,
         "description": "Alimento Old Prince Special Recipe Dermadefense 15kg ",
+        "peso": "15kg",
+        "discount":50,
         "image": "17.webp"
     },
     {
@@ -164,6 +199,8 @@
         "categoria": "Alimento Balanceado",
         "price": 3149,
         "description": "Alimento Royal Canin Feline Care 7.5kg",
+        "peso": "7.5kg",
+        "discount":50,
         "image": "18.webp"
 
     },
@@ -174,6 +211,8 @@
         "categoria": "Alimento Balanceado",
         "price":3249,
         "description": "Alimento Royal Canin Feline mix 7.5kg",
+        "peso": "7.5kg",
+        "discount":50,
         "image": "19.webp"
     },
     {
@@ -183,6 +222,8 @@
         "categoria": "Alimento Balanceado",
         "price": 3300,
         "description": "Alimento Eukanuba Weight Control 15kg",
+        "peso": "15kg",
+        "discount":50,
         "image": "20.webp"
     }
 ]
