@@ -17,21 +17,26 @@ div form input{
 }
 div form .botones{
     padding-top: 20px;
+    display: flex;
+    justify-content: center;
     text-align: center;
+}
+div form .form-control-file{
+    text-align: center;
+}
+div form .btn-cargaProducto{
+    margin-right: 10px;
 }
 /*
             VISTA TABLET
 */
 @media(min-width:768px){
-    div .productosForm{
-        left: 150px;
-    }
     div form .cajaForm{
         width: 50%;
     }
     div form .botones{
         padding-top: 20px;
-        padding-left: 100px;
+        padding-left: 15px;
         text-align: left;
     }
 }
@@ -40,15 +45,12 @@ div form .botones{
 toma los valores de la tablet
 */
 @media(min-width:1024px){
-    div .productosForm{
-        left: 230px;
-    }
     div form .cajaForm{
         width: 50%;
     }
     div form .botones{
         padding-top: 20px;
-        padding-left: 130px;
+        padding-left: 20px;
         text-align: left;
     }
 }

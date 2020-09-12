@@ -1,0 +1,70 @@
+/*-------------------------
+     APERTURA FOOTER
+---------------------------
+*/
+
+footer{
+    background-color: #ff5222;
+    margin-right: 0px;
+    height: auto;
+    padding-bottom: 2px;
+ }
+ footer .caja-footer{
+   margin-top: 30px;
+ }
+ footer a{ 
+   color: white
+ }
+ footer .medios, .maps{
+    background-color:white;
+ }
+ footer .medios img{
+   width: 262px;
+   height: 213px;
+ }
+ footer .maps iframe{
+   width: 262px;
+   height: 150px;
+ }
+ footer .fa-twitter:hover{
+   color: lightskyblue;
+ }
+ footer .fa-facebook-square:hover{
+   color:blue
+ }
+ footer .fa-instagram:hover{
+   color: red;
+ }
+ footer .iconos{
+   text-align: center; 
+   font-size: 66px;
+ }
+ footer .contact{
+      text-align: left;
+ }
+ @media(min-width:768px){
+   footer .medios img{
+    width: 160px;
+    height: 213px;
+  }
+  footer .maps iframe{
+    width: 160px;
+    height: 150px;
+  }
+  footer .iconos{
+   font-size: 43px;
+  }
+ }
+ @media(min-width:1024px){
+   footer .medios img{
+     width: 210px;
+     height: 213px;
+   }
+   footer .maps iframe{
+     width: 207px;
+     height: 150px;
+   }
+}
+/*
+        CIERRE FOOTER
+*/
