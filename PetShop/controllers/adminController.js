@@ -19,11 +19,13 @@ module.exports = {
        })
        let newProduct = {
            id:lastID +1,
-           name: req.body.name.trim(),
+           name: req.body.name,
            marca: (req.body.marca),
+           categoria: req.body.categoria,
            price: Number(req.body.price),
-           description:req.body.description.trim(),
+           peso: Number(req.body.peso),        
            discount:Number(req.body.discount),
+           description: req.body.description,
            image: "default-image.png"
        }
        dbProducts.push(newProduct);

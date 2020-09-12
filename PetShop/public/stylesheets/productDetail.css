@@ -60,6 +60,9 @@ div .btn-primary{
 div .iconoPago{
     font-size: 50px;
 }
+div .acordeon{
+    width: 300px;
+}
 div .acordeon input{
     display: none;
 }
@@ -98,6 +101,9 @@ div .icono.derecho{
                     VISUALIZACION PARA TABLET (768PX)
 */
 @media(min-width:768px){
+    div .acordeon{
+        width: 720px;
+    }
     div .botonMinPlus{
         margin: 30px;
     }
@@ -108,6 +114,9 @@ div .icono.derecho{
     }
 }
 @media(min-width:1024px){
+    div .acordeon{
+        width: 900px;
+    }
     div .btn-minus{        
         width: 70px;
     }
