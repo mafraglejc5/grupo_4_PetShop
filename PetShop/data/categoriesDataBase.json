@@ -3,22 +3,22 @@
       "id": "1",
       "name": "perro",
       "sub": [
-        "Accesorios para Autos",
-        "Autos",
-        "Motos",
-        "Otros Vehículos",
-        "Camiones - Vehículos Comerciales"
+        "Alimento Balanceado (Perro)",
+        "Higiene (Perro)",
+        "Juguetes y Snacks (Perro)",
+        "Antipulgas (Perro)",
+        "Juguetes Tecnologicos (Perro)"
       ]
     },
     {
       "id": "2",
       "name": "gato",
       "sub": [
-        "Accesorios para Autos",
-        "Autos",
-        "Motos",
-        "Otros Vehículos",
-        "Camiones - Vehículos Comerciales"
+        "Alimento Balanceado (Gato)",
+        "Higiene (Gato)",
+        "Juguetes y Snacks (Gato)",
+        "Antipulgas (Gato)",
+        "Juguetes Tecnologicos (Gato)"
       ]
     }
   ]

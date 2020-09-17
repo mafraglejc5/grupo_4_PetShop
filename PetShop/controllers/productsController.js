@@ -72,10 +72,10 @@ module.exports = {
            price: Number(req.body.price),
            description:req.body.description.trim(),
            discount:Number(req.body.discount),
-           image: "img-loading.png"
+           image: (req.files[0])?req.files[0].filename: "img-loading.png"
        }
        dbProducts.push(newProduct);
-       fs.writeFileSync(path.join(__dirname,"..","data","productsDataBase.json"),JSON.stringify(dbProducts),'utf-8')
+       fs.writeFileSync(path.join(__dirname,"..","data","dbProducts.json"),JSON.stringify(dbProducts),'utf-8')
        res.redirect('/products')
     },
     show:function(req,res){
@@ -127,7 +127,7 @@ module.exports = {
                 producto.image = producto.image
             }
         })
-        fs.writeFileSync(path.join(__dirname,'../data/productsDataBase.json'),JSON.stringify(dbProducts),'utf-8');
+        fs.writeFileSync(path.join(__dirname,'../data/dbProducts.json'),JSON.stringify(dbProducts),'utf-8');
         res.redirect('/products/show/'+ idProducto + '/show')
     },
     eliminar:function(req,res){
@@ -138,7 +138,7 @@ module.exports = {
                 dbProducts.splice(aEliminar,1)
             }
         })
-        fs.writeFileSync(path.join(__dirname,'../data/productsDataBase.json'),JSON.stringify(dbProducts))
+        fs.writeFileSync(path.join(__dirname,'../data/dbProducts.json'),JSON.stringify(dbProducts))
         res.redirect('/users/profile')
     }
 }
