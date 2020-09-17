@@ -1,0 +1,24 @@
+[
+    {
+      "id": "1",
+      "name": "perro",
+      "sub": [
+        "Accesorios para Autos",
+        "Autos",
+        "Motos",
+        "Otros Vehículos",
+        "Camiones - Vehículos Comerciales"
+      ]
+    },
+    {
+      "id": "2",
+      "name": "gato",
+      "sub": [
+        "Accesorios para Autos",
+        "Autos",
+        "Motos",
+        "Otros Vehículos",
+        "Camiones - Vehículos Comerciales"
+      ]
+    }
+  ]
