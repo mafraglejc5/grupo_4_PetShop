@@ -15,7 +15,7 @@ module.exports = {
         let ultimoID = 1;
         dbUsers.forEach(userID => {
             if(userID.id>ultimoID){
-                ultimoID = ultimoID.id;
+                ultimoID = userID.id;
             }
         });
         let nuevoUser ={
@@ -26,7 +26,7 @@ module.exports = {
             direccion: req.body.direccion
         }
         dbUsers.push(nuevoUser);
-        fs.writeFileSync(path.join(__dirname,"..","data","dbUsers.json"),JSON.stringify(dbUsers),'utf-8');
+        fs.writeFileSync(path.join(__dirname,"..","data","usersDataBase.json"),JSON.stringify(dbUsers),'utf-8');
         res.send(dbUsers[ultimoID]);
     }
 }
