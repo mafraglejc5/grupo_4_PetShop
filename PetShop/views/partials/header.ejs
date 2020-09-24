@@ -23,17 +23,25 @@
             </button>
   
             <!--barra de menu que aparece a partir de la vesión de tablet-->
-            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+         
+              <a href="/users/profile"><h5 class="mr-2"><%= (locals.user)?locals.user.nick:"Invitado" %> </h5></a>
+              <% if (locals.user) { %>
+                  <a href="/users/profile"><img src="/images/users/<%= locals.user.avatar %> " alt="avatar" width="50px" height="50px" class="avatar"></a>
+    
+              <% } else{%>
+              <a href=""><img src="/images/users/default.png" alt="" width="50px" height="50px"></a>
+              <% } %>
+              <div class="collapse navbar-collapse" id="navbarSupportedContent">
               <!--barra de menu izquierdo-->
               <ul class="navbar-nav mr-auto usuario">
                 <li class="nav-item active">
-                  <a href="#ventana5" data-toggle="modal">Registrate<i class="far fa-address-card"></i></a>
+                  <a href="/users/register" >Registrate<i class="far fa-address-card"></i></a>
                 </li>
                 <li class="nav-item active">
-                  <a href="#ventana6" data-toggle="modal">Ingresá <i class="fas fa-address-book"></i></a>
+                  <a href="/users/login">Ingresá <i class="fas fa-address-book"></i></a>
                 </li>
                 <li class="nav-item active">
-                  <a href="#ventana7" data-toggle="modal">Mis compras <i class="fas fa-cart-arrow-down"></i></a>
+                  <a href="#ventana7">Mis compras <i class="fas fa-cart-arrow-down"></i></a>
                 </li>
               </ul>
             </div>
@@ -42,8 +50,7 @@
         </div>   
       </div>
       
-      <!--EMERGENTE LOGIN-REGISTRO-->
-      <%-include('../register.ejs')%>     
+
       
       <!-- TERMINA EMERGENTE LOGIN-REGISTRO-->
       <!--APERTURA EMERGENTE CARRTIO-->

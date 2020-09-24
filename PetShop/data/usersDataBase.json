@@ -1,9 +1,29 @@
 [
     {
-        "id":1,
-        "name":"admin",
-        "email": "administrador@petshop.com",
-        "telefono":112233445566,
-        "direccion":"calle falsa 1234"
+        "id": 1,
+        "nombre": "Gabriel",
+        "apellido": "Munoz",
+        "email": "gabrielmunoz@gmail.com",
+        "password": "$2b$10$mcKJXzBH2wxFM00lFp4jZunGttkFUI/vMHs718EDRTbHlVf3dav6e",
+        "avatar": "avatar-1600456532601.jpg",
+        "rol": "user"
+    },
+    {
+        "id": 2,
+        "nombre": "Sergio",
+        "apellido": "Mendieta",
+        "email": "sergiomendieta@gmail.com",
+        "password": "$2b$10$D032LmXyyD/Y2YA6qVgP1uCnOe/aOuwQHjXwIfvdPkgN5n62o2.Eu",
+        "avatar": "avatar-1600925660660.jpg",
+        "rol": "user"
+    },
+    {
+        "id": 3,
+        "nombre": "vanesa",
+        "apellido": "villagra",
+        "email": "vanesavillagra@gmail.com",
+        "password": "$2b$10$fpxmb84tlSrqEIyYuB40VOfWnVRVXehVoWu5FeLqXDRVyIgRNKJwy",
+        "avatar": "avatar-1600925750298.jpg",
+        "rol": "user"
     }
 ]
