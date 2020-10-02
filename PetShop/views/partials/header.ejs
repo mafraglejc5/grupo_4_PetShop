@@ -1,154 +1,180 @@
 <header class="container-fluid">
-    <div class="container">
-      <!--FILA 1 - logotipo, buscador, usuario-->
-      <div class="row">
-        <!--fila-->
-        <div class="col-12 col-md-2 logo">
-          <a href="/"><img src="/images/Logo-PetShop.png"  alt="CatDog" title="CatDog"></a>
-        </div>
-        <!--CIERRE LOGO-->
-        <div class="col-12 col-md-6 buscador">
-          <form  action="/products/search" method="GET">
-            <input type="text" name="search" id="search" placeholder="Buscar productos...">
-            <button type="submit"><i class="fas fa-search"></i></button>
-          </form>
-        </div>
-        <div class="col-12 col-md-4 menuUsuario">
-          <nav class="navbar-expand-md">
-            <!--boton para que desplegar el menu  en caso que el viewport sea tamaño movil-->
-            <button class="navbar-toggler burger" type="button" data-toggle="collapse"
-              data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
-              aria-label="Toggle navigation">
-              <i class="fas fa-bars"></i>
-            </button>
-  
-            <!--barra de menu que aparece a partir de la vesión de tablet-->
-         
-              <a href="/users/profile"><h5 class="mr-2"><%= (locals.user)?locals.user.nick:"Invitado" %> </h5></a>
-              <% if (locals.user) { %>
-                  <a href="/users/profile"><img src="/images/users/<%= locals.user.avatar %> " alt="avatar" width="50px" height="50px" class="avatar"></a>
-    
-              <% } else{%>
-              <a href=""><img src="/images/users/default.png" alt="" width="50px" height="50px"></a>
-              <% } %>
-              <div class="collapse navbar-collapse" id="navbarSupportedContent">
-              <!--barra de menu izquierdo-->
-              <ul class="navbar-nav mr-auto usuario">
-                <li class="nav-item active">
-                  <a href="/users/register" >Registrate<i class="far fa-address-card"></i></a>
-                </li>
-                <li class="nav-item active">
-                  <a href="/users/login">Ingresá <i class="fas fa-address-book"></i></a>
-                </li>
-                <li class="nav-item active">
-                  <a href="#ventana7">Mis compras <i class="fas fa-cart-arrow-down"></i></a>
-                </li>
-              </ul>
-            </div>
-            <!--finaliza caja contenedora del menu-->
-          </nav>
-        </div>   
+  <div class="container">
+    <!--FILA 1 - logotipo, buscador, usuario-->
+    <div class="row">
+      <!--fila-->
+      <div class="col-12 col-md-2 logo">
+        <a href="/"><img src="/images/Logo-PetShop.png" alt="CatDog" title="CatDog"></a>
       </div>
-      
+      <!--CIERRE LOGO-->
+      <div class="col-12 col-md-6 buscador">
+        <form action="/products/search" method="GET">
+          <input type="text" name="search" id="search" placeholder="Buscar productos...">
+          <button type="submit"><i class="fas fa-search"></i></button>
+        </form>
+      </div>
+      <div class="col-12 col-md-4 menuUsuario">
+        <nav class="navbar-expand-md">
+          <!--boton para que desplegar el menu  en caso que el viewport sea tamaño movil-->
+          <button class="navbar-toggler burger" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
+            aria-label="Toggle navigation">
+            <i class="fas fa-bars"></i>
+          </button>
 
-      
-      <!-- TERMINA EMERGENTE LOGIN-REGISTRO-->
-      <!--APERTURA EMERGENTE CARRTIO-->
-      <%-include('../productCart.ejs')%>
-      <!--CIERRE EMERGENTE CARRITO-->
-  
-      <div class="row">
-        <!--FILA 2- dos menu-->
-        <div class="col-md-2 col-lg-2 menu">
-          <div class="dropdown">
-            <button class="btn btn-success dropdown-toggle" type="button" id="dropdownMenuPerro" data-toggle="dropdown"
-              aria-haspopup="true" aria-expanded="true">Perros</button>
-            <div class="dropdown-menu multi-columna" aria-labelledby="dropdownMenuPerro">
-              <div class="row">
-                <!--APERTURA FILA-->
-                <div class="col-2">
-                  <p class="tituloP">Alimento balanceado</p>
-                  <div class="dropdown-divider"></div>
-                  <a href="/products/" class="dropdown-item">Ver todos</a>
-                </div>
-                <div class="col-2">
-                  <p class="tituloP">Higiene</p>
-                  <div class="dropdown-divider"></div>
-                  <a href="#" class="dropdown-item">Ver todos</a>
-                </div>
-                <div class="col-2">
-                  <p class="tituloP">Juguetes y snacks</p>
-                  <div class="dropdown-divider"></div>
-                  <a href="#" class="dropdown-item">Ver todos</a>
-                </div>
-                <div class="col-2">
-                  <p class="tituloP">Antipulgas</p>
-                  <div class="dropdown-divider"></div>
-                  <a href="#" class="dropdown-item">Ver todos</a>
-                </div>
-                <div class="col-2">
-                  <p class="tituloP">Chiches tecnologicos</p>
-                  <div class="dropdown-divider"></div>
-                  <a href="#" class="dropdown-item">Ver todos</a>
-                </div>
-              </div>
-              <!--CIERRE FILA-->
-            </div>
+          <!--barra de menu que aparece a partir de la vesión de tablet-->
+
+          
+          <% if (typeof user != "undefined") { %>
+          <a href="/users/profile">
+            <h5 class="mr-2"><%= locals.user.nick%> </h5>
+          </a>
+          <a href="/users/profile"><img src="/images/users/<%= locals.user.avatar %> " alt="avatar" width="50px"
+              height="50px" class="avatar"></a>
+          <% } else{%>
+          <a href="/users/login">Invitado <img src="/images/users/default.png" alt="" width="50px" height="50px"></a>
+          <% } %>
+          <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <!--barra de menu izquierdo-->
+            <ul class="navbar-nav mr-auto usuario">
+              <!--INVITADO-->
+              <% if(typeof user == "undefined") { %>
+              <li class="nav-item active">
+                <a href="/users/register">Registrate<i class="far fa-address-card"></i></a>
+              </li>
+              <li class="nav-item active">
+                <a href="/users/login">Ingresá <i class="fas fa-address-book"></i></a>
+              </li>
+              <li>
+                <a href="#comoComprar">¿Cómo comprar con envíos?</a>
+              </li>
+              <!--ADMINISTRADOR-->
+              <% }else if(locals.user.id == 1){ %>
+              <li class="nav-item active">
+                <a href="/users/profile">Perfil <i class="fas fa-sign-in-alt "></i></a>
+              </li>
+              <li class="nav-item active">
+                <a href="/users/logout">Cerrar sesión <i class="fas fa-sign-in-alt "></i></a>
+              </li>
+              <li>
+                <a href="/products/productAdd">Cargar Productos</a>
+              </li>
+              <!--USUARIO-->
+              <% }else { %>
+              <li class="nav-item active">
+                <a href="/users/profile">Perfil <i class="fas fa-sign-in-alt "></i></a>
+              </li>
+              <li class="nav-item active">
+                <a href="/users/logout">Cerrar sesión <i class="fas fa-sign-in-alt "></i></a>
+              </li>
+              <li class="nav-item active">
+                <a href="#ventana7">Mis compras <i class="fas fa-cart-arrow-down"></i></a>
+              </li>
+              <li>
+                <a href="#comoComprar">¿Cómo comprar con envíos?</a>
+              </li>
+              <% } %>
+            </ul>
           </div>
-        </div>
-        <!--CIERRE MENU PERROS-->
-        <div class="col-md-2 col-lg-2 menu">
-          <div class="dropdown">
-            <button class="btn btn-success dropdown-toggle" type="button" id="dropdownMenuGato" data-toggle="dropdown"
-              aria-haspopup="true" aria-expanded="true">Gatos</button>
-            <div class="dropdown-menu multi-columna" aria-labelledby="dropdownMenuGato">
+          <!--finaliza caja contenedora del menu-->
+        </nav>
+      </div>
+    </div>
+
+
+
+    <!-- TERMINA EMERGENTE LOGIN-REGISTRO-->
+    <!--APERTURA EMERGENTE CARRTIO-->
+    <%-include('../productCart.ejs')%>
+    <!--CIERRE EMERGENTE CARRITO-->
+
+    <div class="row">
+      <!--FILA 2- dos menu-->
+      <div class="col-md-2 col-lg-2 menu">
+        <div class="dropdown">
+          <button class="btn btn-success dropdown-toggle" type="button" id="dropdownMenuPerro" data-toggle="dropdown"
+            aria-haspopup="true" aria-expanded="true">Perros</button>
+          <div class="dropdown-menu multi-columna" aria-labelledby="dropdownMenuPerro">
+            <div class="row">
               <!--APERTURA FILA-->
-              <div class="row">
-                <div class="col-2">
-                  <p class="tituloP">Alimento balanceado</p>
-                  <div class="dropdown-divider"></div>
-                  <a href="#" class="dropdown-item">Secos</a>
-                  <a href="#" class="dropdown-item">Húmedos</a>
-                  <a href="#" class="dropdown-item">Medicados</a>
-                </div>
-                <div class="col-2">
-                  <p class="tituloP">Higiene</p>
-                  <div class="dropdown-divider"></div>
-                  <a href="#" class="dropdown-item">Ver todos</a>
-                </div>
-                <div class="col-2">
-                  <p class="tituloP">Juguetes y snacks</p>
-                  <div class="dropdown-divider"></div>
-                  <a href="#" class="dropdown-item">Ver todos</a>
-                </div>
-                <div class="col-2">
-                  <p class="tituloP">Antipulgas</p>
-                  <div class="dropdown-divider"></div>
-                  <a href="#" class="dropdown-item">Ver todos</a>
-                </div>
-                <div class="col-2">
-                  <p class="tituloP">Chiches tecnologicos</p>
-                  <div class="dropdown-divider"></div>
-                  <a href="#" class="dropdown-item">Ver todos</a>
-                </div>
+              <div class="col-2">
+                <p class="tituloP">Alimento balanceado</p>
+                <div class="dropdown-divider"></div>
+                <a href="/products/" class="dropdown-item">Ver todos</a>
               </div>
-              <!--CIERRE FILA-->
+              <div class="col-2">
+                <p class="tituloP">Higiene</p>
+                <div class="dropdown-divider"></div>
+                <a href="#" class="dropdown-item">Ver todos</a>
+              </div>
+              <div class="col-2">
+                <p class="tituloP">Juguetes y snacks</p>
+                <div class="dropdown-divider"></div>
+                <a href="#" class="dropdown-item">Ver todos</a>
+              </div>
+              <div class="col-2">
+                <p class="tituloP">Antipulgas</p>
+                <div class="dropdown-divider"></div>
+                <a href="#" class="dropdown-item">Ver todos</a>
+              </div>
+              <div class="col-2">
+                <p class="tituloP">Chiches tecnologicos</p>
+                <div class="dropdown-divider"></div>
+                <a href="#" class="dropdown-item">Ver todos</a>
+              </div>
             </div>
+            <!--CIERRE FILA-->
           </div>
         </div>
-        <!--CIERRE MENU GATOS-->
-        <!--TITULO-->
+      </div>
+      <!--CIERRE MENU PERROS-->
+      <div class="col-md-2 col-lg-2 menu">
+        <div class="dropdown">
+          <button class="btn btn-success dropdown-toggle" type="button" id="dropdownMenuGato" data-toggle="dropdown"
+            aria-haspopup="true" aria-expanded="true">Gatos</button>
+          <div class="dropdown-menu multi-columna" aria-labelledby="dropdownMenuGato">
+            <!--APERTURA FILA-->
+            <div class="row">
+              <div class="col-2">
+                <p class="tituloP">Alimento balanceado</p>
+                <div class="dropdown-divider"></div>
+                <a href="#" class="dropdown-item">Secos</a>
+                <a href="#" class="dropdown-item">Húmedos</a>
+                <a href="#" class="dropdown-item">Medicados</a>
+              </div>
+              <div class="col-2">
+                <p class="tituloP">Higiene</p>
+                <div class="dropdown-divider"></div>
+                <a href="#" class="dropdown-item">Ver todos</a>
+              </div>
+              <div class="col-2">
+                <p class="tituloP">Juguetes y snacks</p>
+                <div class="dropdown-divider"></div>
+                <a href="#" class="dropdown-item">Ver todos</a>
+              </div>
+              <div class="col-2">
+                <p class="tituloP">Antipulgas</p>
+                <div class="dropdown-divider"></div>
+                <a href="#" class="dropdown-item">Ver todos</a>
+              </div>
+              <div class="col-2">
+                <p class="tituloP">Chiches tecnologicos</p>
+                <div class="dropdown-divider"></div>
+                <a href="#" class="dropdown-item">Ver todos</a>
+              </div>
+            </div>
+            <!--CIERRE FILA-->
+          </div>
+        </div>
+      </div>
+      <!--CIERRE MENU GATOS-->
+      <!--TITULO-->
       <div class="col-12 col-md-5 col-lg-6 contenedortitulo">
-        <a href="/"><h1 class="titulovsg">PET SHOP VSG</h1></a>
+        <a href="/">
+          <h1 class="titulovsg">PET SHOP VSG</h1>
+        </a>
       </div>
       <!--TITULO--->
-      <!--COMO COMPRAR-->
-      <div class="col-12 col-md-3 col-lg-2 envios">
-        <li>
-          <a href="/products/productAdd">INGRESO ADMINISTRADOR</a>
-        </li>
-      </div>
-      <!--FINALIZA COMO COMPRAR-->
-      </div>
-  </header>
-  <!--          CIERRE DEL HEADER   -->     
+
+</header>
+<!--          CIERRE DEL HEADER   -->
