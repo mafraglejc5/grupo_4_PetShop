@@ -1,3 +1,6 @@
+/*
+PARA SUBIR LAS IMAGENES DE LOS PRODUCTOS, CON NOMBRE Y FORMATO
+*/
 const multer = require('multer');
 const  path = require('path');
 

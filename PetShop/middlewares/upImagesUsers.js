@@ -1,4 +1,6 @@
-
+/*
+PARA SUBIR EL AVATAR DEL USUARIO
+*/
 const path = require('path');
 const multer = require('multer');
 

@@ -11,12 +11,14 @@ const dbUsers = require(path.join(__dirname,'..','data','dbUsers'))
 
 
 module.exports = {
+    /*MUESTRO LA PAGINA PARA REGISTRAR*/
     register:function(req,res){
         res.render('UserRegister',{
             title:"Registro de Usuario",
             css: 'index.css'
         })
     },
+    /*FUNCION PARA REGISTRAR AL USUARIO*/
     processRegister:function(req,res){
         let errors = validationResult(req);
         let lastID = 0;
@@ -51,12 +53,14 @@ module.exports = {
         }
        
     },
+    /*MUESTRO LA PAGINA PARA LOGEAR*/
     login:function(req,res){
         res.render('userLogin',{
             title:"Ingresá a tu cuenta",
             css: 'index.css'
         })
     },
+    /*FUNCION PARA LOGEAR*/
     processLogin:function(req,res){
         let errors = validationResult(req);
         if(errors.isEmpty()){
@@ -85,6 +89,7 @@ module.exports = {
             })
         }
     },
+    /*RUTA PARA ENTRAR AL PERFIL DEL USUARIO*/
     profile:function(req,res){
         res.render('userProfile',{
             title:"Perfil de usuario",
@@ -95,6 +100,7 @@ module.exports = {
             
         })
     },
+    /*FUNCION PARA DESLOGEAR*/
     logout:function(req,res){
         req.session.destroy()
         if(req.cookies.userPetShopPSG){

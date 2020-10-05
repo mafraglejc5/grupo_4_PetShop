@@ -1,3 +1,6 @@
+/*
+VALIDO EL REGISTRO, QUE NINGUN CAMPO FALTE PARA REGISTRAR AL USUARIO Y QUE ACEPTE LOS TERMINOS.
+*/
 const {check,validationResult,body} = require('express-validator');
 
 const dbUsers = require('../data/dbUsers')

@@ -1,3 +1,6 @@
+/*
+VALIDO EL LOGIN, SI COINCIDE TODO LO QUE INGRESA Y SE ENCUENTRA EN LA BASE DE DATOS.
+*/
 const dbUsers = require('../data/dbUsers');
 
 const {check,body} = require('express-validator');

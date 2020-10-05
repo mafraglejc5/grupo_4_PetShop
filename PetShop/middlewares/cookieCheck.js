@@ -1,3 +1,7 @@
+/*
+COOKIES PARA QUE QUEDE EL REGISTRO DEL ULTIMO LOGEO ACTIVO
+*/
+
 module.exports = function(req,res,next){
     if(req.cookies.userPetShopVSG){
         console.log(req.cookies.userPetShopVSG)

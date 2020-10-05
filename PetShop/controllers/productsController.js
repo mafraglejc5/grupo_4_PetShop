@@ -12,6 +12,7 @@ module.exports = {
             productos: dbProducts
         })
     },
+    /*MUESTRO EL DETALLE DEL PRODUCTO*/
     detalle:function(req,res){
         idProducto = req.params.id;
         let producto = dbProducts.filter(producto=>{
@@ -23,6 +24,7 @@ module.exports = {
             producto:producto[0]
         })
     },
+    /*FUNCION PARA EL BUSCADOR DEL PRODUCTO TIPEADO*/
     search:function(req,res){
         let busqueda = req.query.search;
         if(busqueda == ""){
@@ -42,6 +44,7 @@ module.exports = {
         }
      
     },
+    /*AGREGO PRODUCTO*/
     agregar:function(req,res){
         let categoria;
         let sub;
@@ -57,6 +60,7 @@ module.exports = {
             sub:sub
         })
     },
+    /*PUBLICO EL PRODUCTO*/
     publicar:function(req,res){
        let lastID = 1;
        dbProducts.forEach(producto=>{
@@ -78,6 +82,7 @@ module.exports = {
        fs.writeFileSync(path.join(__dirname,"..","data","dbProducts.json"),JSON.stringify(dbProducts),'utf-8')
        res.redirect('/products')
     },
+    
     show:function(req,res){
         let idProducto = req.params.id;
         
@@ -112,6 +117,7 @@ module.exports = {
         })
 
     },
+    /*EDITO EL PRODUCTO SELECCIONADO*/
     editar:function(req,res){
 
         let idProducto = req.body.id;
@@ -130,6 +136,7 @@ module.exports = {
         fs.writeFileSync(path.join(__dirname,'../data/dbProducts.json'),JSON.stringify(dbProducts),'utf-8');
         res.redirect('/products/show/'+ idProducto + '/show')
     },
+    /*ELIMINO EL PRODUCTO SELECCIONADO*/
     eliminar:function(req,res){
         let idProducto = req.params.id;
         dbProducts.forEach(producto =>{

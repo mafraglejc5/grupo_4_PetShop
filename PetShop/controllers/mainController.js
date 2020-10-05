@@ -1,3 +1,6 @@
+/*
+MAIN PRINCIPAL PARA USAR LOS PRODUCTOS DE LA BASE DE DATOS EN EL INDEX.
+*/
 const path = require('path');
 const dbProducts = require(path.join(__dirname, '..', 'data', 'dbProducts'))
 const dbUsers = require(path.join(__dirname,'..','data', 'dbUsers'));
