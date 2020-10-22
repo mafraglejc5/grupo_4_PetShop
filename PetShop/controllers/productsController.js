@@ -1,48 +1,62 @@
-const path = require('path');
-const dbProducts = require(path.join(__dirname,'..','data','dbProducts'))
-const dbCategorias = require('../data/dbCategorias');
-const fs = require('fs');
+//guardo la base de datos en "db", para empezar a manipularlo.
+const db = require ('../database/models');
+//variables para usar las funciones de comparacion en la base de datos
+const { Sequelize } = require('../database/models');
+const Op = Sequelize.Op;
+
 
 module.exports = {
-    /*MUESTA LISTA DE PRODUCTOS EN JSON*/
+    /*MUESTA LISTA DE PRODUCTOS DE LA BASE DE DATOS*/
     listar:function(req,res){
-        res.render('products',{
-            title: "Productos",
-            css:"index.css",
-            productos: dbProducts
-        })
+        //recorro la base de datos "productos, y envio todos los productos a su ruta"
+        db.Productos.findAll()
+            .then(producto =>{
+                res.render('products',{
+                 title: 'Productos',
+                 css: 'index.css',
+                 productos: producto
+                })
+            })
+            .catch(error =>{
+                res.send(error)
+            })
     },
     /*MUESTRO EL DETALLE DEL PRODUCTO*/
     detalle:function(req,res){
-        idProducto = req.params.id;
-        let producto = dbProducts.filter(producto=>{
-            return producto.id == idProducto
-        })
-        res.render('productDetail',{
-            title:"Detalle del Producto",
-            css:"products.css",
-            producto:producto[0]
-        })
+        //busco en la base de datos el id del producto seleccionado.
+        db.Productos.findByPk(req.params.id)
+            .then(producto =>{
+                res.render("productDetail",{
+                    title: "Detalle del producto",
+                    css: "products.css",
+                    producto: producto
+                })
+            })
+            .catch(error =>{
+                res.send(error)
+            })
     },
     /*FUNCION PARA EL BUSCADOR DEL PRODUCTO TIPEADO*/
     search:function(req,res){
+        //guardo lo que ingresa en el buscador
         let busqueda = req.query.search;
-        if(busqueda == ""){
-            res.redirect('/')
-        }else{
-            let productos = [];
-            dbProducts.forEach(producto=>{
-                if(producto.name.toLowerCase().includes(busqueda.toLowerCase())){
-                    productos.push(producto)
-                }
-            })
+        db.Productos.findAll({
+            where: {
+                //busco esa palabra/letra en nombre de la tabla productos
+                name: {[Op.like]: `%${busqueda}%`}
+            }
+        })
+        //devuelvo el array con el resultado de la busqueda.
+        .then(productos =>{
             res.render('products',{
-                title: "Resultado de la busqueda",
-                css:"index.css",
-                productos:productos
+                title: 'Resultado de la busqueda',
+                css: 'index.css',
+                productos: productos
             })
-        }
-     
+        })
+        .catch(error =>{
+            res.send(error)
+        })
     },
     /*AGREGO PRODUCTO*/
     agregar:function(req,res){

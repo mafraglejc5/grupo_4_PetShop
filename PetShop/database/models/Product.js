@@ -1,5 +1,5 @@
 module.exports = (sequelize,dataTypes) => {
-    let alias = "Products";
+    let alias = "Productos";
 
     let cols = {
         id : {
@@ -12,7 +12,7 @@ module.exports = (sequelize,dataTypes) => {
             type : dataTypes.STRING(100),
             allowNull : false
         },
-       marca: {
+        marca: {
             type : dataTypes.STRING(100),
             allowNull : false
         },
@@ -24,11 +24,11 @@ module.exports = (sequelize,dataTypes) => {
             type : dataTypes.DECIMAL(5, 2).UNSIGNED,
             allowNull : false
         },
-        descripcion : {
+        description : {
             type : dataTypes.STRING(300),
             allowNull : false
         },
-        imagenes : {
+        image : {
             type : dataTypes.STRING(100),
             allowNull : false
         },
@@ -36,8 +36,6 @@ module.exports = (sequelize,dataTypes) => {
             type: dataTypes.INTEGER(11),
             allowNull : false
         },
-   
-    
         id_categoria : {
             type : dataTypes.INTEGER(11)
         },
