@@ -36,11 +36,15 @@ module.exports = (sequelize,dataTypes) => {
             type: dataTypes.INTEGER(11),
             allowNull : false
         },
-        id_categoria : {
+        id_subcategoria : {
             type : dataTypes.INTEGER(11)
         },
         id_tienda : {
             type : dataTypes.INTEGER(11)
+        },
+        peso: {
+            type: dataTypes.INTEGER,
+            allowNull : false
         }
     }
 
@@ -51,6 +55,11 @@ module.exports = (sequelize,dataTypes) => {
     }
 
     const Product = sequelize.define(alias,cols,config);
-
+    Product.associate = function(models){
+        Product.belongsTo(models.Subcategorias,{
+            as : 'subcategoria',
+            foreignKey : 'id_subcategoria'
+        })
+    }
     return Product;
 }

@@ -23,13 +23,23 @@
                         <input type="text" class="cajaForm" id="marca" name="marca" required>
                     </div>
                     <div class="grupo-form">
-                        <label for="categoria">Categoria </label>
+                        <label for="categoria">Seleccione la categoria </label>
                         <br>
-                        <input type="text" list="items" class="cajaForm">
-                        <datalist id="items">
-                          <option value="Gatos"></option>
-                          <option value="Perros"></option>
-                        </datalist>
+                        <select name="categoria" class="cajaForm" id="categoria">
+                            <option value="">Elige una opción</option>                   
+                            <option value="Gatos">Gato</option>
+                            <option value="Perros">Perro</option>
+                        </select>
+                    </div>
+                    <div class="grupo-form">
+                        <label for="subcategoria">Seleccione la subcategoria </label>
+                        <br>
+                        <select name="id_subcategoria" class="cajaForm" id="subcategoria">
+                          <option value="">Elige una opción</option>
+                          <% subCategorias.forEach(subcategorias => { %>
+                              <option value="<%= subcategorias.id %>"><%= subcategorias.name %></option>
+                          <%});%>
+                        </select>                        
                     </div>
                     <div class="grupo-form">
                         <label for="precio">Precio </label>

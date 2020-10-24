@@ -1,5 +1,5 @@
 module.exports = (sequelize,dataTypes) => {
-    let alias = "Categories";
+    let alias = "Subcategorias";
 
     let cols = {
         id : {
@@ -12,23 +12,20 @@ module.exports = (sequelize,dataTypes) => {
             type : dataTypes.STRING(45),
             allowNull : false
         },
-        image : {
-            type : dataTypes.STRING(45),
-            allowNull : false
-        },
-       sub : {
-            type : dataTypes.STRING(45),
-            allowNull : false
-        },
     }
 
     let config = {
-        tableName: "categories",
+        tableName: "subcategories",
         timestamps: false
     }
 
     const Category = sequelize.define(alias,cols,config);
-
+    Category.associate = function(models){
+        Category.hasMany(models.Productos,{
+            as : 'productos',
+            foreignKey : 'id_subcategoria'
+        })
+    }
     return Category
 
 }

@@ -3,8 +3,13 @@ const db = require ('../database/models');
 //variables para usar las funciones de comparacion en la base de datos
 const { Sequelize } = require('../database/models');
 const Op = Sequelize.Op;
+const { validationResult } = require('express-validator');
 
+//pruebas despues se sacan *<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
 
+const path = require('path');
+const dbProducts = require(path.join(__dirname, '..', 'data', 'dbProducts'))
+const dbUsers = require(path.join(__dirname,'..','data', 'dbUsers'));
 module.exports = {
     /*MUESTA LISTA DE PRODUCTOS DE LA BASE DE DATOS*/
     listar:function(req,res){
@@ -60,41 +65,42 @@ module.exports = {
     },
     /*AGREGO PRODUCTO*/
     agregar:function(req,res){
-        let categoria;
-        let sub;
-        if(req.query.categoria){
-            categoria = req.query.categoria;
-            sub = req.query.sub
-        }
-        res.render('productAdd',{
-            title: "Publicar Producto",
-            css:"products.css",
-            categorias:dbProducts,
-            categoria:categoria,
-            sub:sub
+        //guardo los nombres en subCategorias para despues mostrarlos y ordenar el nombre alfabeticamente.
+        let subCategorias = db.Subcategorias.findAll({
+            order: [
+                ['name','ASC']
+            ]
+        })
+        .then(subCategorias =>{
+            res.render('productAdd',{
+                title:"Cargar producto",
+                css: "products.css",
+                subCategorias: subCategorias
+            })
         })
     },
     /*PUBLICO EL PRODUCTO*/
     publicar:function(req,res){
-       let lastID = 1;
-       dbProducts.forEach(producto=>{
-           if(producto.id > lastID){
-               lastID = producto.id
-           }
-       })
-       let newProduct = {
-           id:lastID +1,
-           name: req.body.name.trim(),
-           marca: (req.body.marca),
-           categoria:req.body.categoria.trim(),
-           price: Number(req.body.price),
-           description:req.body.description.trim(),
-           discount:Number(req.body.discount),
-           image: (req.files[0])?req.files[0].filename: "img-loading.png"
-       }
-       dbProducts.push(newProduct);
-       fs.writeFileSync(path.join(__dirname,"..","data","dbProducts.json"),JSON.stringify(dbProducts),'utf-8')
-       res.redirect('/products')
+        //valido si hay errores
+        let errors = validationResult(req);
+        //si no hay errores, entra y crea el nuevo producto
+        if(errors.isEmpty()){
+            db.Productos.create({
+                name: req.body.name,
+                marca: req.body.marca,
+                categoria: req.body.categoria,
+                peso: req.body.peso,
+                price: req.body.price,
+                description:req.body.description,
+                image: (req.files[0])?req.files[0].filename:"default.png",
+                discount: req.body.discount,
+                id_subcategoria: req.body.id_subcategoria
+            })
+            //redirecciono a productos para mostrar todos los productos, incluyendo el nuevo.
+            .then(()=>{
+                return res.redirect('/products')
+            })
+        }
     },
     
     show:function(req,res){
