@@ -7,7 +7,7 @@
   <div class="container">
     <div class="row">
       <div class="col-12 titulo">
-        <h5 ><%= title %></h5>
+        <h5><%= title %></h5>
       </div>
 
       <% productos.forEach(producto => { %>
@@ -26,13 +26,20 @@
             <span><%= producto.discount %>% OFF</span>
             <% } %>
             <p><%= producto.name %> </p>
-            <i class="fas fa-truck"></i>            
+            <i class="fas fa-truck"></i>
           </article>
           <!--SI EL USUARIO ESTA LOGEADO Y ESTA EL ID ES IGUAL A 1, SE MUESTRA LOS BOTONES editar Y eliminar-->
           <% if(typeof user != 'undefined' && locals.user.id ==1){ %>
-            <a href="/products/show/<%= producto.id %>"><button type="button" class="btn btn-success">Editar</button></a>
-            <button type="button" class="btn btn-danger">Danger</button>
-          <% } %> 
+          <div class="btn-edicion-eliminar">
+            <!--redirecciono a la pagina de edicion-->
+            <a href="/products/show/<%= producto.id %>"><button type="button"
+                class="btn btn-success">Editar</button></a>
+            <!--formulario, para poder eliminar el producto seleccionado-->
+            <form action="/products/eliminar/<%= producto.id %>?_method=delete" method="POST">
+              <button type="submit" class="btn btn-danger">Eliminiar</button>
+            </form>
+          </div>
+          <% } %>
           <!--SI EL USUARIO ESTA LOGEADO Y ESTA EL ID ES IGUAL A 1, SE MUESTRA LOS BOTONES editar Y eliminar-->
         </div>
       </div>

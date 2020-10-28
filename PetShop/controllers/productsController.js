@@ -181,14 +181,14 @@ module.exports = {
     },
     /*ELIMINO EL PRODUCTO SELECCIONADO*/
     eliminar:function(req,res){
-        let idProducto = req.params.id;
-        dbProducts.forEach(producto =>{
-            if(producto.id == idProducto){
-                var aEliminar = dbProducts.indexOf(producto)
-                dbProducts.splice(aEliminar,1)
+        //destruye el producto selecionado por id
+        db.Productos.destroy({
+            where:{
+                id: req.params.id
             }
         })
-        fs.writeFileSync(path.join(__dirname,'../data/dbProducts.json'),JSON.stringify(dbProducts))
-        res.redirect('/users/profile')
+            .then(result=>{
+                res.render('/products')
+            })
     }
 }

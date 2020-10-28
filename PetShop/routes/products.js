@@ -18,6 +18,6 @@ router.post('/productAdd',upImagesProducts.any(),productsController.publicar);
 router.get('/show/:id/:flap?',redirectAdmin,productsController.show);
 
 router.put('/edit/:id',redirectAdmin,upImagesProducts.any(),productsController.editar)
-router.delete('/delete/:id',redirectAdmin,productsController.eliminar)
+router.delete('/eliminar/:id',redirectAdmin,productsController.eliminar)
 
 module.exports = router;
