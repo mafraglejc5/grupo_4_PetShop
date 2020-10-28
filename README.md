@@ -81,9 +81,8 @@ Colores: https://colorhunt.co/palette/14114
 
 Fuentes: Vamos a usar, por el momento este tipo de fuente: Arial, Helvetica, sans-serif;
 
-Usuarios: Están los usuarios generales, que serían los clientes, luego el usuario "Administrador" que se encarga de todo
+Usuarios: Están los usuarios generales, que serían los clientes, luego el usuario "Administrador" que se encarga de todo lo que es la carga de productos, edición de producto o eliminación. Para logear este usuario debe ingresar:
 
-lo que es la carga de productos, edición de producto o eliminación. Para logear este usuario debe ingresar:
 usuario: admin@admin.com
 password: 12346
 
