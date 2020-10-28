@@ -109,7 +109,7 @@ module.exports = {
     },
     logout:function(req,res){
         req.session.destroy()
-        if(req.cookies.userMercadoLiebre){
+        if(req.cookies.userPetShopVSG){
             res.cookie('userPetShopVSG',' ',{maxAge:-1});
         }
         return res.redirect('/')

@@ -102,7 +102,7 @@ module.exports = {
             })
         }
     },
-    
+    /*MUESTRO DETALLE DE LOS PRODUCTOS Y LOS PUEDO EDITAR */
     show:function(req,res){
         let idProducto = req.params.id;
         
@@ -111,7 +111,7 @@ module.exports = {
         let activeEdit;
         let showDetail;
         let showEdit;
-
+        //DEPENDIENDO EL VALOR, SE MUESTRA CADA PESTAÑA
         if(flap == "show"){
             activeDetail = "active";
             showDetail = "show";
@@ -119,42 +119,65 @@ module.exports = {
             activeEdit = "active";
             showEdit = "show";
         }
-
-        let resultado = dbProducts.filter(producto =>{
-            return producto.id == idProducto
+        //GUARDO EL PRODUCTO SELECCIONADO EN producto CON SU ASSOCIACION subcategoria
+        let producto = db.Productos.findOne({
+            where: {
+                id: idProducto
+            },
+            include: [
+                {
+                    association: 'subcategoria'
+                }
+            ]
         })
-
-        res.render('productShow',{
-            title: "Ver / Editar Producto",
-            css: 'products.css',
-            total: dbProducts.length,
-            categorias:dbCategorias,
-            producto: resultado[0],
-            activeDetail:activeDetail,
-            activeEdit:activeEdit,
-            showEdit:showEdit,
-            showDetail:showDetail
-        })
+        //GUARDO LA CANTIDAD DE PRODUCTOS PARA PODES RECORRERLOS EN LA PESTAÑA "detalle del producto"
+        let total = db.Productos.count();
+        //GUARDO TODO LOS DATOS DE LA TABLA EN idCategorias
+        let idCategorias = db.Subcategorias.findAll()
+        //LO PASO COMO PROMESA EN UNA LLAVE A LAS VARIABLES QUE VOY A USAR
+        Promise.all([producto, idCategorias, total])
+        
+            .then(([producto, idCategorias, total]) => {
+                //MUESTRO productShow Y LE PASO CADA VALOR PARA PODER MANIPULARLO EN DICHO ARCHIVO
+                res.render('productShow', {
+                    title: "Ver / Editar Producto",
+                    css: 'products.css',
+                    total: total,
+                    idCategorias: idCategorias,
+                    producto: producto,
+                    activeDetail: activeDetail,
+                    activeEdit: activeEdit,
+                    showEdit: showEdit,
+                    showDetail: showDetail
+                })
+            })
 
     },
     /*EDITO EL PRODUCTO SELECCIONADO*/
     editar:function(req,res){
-
-        let idProducto = req.body.id;
-
-        dbProducts.forEach(producto =>{
-            if(producto.id == idProducto){
-                producto.id = Number(req.body.id),
-                producto.name = req.body.name.trim(),
-                producto.price = Number(req.body.price),
-                producto.discount = Number(req.body.discount),
-                producto.categoria = req.body.category.trim(),
-                producto.description = req.body.description.trim(),
-                producto.image = producto.image
+        //USO LA FUNCION PARA ACTUALIZAR DATOS.
+        db.Productos.update({
+            //GUARDO LOS DATOS NUEVOS EN CADA VARIBLE ASIGNADA.
+            name: req.body.name,
+            price: Number(req.body.price),
+            peso: Number(req.body.peso),
+            discount: Number(req.body.discount),
+            categoria: req.body.categoria,
+            id_subcategoria: Number(req.body.id_subcategoria),
+            description: req.body.description,
+            //ARREGLAR LA CARGA DE IMAGEN!!!!
+            image: req.body.file
+        },
+        {
+            //DEPENDE DE LA ID SELECCIONADA, SE EDITAR CADA PRODUCTO.
+            where: {
+                id: req.params.id
             }
         })
-        fs.writeFileSync(path.join(__dirname,'../data/dbProducts.json'),JSON.stringify(dbProducts),'utf-8');
-        res.redirect('/products/show/'+ idProducto + '/show')
+            .then(() => {
+                //REDIRECCIONO A LA LISTA DE PRODUCTOS.
+                res.redirect('/products/detalle/'+req.params.id)
+            })
     },
     /*ELIMINO EL PRODUCTO SELECCIONADO*/
     eliminar:function(req,res){

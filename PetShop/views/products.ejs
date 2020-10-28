@@ -25,10 +25,15 @@
             <% if (producto.discount !=0) { %>
             <span><%= producto.discount %>% OFF</span>
             <% } %>
-
             <p><%= producto.name %> </p>
-            <i class="fas fa-truck"></i>
+            <i class="fas fa-truck"></i>            
           </article>
+          <!--SI EL USUARIO ESTA LOGEADO Y ESTA EL ID ES IGUAL A 1, SE MUESTRA LOS BOTONES editar Y eliminar-->
+          <% if(typeof user != 'undefined' && locals.user.id ==1){ %>
+            <a href="/products/show/<%= producto.id %>"><button type="button" class="btn btn-success">Editar</button></a>
+            <button type="button" class="btn btn-danger">Danger</button>
+          <% } %> 
+          <!--SI EL USUARIO ESTA LOGEADO Y ESTA EL ID ES IGUAL A 1, SE MUESTRA LOS BOTONES editar Y eliminar-->
         </div>
       </div>
       <% }) %>
