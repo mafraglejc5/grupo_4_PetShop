@@ -86,5 +86,5 @@ Están los usuarios generales, que serían los clientes, luego el usuario "Admin
 
 usuario: admin@admin.com
 
-password: 12346
+password: 123456
 
