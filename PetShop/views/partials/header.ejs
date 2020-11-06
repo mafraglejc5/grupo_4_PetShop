@@ -26,13 +26,13 @@
 
           
           <% if (typeof user != "undefined") { %>
-          <a href="/users/profile">
+          <a class="usuarioLogo" href="/users/profile">
             <h5 class="mr-2"><%= locals.user.nick%> </h5>
           </a>
-          <a href="/users/profile"><img src="/images/users/<%= locals.user.avatar %> " alt="avatar" width="50px"
+          <a class="usuarioLogo" href="/users/profile"><img src="/images/users/<%= locals.user.avatar %> " alt="avatar" width="50px"
               height="50px" class="avatar"></a>
           <% } else{%>
-          <a href="/users/login">Invitado <img src="/images/users/default.png" alt="" width="50px" height="50px"></a>
+          <a class="usuarioLogoInvitado" href="/users/login">Invitado <img src="/images/users/default.png" alt="" width="50px" height="50px"></a>
           <% } %>
           <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <!--barra de menu izquierdo-->
@@ -58,6 +58,9 @@
               </li>
               <li>
                 <a href="/products/productAdd">Cargar Productos</a>
+              </li>
+              <li>
+                <a href="/products">Editar/Eliminar productos</a>
               </li>
               <!--USUARIO-->
               <% }else { %>
