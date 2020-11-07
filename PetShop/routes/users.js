@@ -18,7 +18,7 @@ router.get('/login',redirectUsers,usersController.login);
 router.post('/login',loginValidator,usersController.processLogin);
 
 router.get('/profile',redirectProfile,usersController.profile);
-
+router.delete('/eliminar/:id',usersController.eliminar);
 router.get('/logout',usersController.logout);
 
 module.exports = router;

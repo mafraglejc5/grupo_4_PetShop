@@ -89,9 +89,7 @@
 							  </div>
 							</div>
 							<div class="d-md-flex justify-content-end mt-5">
-							  <button type="button" class="btn-sm btn-secondary m-1"><a href="/" class="text-light">Salir
-								  sin
-								  guardar</a></button>
+							  <button type="button" class="btn-sm btn-secondary m-1"><a href="/" class="text-light">Salir sin guardar</a></button>
 							  <button type="submit" class="btn-sm btn-primary m-1">Actualizar datos</button>
 							</div>
 						  </div>
@@ -99,7 +97,7 @@
 					  </form>
 				  
 					  <div class="col-12 col-md-4 d-flex justify-content-center">
-						<form action="/users/delete/<%= usuario.id %>?_method=DELETE" method="POST">
+						<form action="/users/eliminar/<%= usuario.id %>?_method=DELETE" method="POST">
 						  <button type="submit" class="btn-sm btn-danger">Darse de baja</button>
 						</form>
 					  </div>

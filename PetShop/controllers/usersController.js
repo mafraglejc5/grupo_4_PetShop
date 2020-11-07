@@ -1,6 +1,6 @@
 const bcrypt = require('bcrypt');
 
-const {validationResult} = require('express-validator');
+const {validationResult, Result} = require('express-validator');
 
 const db = require('../database/models');
 /*
@@ -107,5 +107,21 @@ module.exports = {
             res.cookie('userPetShopVSG',' ',{maxAge:-1});
         }
         return res.redirect('/')
+    },
+    eliminar: (req,res)=>{
+        db.Users.destroy({
+            where: {
+                id: req.params.id
+            }
+        })
+            .then(result =>{
+                req.session.destroy();
+                return res.redirect('/');
+            })
+            .catch(error =>{
+                res.send(error);
+            })
     }
+
+
 }
