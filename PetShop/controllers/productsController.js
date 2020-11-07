@@ -5,11 +5,7 @@ const { Sequelize } = require('../database/models');
 const Op = Sequelize.Op;
 const { validationResult } = require('express-validator');
 
-//pruebas despues se sacan *<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
 
-const path = require('path');
-const dbProducts = require(path.join(__dirname, '..', 'data', 'dbProducts'))
-const dbUsers = require(path.join(__dirname,'..','data', 'dbUsers'));
 module.exports = {
     /*MUESTA LISTA DE PRODUCTOS DE LA BASE DE DATOS*/
     listar:function(req,res){
@@ -78,6 +74,9 @@ module.exports = {
                 subCategorias: subCategorias
             })
         })
+        .catch(error =>{
+            res.send(error)
+        })
     },
     /*PUBLICO EL PRODUCTO*/
     publicar:function(req,res){
@@ -86,19 +85,22 @@ module.exports = {
         //si no hay errores, entra y crea el nuevo producto
         if(errors.isEmpty()){
             db.Productos.create({
-                name: req.body.name,
-                marca: req.body.marca,
-                categoria: req.body.categoria,
-                peso: req.body.peso,
-                price: req.body.price,
-                description:req.body.description,
+                name: req.body.name.trim(),
+                marca: req.body.marca.trim(),
+                categoria: req.body.categoria.trim(),
+                peso: Number(req.body.peso),
+                price: Number(req.body.price),
+                description:req.body.description.trim(),
                 image: (req.files[0])?req.files[0].filename:"default.png",
-                discount: req.body.discount,
+                discount: Number (req.body.discount),
                 id_subcategoria: req.body.id_subcategoria
             })
             //redirecciono a productos para mostrar todos los productos, incluyendo el nuevo.
             .then(()=>{
                 return res.redirect('/products')
+            })
+            .catch(error =>{
+                res.send(error)
             })
         }
     },
@@ -151,6 +153,9 @@ module.exports = {
                     showDetail: showDetail
                 })
             })
+            .catch(error =>{
+                res.send(error)
+            })
 
     },
     /*EDITO EL PRODUCTO SELECCIONADO*/
@@ -158,15 +163,15 @@ module.exports = {
         //USO LA FUNCION PARA ACTUALIZAR DATOS.
         db.Productos.update({
             //GUARDO LOS DATOS NUEVOS EN CADA VARIBLE ASIGNADA.
-            name: req.body.name,
+            name: req.body.name.trim(),
+            marca: req.body.marca.trim(),
             price: Number(req.body.price),
             peso: Number(req.body.peso),
             discount: Number(req.body.discount),
-            categoria: req.body.categoria,
+            categoria: req.body.categoria.trim(),
             id_subcategoria: Number(req.body.id_subcategoria),
-            description: req.body.description,
-            //ARREGLAR LA CARGA DE IMAGEN!!!!
-            image: req.body.file
+            description: req.body.description.trim(),
+            image: req.body.image
         },
         {
             //DEPENDE DE LA ID SELECCIONADA, SE EDITAR CADA PRODUCTO.
@@ -177,6 +182,9 @@ module.exports = {
             .then(() => {
                 //REDIRECCIONO A LA LISTA DE PRODUCTOS.
                 res.redirect('/products/detalle/'+req.params.id)
+            })
+            .catch(error =>{
+                res.send(error)
             })
     },
     /*ELIMINO EL PRODUCTO SELECCIONADO*/
@@ -189,6 +197,9 @@ module.exports = {
         })
             .then(result=>{
                 res.render('/products')
+            })
+            .catch(error =>{
+                res.send(error)
             })
     }
 }
