@@ -89,8 +89,22 @@ section,img,p,button{
   text-align: center;
 }
 /*
+      USER
+*/
+.form-check-input{
+  width: 0%;
+  position: relative;
+  left: 50px;
+  bottom: -3px;
+}
+.form-check-label{
+  position: absolute;
+  left: 40px;    
+}
+/*
       VISUALIZACION TABLET
 */
+
 @media(min-width:768px){
   section .cuadroCategoria{
     padding: 10px;
@@ -105,6 +119,22 @@ section,img,p,button{
     position: absolute;
     bottom: 53px;
     right: 35px;
+  }
+  div .justify-content-center img{
+    width: 300px;
+    height: 240px;
+    position: relative;
+    left: 31px;
+  }
+  .form-check-input{
+    width: 0%;
+    position: relative;
+    left: 140px;
+    bottom: -3px;
+  }
+  .form-check-label{
+    position: absolute;
+    left: 180px;    
   }
 }
 /*
@@ -141,6 +171,16 @@ section,img,p,button{
   }
   section .cuadroCategoria .tituloSnak{
     position: absolute;
+  }
+  .form-check-input{
+    width: 0%;
+    position: relative;
+    left: 156px;
+    bottom: -3px;
+  }
+  .form-check-label{
+    position: absolute;
+    left: 230px;    
   }
 }
 
