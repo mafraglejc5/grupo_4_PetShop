@@ -24,8 +24,14 @@ module.exports = {
     },
     /*MUESTRO EL DETALLE DEL PRODUCTO*/
     detalle:function(req,res){
+        let idProducto = req.params.id;
         //busco en la base de datos el id del producto seleccionado.
-        db.Productos.findByPk(req.params.id)
+        db.Productos.findOne({
+            where: {
+                id: idProducto
+            },
+            include:[{association: 'subcategoria'}]
+        })
             .then(producto =>{
                 res.render("productDetail",{
                     title: "Detalle del producto",

@@ -10,7 +10,7 @@ div h2.tituloProducto{
 div .tarjetas p{
     padding-top: 10px;
 }
-div .tituloPrecios{
+div .tituloPrecios{    
     padding: 10px;
     text-align:center;
     background-color: #f0f0f0;
@@ -86,9 +86,16 @@ div .acordeon_contenido{
 }
 /*en el momeno que hago click, se despliega*/
 div .acordeon input:checked ~ .acordeon_contenido{
+    text-align: left;
     height: auto;
     margin: 15px 0px;
     padding-left: 20px;
+    color: black;
+    font-weight: 600;
+}
+div .acordeon_contenido span{
+    color: rgb(37, 37, 37);
+    font-weight: 500;
 }
 div .icono.izquierdo{
     float: right;
@@ -112,6 +119,16 @@ div .icono.derecho{
         justify-content: center;
         justify-items: center;
     }
+    div .btn-minus{
+        width: 40%;
+    }
+    div .btn-plus{
+        width: 40%;
+    }
+    div .btn-comprar{
+        position: relative;
+        left: 15px;
+    }
 }
 @media(min-width:1024px){
     div .acordeon{
@@ -128,5 +145,24 @@ div .icono.derecho{
         left: 36px;
         bottom: 25px;
         width: 30%;
+    }
+    div.btn-MinPlus{
+        align-content: center;
+        text-align: center;
+    }
+    div.botonMinPlus{
+        padding-top: 50px;
+    }
+    div .btn-comprar{
+        position: relative;
+        left: -182px;
+        bottom: -28px;
+    }
+}
+@media(min-width:1440px){
+    div .btn-comprar{
+        position: relative;
+        left: -194px;
+        bottom: -28px;
     }
 }

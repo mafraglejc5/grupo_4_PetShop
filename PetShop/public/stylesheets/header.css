@@ -35,7 +35,7 @@ header{
   header form button{
     position: absolute;
     right: 2px;
-    bottom: 7px;
+    bottom: 9px;
     height: 60%;
     background-color: white;
     /*le saco los bordes al boton*/
@@ -115,6 +115,25 @@ header{
 */
 marquee{
   width: 100%;  
+}
+div.buscadorClientes input{
+  border: solid 1px var(--color-grisClaro);
+  display: block;
+  width: 100%;
+  padding: 7px 35px 7px 7px;
+  border-radius: 5px;
+  height: 40px;
+}
+div .btn-buscaCliente{  
+  position: absolute;
+  right: 16px;
+  bottom: 2px;
+  height: 89%;
+  background-color: white;
+  /*le saco los bordes al boton*/
+  border: none;
+  border-left: solid 1px gray;
+  cursor: pointer;
 }
   /* 
                    FINALIZA EL HEADER
@@ -198,6 +217,19 @@ marquee{
     header .dropdown-item:hover{
       background-color: rgb(202, 245, 238);
     }
+    div.buscadorClientes input{
+      width: 40%;
+      height: 30px;
+    }
+    div h1.clientes{
+      text-align: left;
+      padding-left: 10px;
+    }
+    div .btn-buscaCliente{
+      left: 246px;
+      bottom: 9px;
+      height: 30%;
+    }
   }
   
   @media(min-width:1024px){
@@ -216,5 +248,8 @@ marquee{
     position: relative;
     left: 167px;
     top: -8px;
-    }    
+    }
+    div .btn-buscaCliente{
+      left: 336px;
+    }
   }

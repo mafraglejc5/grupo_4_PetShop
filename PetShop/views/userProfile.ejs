@@ -1,136 +1,177 @@
-
 <%- include('partials/head') %>
 
 <body>
 	<%- include('partials/header') %>
 	<div class="container">
-	  <section class="perfilUsuario">
-		<div class="row principal">
-  
-		  <div class="titulo col-12">
-			<h2>
-			  <%= title %>
-			</h2>
-		  </div>
-		  <div class="col-12">
-  
-			<div class="contenido">
-  
+		<section class="perfilUsuario">
+			<div class="row principal">
 
-			  <ul class="nav nav-tabs " id="myTab" role="tablist">
-				<li class="nav-item " role="presentation">
-				  <a class="nav-link active" id="home-tab" data-toggle="tab" href="#datos" role="tab" aria-controls="home"
-					aria-selected="true">Mis Datos</a>
-				</li>
-				<li class="nav-item " role="presentation">
-				  <a class="nav-link " id="profile-tab" data-toggle="tab" href="#productos" role="tab"
-					aria-controls="profile" aria-selected="false">Mis Productos</a>
-				</li>
-			  </ul>
-			  <div class="tab-content" id="myTabContent">
-  
-				<div class="tab-pane fade show active p-4" id="datos" role="tabpanel" aria-labelledby="home-tab">
-				 	<!--SE MODIFICÓ CODIGO PARA USAR LA BASE DE DATOS Y MEJORAR LA VISTA-->
-					  <form action="/users/editProfile/<%= usuario.id %>?_method=PUT" method="POST"
-						enctype="multipart/form-data">
-						<div class="form-row">
-						  <div class="col-12 col-md-4 mt-3 d-flex flex-column align-items-center">
-							<% if (usuario.rol == "store") { %>
-							<img src="/images/logos/<%= usuario.avatar %> " class="avatarImg" alt="avatar" width="75%"
-							  style="object-fit: cover; object-position: top;">
-							<% } else { %>
-							<img src="/images/users/<%= usuario.avatar %> " class="avatarImg" alt="avatar" width="75%"
-							  style="object-fit: cover; object-position: top;">
-							<% } %>
-							<div class="form-group w-75">
-							  <input type="file" class="form-control" id="avatarImput" name="avatar">
-							</div>
-						  </div>
-						  <div class="col-12 col-md-8 ">
-							<div class="form-row mt-2">
-							  <div class="form-group col-12 col-md-6 ">
-								<label for="inputNombre">Nombre</label>
-								<input type="text" name="nombre" class="form-control" id="inputNombre"
-								  value="<%= usuario.nombre %>" >
-							  </div>
-							  <div class="form-group col-12 col-md-6">
-								<label for="inputApellido">Apellido</label>
-								<input type="text" name="apellido" class="form-control" id="inputApellido"
-								  value="<%= usuario.apellido %>" >
-							  </div>
-							  <div class="form-group col-12 col-md-6">
-								<label for="imputEmail">Email</label>
-								<input type="email" name="email" class="form-control" id="imputEmail"
-								  value=<%= usuario.email %> >
-							  </div>
-							  <div class="form-group col-12 col-md-6">
-								<label for="imputEmail">Fecha de nacimiento</label>
-								<input type="date" name="fecha" class="form-control" id="imputEmail"
-								  value=<%= usuario.fecha %>>
-							  </div>
-							  <div class="form-group col-12">
-								<label for="inputAddress2">Dirección</label>
-								<input type="text" name="direccion" class="form-control" id="inputAddress2"
-								  value="<%= usuario.direccion %>">
-							  </div>
-							  <div class="form-group col-12 col-md-6">
-								<label for="imputCiudad">Ciudad</label>
-								<input type="text" name="ciudad" class="form-control" id="inputCiudad"
-								  value="<%= usuario.ciudad %>">
-								<select class="form-control" id="ciudadSelect" style="display: none;"></select>
-  
-							  </div>
-							  <div class="form-group col-12 col-md-6">
-								<label for="inputProvincia">Provincia</label>
-								<input type="text" name="provincia" class="form-control" id="inputProvincia"
-								  value="<%= usuario.provincia %>">
-								<select class="form-control" id="provinciaSelect" style="display: none;">
-								</select>
-							  </div>
-							</div>
-							<div class="d-md-flex justify-content-end mt-5">
-							  <button type="button" class="btn-sm btn-secondary m-1"><a href="/" class="text-light">Salir sin guardar</a></button>
-							  <button type="submit" class="btn-sm btn-primary m-1">Actualizar datos</button>
-							</div>
-						  </div>
-						</div>
-					  </form>
-				  
-					  <div class="col-12 col-md-4 d-flex justify-content-center">
-						<form action="/users/eliminar/<%= usuario.id %>?_method=DELETE" method="POST">
-						  <button type="submit" class="btn-sm btn-danger">Darse de baja</button>
-						</form>
-					  </div>
-  
-					</div>
-			   
-  
-  
-				<div class="tab-pane fade  " id="productos" role="tabpanel" aria-labelledby="profile-tab">
-  
-				  <div class="row principal p-4">
-  
-					<div class="col-12 col-md-4 col-xl-3">
-  
-					  <div class="contenido">
-  
-					  </div>
-					</div>
-  
-				  </div>
+				<div class="titulo col-12">
+					<h2>
+						<%= title %>
+					</h2>
 				</div>
-			  </div>
+				<div class="col-12">
+
+					<div class="contenido">
+
+
+						<ul class="nav nav-tabs " id="myTab" role="tablist">
+							<li class="nav-item " role="presentation">
+								<a class="nav-link active" id="home-tab" data-toggle="tab" href="#datos" role="tab"
+									aria-controls="home" aria-selected="true">Mis Datos</a>
+							</li>
+							<li class="nav-item " role="presentation">
+								<% if(locals.user.id ==1 ){ %>
+								<!--SI EL USUARIO ES EL ADMINISTRADOR, MUESTRO CLIENTES-->
+								<a class="nav-link " id="profile-tab" data-toggle="tab" href="#clientes" role="tab"
+									aria-controls="profile" aria-selected="false">Clientes</a>
+								<% }else{ %>
+								<!--SI ES UN USUARIO NORMAL, MUESTRO EL HISTORIAL DE COMPRAS HASTA EL MOMENTO-->
+								<a class="nav-link " id="profile-tab" data-toggle="tab" href="#historial" role="tab"
+									aria-controls="profile" aria-selected="false">Mi Historial</a>
+								<% } %>
+							</li>
+						</ul>
+						<div class="tab-content" id="myTabContent">
+
+							<div class="tab-pane fade show active p-4" id="datos" role="tabpanel"
+								aria-labelledby="home-tab">
+								<!--SE MODIFICÓ CODIGO PARA USAR LA BASE DE DATOS Y MEJORAR LA VISTA-->
+								<form action="/users/editProfile/<%= usuario.id %>?_method=PUT" method="POST"
+									enctype="multipart/form-data">
+									<div class="form-row">
+										<div class="col-12 col-md-4 mt-3 d-flex flex-column align-items-center">
+											<% if (usuario.rol == "store") { %>
+											<img src="/images/logos/<%= usuario.avatar %> " class="avatarImg"
+												alt="avatar" width="75%"
+												style="object-fit: cover; object-position: top;">
+											<% } else { %>
+											<img src="/images/users/<%= usuario.avatar %> " class="avatarImg"
+												alt="avatar" width="75%"
+												style="object-fit: cover; object-position: top;">
+											<% } %>
+											<div class="form-group w-75">
+												<input type="file" class="form-control" id="avatarImput" name="avatar">
+											</div>
+										</div>
+										<div class="col-12 col-md-8 ">
+											<div class="form-row mt-2">
+												<div class="form-group col-12 col-md-6 ">
+													<label for="inputNombre">Nombre</label>
+													<input type="text" name="nombre" class="form-control"
+														id="inputNombre" value="<%= usuario.nombre %>">
+												</div>
+												<div class="form-group col-12 col-md-6">
+													<label for="inputApellido">Apellido</label>
+													<input type="text" name="apellido" class="form-control"
+														id="inputApellido" value="<%= usuario.apellido %>">
+												</div>
+												<div class="form-group col-12 col-md-6">
+													<label for="imputEmail">Email</label>
+													<input type="email" name="email" class="form-control"
+														id="imputEmail" value=<%= usuario.email %>>
+												</div>
+												<div class="form-group col-12 col-md-6">
+													<label for="imputEmail">Fecha de nacimiento</label>
+													<input type="date" name="fecha" class="form-control" id="imputEmail"
+														value=<%= usuario.fecha %>>
+												</div>
+												<div class="form-group col-12">
+													<label for="inputAddress2">Dirección</label>
+													<input type="text" name="direccion" class="form-control"
+														id="inputAddress2" value="<%= usuario.direccion %>">
+												</div>
+												<div class="form-group col-12 col-md-6">
+													<label for="imputCiudad">Ciudad</label>
+													<input type="text" name="ciudad" class="form-control"
+														id="inputCiudad" value="<%= usuario.ciudad %>">
+													<select class="form-control" id="ciudadSelect"
+														style="display: none;"></select>
+
+												</div>
+												<div class="form-group col-12 col-md-6">
+													<label for="inputProvincia">Provincia</label>
+													<input type="text" name="provincia" class="form-control"
+														id="inputProvincia" value="<%= usuario.provincia %>">
+													<select class="form-control" id="provinciaSelect"
+														style="display: none;">
+													</select>
+												</div>
+											</div>
+											<div class="d-md-flex justify-content-end mt-5">
+												<button type="button" class="btn-sm btn-secondary m-1"><a href="/"
+														class="text-light">Salir sin guardar</a></button>
+												<button type="submit" class="btn-sm btn-primary m-1">Actualizar
+													datos</button>
+											</div>
+										</div>
+									</div>
+								</form>
+
+								<div class="col-12 col-md-4 d-flex justify-content-center">
+									<form action="/users/eliminar/<%= usuario.id %>?_method=DELETE" method="POST">
+										<button type="submit" class="btn-sm btn-danger">Darse de baja</button>
+									</form>
+								</div>
+
+							</div>
+
+							
+							<!--APERTURA CLIENTES-->
+							<div class="tab-pane fade  " id="clientes" role="tabpanel" aria-labelledby="profile-tab">
+
+								<div class="row principal p-4">
+
+									<div class="col-12 col-md-12">
+
+										<div class="contenido">
+											<!--FALTA PONER LISTA DE CLIENTES-->
+											<h1 class="clientes">Clientes</h1>
+											<div class="col-12-col-md-6 buscadorClientes">
+												<form class="buscadorClientes" action="" method="get">
+													<input type="text" name="search" id="search"
+														placeholder="Buscar Clientes..">
+													<button class="btn-buscaCliente" type="submit"><i
+															class="fas fa-search"></i></button>
+												</form>
+											</div>
+										</div>
+									</div>
+
+								</div>
+							</div>
+							<!--CIERRE CLIENTES-->
+							
+
+							<!--APERTURA HISTORIAL-->
+							<div class="tab-pane fade  " id="historial" role="tabpanel" aria-labelledby="profile-tab">
+
+								<div class="row principal p-4">
+
+									<div class="col-12 col-md-12">
+										<div class="contenido">
+											<!--FALTA PONER EL HISTORIAL DE COMPRAS-->
+											<h1>Historial</h1>
+										</div>
+									</div>
+
+								</div>
+							</div>
+							<!--CIERRE HISTORIAL-->
+							
+						</div>
+					</div>
+				</div>
 			</div>
-		  </div>
-		</div>
-	  </section>
+		</section>
 	</div>
-  
-  
-  
-  
+
+
+
+
 	<%- include('partials/footer') %>
-  
-  </body>
-  
-  </html>
+
+</body>
+
+</html>

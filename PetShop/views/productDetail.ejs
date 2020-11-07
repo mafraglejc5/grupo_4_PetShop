@@ -5,7 +5,7 @@
     <!-- APERTURA PRIMER FILA-->
     <div class="row">
         <div class="col-12 col-md-12 col-lg-4 imgProducto">
-            <img  src="/images/Productos/<%= producto.image %> " alt=<%= producto.image %>>
+            <img src="/images/Productos/<%= producto.image %> " alt=<%= producto.image %>>
         </div>
         <div class="col-12 col-md-12 col-lg-8 DetalleProducto">
             <!--SEGUNDA FILA-->
@@ -18,19 +18,22 @@
                 <!--APERTURA CAJA DEL PRECIO-->
                 <div class="col-12 col-md-6 col-lg-4 tituloPrecios">
                     <p class="tituloPrecio">Precio</p>
-                    <p class="precioOff"><strike>$<%= producto.price.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".") %></strike> <strong> <%= producto.discount %>  % OFF -12%</p>
+                    <p class="precioOff">
+                        <strike>$<%= producto.price.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".") %></strike>
+                        <%= producto.discount %> % OFF -12%</p>
                     <p class="precioTotal">
-                        <h2>
-                            $<%- (producto.price - producto.price * producto.discount / 100).toFixed(0).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".") %> 
-                          </h2>
+                    <h2>
+                        $<%- (producto.price - producto.price * producto.discount / 100).toFixed(0).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".") %>
+                    </h2>
                     </p>
                 </div>
                 <!--CIERRE CAJA DEL PRECIO-->
-                <div class="col-12 col-md-6 col-lg-8">
+                <div class="col-12 col-md-6 col-lg-8 btn-MinPlus">
                     <!--APERTURA CAJA BOTON CANTIDAD-->
                     <div class="botonMinPlus">
-                        <button class="btn-minus btn-success">-</button><span class="valorCant"
-                            value="1">1</span><button class="btn-plus btn-success">+</button>
+                        <button class="btn-minus btn-success">-</button>
+                        <span class="valorCant" value="1">1</span>
+                        <button class="btn-plus btn-success">+</button>
                         <button type="button" class="btn btn-primary btn-comprar">Comprar</button>
                     </div>
                 </div>
@@ -50,13 +53,35 @@
                             <i class="fab fa-cc-mastercard"></i>
                             <i class="fab fa-cc-visa"></i>
                         </div>
-                        <button type="button" class="btn btn-light">Ver promociones bancarias</button>
+                        <a href="" class="text-info" data-toggle="modal" data-target="#exampleModalCenter"><button type="button" class="btn btn-light">Ver promociones bancarias</button></a>
+
+                        <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog"
+                            aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+                            <div class="modal-dialog modal-dialog-centered" role="document">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <h5 class="modal-title" id="exampleModalLongTitle">Promociones bancarias</h5>
+                                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                            <span aria-hidden="true">&times;</span>
+                                        </button>
+                                    </div>
+                                    <div class="modal-body">
+                                        ...
+                                    </div>
+                                    <div class="modal-footer">
+                                        <button type="button" class="btn btn-secondary"
+                                            data-dismiss="modal">Cerrar</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!--CIERRE Modal BASESyCONDICIONES-->
                     </div>
                 </div>
                 <!--CIERRE TARJETAS-->
-                
+
             </div>
-            
+
         </div>
         <!--APERTURA DESCRIPCION Y FICHA TECNICA-->
         <div class="col-12 col-md-12 acordeon">
@@ -64,25 +89,30 @@
                 <input type="checkbox" name="acordeon" id="item1">
                 <label for="item1" class="acordeon_titulo"><i class="icono derecho far fa-file-alt"></i> Descripción <i
                         class="icono izquierdo fas fa-chevron-down"></i></label>
-                <p class="acordeon_contenido">   $<%-(producto.name) %> <br>
-                    $<%-(producto.description) %>
+                <p class="acordeon_contenido">
+                    Nombre del producto: <span><%-(producto.name) %></span> <br>
+                    Descripción: <span><%-(producto.description) %></span>
                 </p>
             </div>
             <div class="acordeon_item">
                 <input type="checkbox" name="acordeon" id="item2">
-                <label for="item2" class="acordeon_titulo"><i class="icono derecho fas fa-clipboard-list"></i> Ficha tecnica <i
-                        class="icono izquierdo fas fa-chevron-down"></i></label>
+                <label for="item2" class="acordeon_titulo"><i class="icono derecho fas fa-clipboard-list"></i> Ficha
+                    tecnica <i class="icono izquierdo fas fa-chevron-down"></i></label>
                 <p class="acordeon_contenido">
-                    •   <%-(producto.name) %>  <br>
-                    •   <%-(producto.marca) %> <br>
-                    •   <%-(producto.categoria) %> <br>
-                    •   <%-(producto.peso) %>  <br>
+                    Nombre del producto: <span><%-(producto.name) %></span> <br>
+                    Marca: <span><%-(producto.marca) %></span> <br>
+                    Para: <span><%-(producto.categoria) %></span> <br>
+                    Categoria: <span><%-(producto.id_subcategoria.name) %></span> <br>
+                    Peso: <span><%-(producto.peso) %>kg</span> <br>
                 </p>
             </div>
         </div>
         <!--CIERRE DESCRIPCION Y FICHA TECNICA-->
     </div>
     <!--CIERRE PRIMER FILA-->
-
 </div>
+<!--Apertura del como funciona-->
+<%- include('./partials/shipping.ejs') %>
+<!--CIERRE del como funciona-->
+
 <%- include('./partials/footer.ejs') %>
