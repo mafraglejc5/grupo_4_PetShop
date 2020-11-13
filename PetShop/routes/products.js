@@ -2,7 +2,7 @@ const express = require('express');
 const router = express.Router();
 const productsController = require('../controllers/productsController')
 const upImagesProducts = require ('../middlewares/upImagesProducts')
-const redirectAdmin = require('../redirect/redirectAdmin');
+const redirectAdmin = require('../middlewares/redirectAdmin');
 
 
 /*MUESTRO LISTA, DETALLE DE CADA PRODUCTO Y BUSCO*/

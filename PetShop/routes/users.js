@@ -7,8 +7,8 @@ const usersController = require('../controllers/usersController')
 const upImagesUsers = require('../middlewares/upImagesUsers')
 const registerValidator = require('../validations/registerValidator')
 const loginValidator = require('../validations/loginValidator');
-const redirectUsers = require('../redirect/redirectUsers');
-const redirectProfile = require('../redirect/redirectProfile');
+const redirectUsers = require('../middlewares/redirectUsers');
+const redirectProfile = require('../middlewares/redirectProfile');
 
 
 router.get('/register',redirectUsers,usersController.register);
