@@ -12,7 +12,8 @@ module.exports = {
     register: function (req, res) {
         res.render('userRegister', {
             title: "Registro de Usuario",
-            css: 'index.css'
+            css: 'register.css',
+            script: 'userRegister.js'
         })
     },
     processRegister: function (req, res) {
@@ -39,7 +40,8 @@ module.exports = {
         } else {
             res.render('userRegister', {
                 title: "Registro de Usuario",
-                css: "index.css",
+                css: "register.css",
+                script: 'userRegister.js',
                 errors: errors.mapped(),
                 old: req.body
             })

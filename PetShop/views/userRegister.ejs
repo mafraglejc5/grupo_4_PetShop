@@ -4,11 +4,11 @@
 <%- include('partials/header')  %>
 
 <div class="container">
-	<section class="login">
+	<section class="sectionRegister">
 		<div class="row principal">
 			<div class="titulo col-12">
 
-				<h2><%= title %></h2>
+				<h2 class="registroUsuario"><%= title %></h2>
 
 			</div>
 			<div class="col-12">
@@ -16,11 +16,11 @@
 					<div class="row py-3 px-5">
 						<div class="col-12 col-md-5 col-lg-6 col-xl-4 d-flex flex-column justify-content-center">
 							<figure>
-								<img src="/images/Logo-PetShop.png" alt="" class="w-75" />
+								<img id="vistaPrevia" src="" alt="" class="w-75" />
 							</figure>
 						</div>
 						<div class="col-12 col-md-7 col-lg-6 col-xl-8 ">
-							<form action="" method="POST" enctype="multipart/form-data">
+							<form action="" method="POST" enctype="multipart/form-data" id="register">
 								<div class="form-row">
 
 									<div class="form-group col-12 col-xl-6">
@@ -30,8 +30,8 @@
 											id="nombre" name="nombre"
 											value="<%= (typeof old != 'undefined' && old.nombre)?old.nombre:'' %>"
 											placeholder="nombre" />
-										<small
-											class="text-danger"><%= (typeof errors != 'undefined' && errors.nombre)?errors.nombre.msg: "" %>
+										<small class="text-danger bg-dark"
+											id="errorNombre"><%= (typeof errors != 'undefined' && errors.nombre)?errors.nombre.msg: "" %>
 										</small>
 									</div>
 
@@ -42,8 +42,8 @@
 											id="apellido"
 											value="<%= (typeof old != 'undefined' && old.apellido)?old.apellido:'' %>"
 											placeholder="apellido" name="apellido" />
-										<small
-											class="text-danger"><%= (typeof errors != 'undefined' && errors.apellido)?errors.apellido.msg: "" %>
+										<small class="text-danger bg-dark"
+											id="errorApellido"><%= (typeof errors != 'undefined' && errors.apellido)?errors.apellido.msg: "" %>
 										</small>
 									</div>
 
@@ -55,8 +55,8 @@
 										<input type="password"
 											class="form-control <%= (typeof errors != 'undefined' && errors.pass)?"is-invalid": ""  %>"
 											id="pass" placeholder="contraseña" name="pass" />
-										<small
-											class="text-danger"><%= (typeof errors != 'undefined' && errors.pass)?errors.pass.msg: "" %>
+										<small class="text-danger bg-dark"
+											id="errorPass"><%= (typeof errors != 'undefined' && errors.pass)?errors.pass.msg: "" %>
 										</small>
 									</div>
 
@@ -65,8 +65,8 @@
 										<input type="password"
 											class="form-control <%= (typeof errors != 'undefined' && errors.pass2)?"is-invalid": ""  %>"
 											id="pass2" placeholder="reingresar contraseña" name="pass2" />
-										<small
-											class="text-danger"><%= (typeof errors != 'undefined' && errors.pass2)?errors.pass2.msg: "" %>
+										<small class="text-danger bg-dark"
+											id="errorPass2"><%= (typeof errors != 'undefined' && errors.pass2)?errors.pass2.msg: "" %>
 										</small>
 
 									</div>
@@ -80,8 +80,8 @@
 											id="email"
 											value="<%= (typeof old != 'undefined' && old.email)?old.email:'' %>"
 											placeholder="email" name="email" />
-										<small
-											class="text-danger"><%= (typeof errors != 'undefined' && errors.email)?errors.email.msg: "" %>
+										<small class="text-danger bg-dark"
+											id="errorEmail"><%= (typeof errors != 'undefined' && errors.email)?errors.email.msg: "" %>
 										</small>
 									</div>
 
@@ -91,8 +91,8 @@
 												name="avatar">
 											<label class="custom-file-label" for="customFileLang">Seleccionar
 												Archivo</label>
-											<small
-												class="text-danger"><%= (typeof errorFormato != 'undefined')?errorFormato: "" %>
+											<small class="text-danger bg-dark"
+												id="errorFoto"><%= (typeof errorFormato != 'undefined')?errorFormato: "" %>
 											</small>
 										</div>
 									</div>
@@ -103,47 +103,50 @@
 										<div class="custom-control custom-checkbox">
 											<input type="checkbox"
 												class="custom-control-input <%= (typeof old != 'undefined' && old.bases)?"is-valid":(typeof errors != 'undefined' && errors.bases)?"is-invalid": ""  %>"
-												id="customCheck1" name="bases">
-											<label class="custom-control-label" for="customCheck1">acepto las bases y
+												id="bases" name="bases">
+											<label class="custom-control-label" for="bases">acepto las bases y
 												condiciones</label><br>
-											<a href="" class="text-info" data-toggle="modal" data-target="#exampleModalCenter">ver bases y condiciones</a><br>
-											<!--APERTURA Modal BASESyCONDICIONES-->
-											<div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog"
-												aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
-												<div class="modal-dialog modal-dialog-centered" role="document">
-													<div class="modal-content">
-														<div class="modal-header">
-															<h5 class="modal-title" id="exampleModalLongTitle">Bases y condiciones</h5>
-															<button type="button" class="close" data-dismiss="modal"
-																aria-label="Close">
-																<span aria-hidden="true">&times;</span>
-															</button>
-														</div>
-														<div class="modal-body">
-															...
-														</div>
-														<div class="modal-footer">
-															<button type="button" class="btn btn-secondary"
-																data-dismiss="modal">Cerrar</button>
-														</div>
-													</div>
-												</div>
-											</div>
-											<!--CIERRE Modal BASESyCONDICIONES-->
-											<small
-												class="text-danger"><%= (typeof errors != 'undefined' && errors.bases)?errors.bases.msg: "" %>
+											<a href="" class="text-info" data-toggle="modal"
+												data-target="#exampleModalCenter">ver bases y condiciones</a><br>
+
+											<small class="text-danger bg-dark"
+												id="errorBases"><%= (typeof errors != 'undefined' && errors.bases)?errors.bases.msg: "" %>
 											</small>
 										</div>
 									</div>
 									<div class="col-12 col-lg-6 mt-2">
-										<button type="submit" class="btn btn-primary">
+										<span id="msgError" class="text-danger bg-dark"></span>
+										<button type="submit" class="btn btn-primary btn-registrarse">
 											Registrarse
 										</button>
 									</div>
 
 								</div>
+							</form>
 						</div>
-						</form>
+
+						<!--APERTURA Modal BASESyCONDICIONES-->
+						<div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog"
+							aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+							<div class="modal-dialog modal-dialog-centered" role="document">
+								<div class="modal-content">
+									<div class="modal-header">
+										<h5 class="modal-title" id="exampleModalLongTitle">Bases y condiciones</h5>
+										<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+											<span aria-hidden="true">&times;</span>
+										</button>
+									</div>
+									<div class="modal-body">
+										...
+									</div>
+									<div class="modal-footer">
+										<input type="button" class="btn btn-secondary"
+											data-dismiss="modal">Cerrar</input>
+									</div>
+								</div>
+							</div>
+						</div>
+						<!--CIERRE Modal BASESyCONDICIONES-->
 					</div>
 				</div>
 			</div>

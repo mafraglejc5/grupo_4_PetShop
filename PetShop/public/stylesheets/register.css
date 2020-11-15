@@ -1,10 +1,16 @@
-
+@import 'style.css';
 /*-------------------------
    /*-------------------------
         emergente login
 ---------------------------
 */
-
+.sectionRegister{
+	background-color: #ff5722;
+	margin-top: 15px;
+}
+.registroUsuario{
+	text-align: center;
+}
 .login__container {
 	background-color: #EFEFEF;
 	width: 100%;
