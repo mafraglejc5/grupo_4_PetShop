@@ -17,7 +17,7 @@
                             <img src="/images/Logo-PetShop.png" alt="">
                         </div>
                         <div class="col-12 col-md-7 col-lg-6 p-5">
-                            <form action="" method="POST">
+                            <form action="" method="POST" id='login'>
                                 <div class="form-group">
                                     <label for="exampleInputEmail1"></label>
                                     <input type="email" class="form-control 
@@ -27,7 +27,7 @@
                                         value="<%= (typeof old != 'undefined' && old.email)?old.email:'' %>"
                                         placeholder="email" name="email">
                                     <small
-                                        class="text-danger"><%= (typeof errors != 'undefined' && errors.email)?errors.email.msg: "" %>
+                                        class="text-danger" id="errorEmail"><%= (typeof errors != 'undefined' && errors.email)?errors.email.msg: "" %>
                                     </small>
                                 </div>
                                 <div class="form-group">
@@ -35,16 +35,20 @@
                                     <input type="password" class="form-control <%= (typeof errors != 'undefined' && errors.pass)?"is-invalid":
                               '' %>" id="exampleInputPassword1" placeholder="contraseña" name="pass">
                                     <small
-                                        class="text-danger"><%= (typeof errors != 'undefined' && errors.pass)?errors.pass.msg: "" %>
+                                        class="text-danger" id="errorPass" ><%= (typeof errors != 'undefined' && errors.pass)?errors.pass.msg: "" %>
                                     </small>
                                 </div>
                                 <div class="form-group form-check">
                                     <input type="checkbox" class="form-check-input" id="exampleCheck1" name="recordar">
                                     <label class="form-check-label recordarme" for="exampleCheck1">Recordarme</label>
                                 </div>
-                                <div class="form-group d-flex justify-content-around mt-4">                                    
+                                <span id="msgError" class="text-danger"></span>        
+                                <div class="form-group d-flex justify-content-around mt-4">     
+                                    
                                     <a href="/users/register"><button type="button" class="btn btn-outline-success">Creá tu cuenta</button></a>
+
                                     <button type="submit" class="btn btn-outline-primary">Iniciar sesión</button>
+                              
                                 </div>
                             </form>
                         </div>

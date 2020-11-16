@@ -12,8 +12,8 @@ module.exports = {
     register: function (req, res) {
         res.render('userRegister', {
             title: "Registro de Usuario",
-            css: 'register.css',
-            script: 'userRegister.js'
+            css: 'index.css',
+            script : 'userRegister.js'
         })
     },
     processRegister: function (req, res) {
@@ -40,10 +40,10 @@ module.exports = {
         } else {
             res.render('userRegister', {
                 title: "Registro de Usuario",
-                css: "register.css",
-                script: 'userRegister.js',
+                css: "index.css",
                 errors: errors.mapped(),
-                old: req.body
+                old: req.body,
+                script : 'userRegister.js'
             })
         }
 
@@ -51,7 +51,8 @@ module.exports = {
     login: function (req, res) {
         res.render('userLogin', {
             title: "Ingresá a tu cuenta",
-            css: 'index.css'
+            css: 'index.css',
+            script : 'userlogin.js'
         })
     },
     processLogin: function (req, res) {
@@ -86,7 +87,8 @@ module.exports = {
                 title: "Ingresá a tu cuenta",
                 css: "index.css",
                 errors: errors.mapped(),
-                old: req.body
+                old: req.body,
+                script : 'userlogin.js'
             })
         }
     },
@@ -96,7 +98,8 @@ module.exports = {
                 res.render('userProfile', {
                     title: "Perfil de usuario",
                     css: "profile.css",
-                    usuario: user
+                    script : "userProfile.js",
+                    usuario : user
                 })
             })
             .catch(error => {

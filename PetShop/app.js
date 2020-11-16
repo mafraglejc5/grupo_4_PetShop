@@ -26,7 +26,11 @@ app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
 app.use(methodOverride('_method'));
-app.use(session({secret:"PetShopOK"}));
+app.use(session({
+  secret:"PetShopOK",
+  resave: true, // se agrega linea resave y saveunintializated para evitar error en consola deprecated
+  saveUninitialized: true
+}));
 
 app.use(localsUserCheck)
 
