@@ -91,16 +91,7 @@ section,img,p,button{
 /*
       USER
 */
-.form-check-input{
-  width: 0%;
-  position: relative;
-  left: 50px;
-  bottom: -3px;
-}
-.form-check-label{
-  position: absolute;
-  left: 40px;    
-}
+
 /*
       VISUALIZACION TABLET
 */

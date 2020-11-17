@@ -4,22 +4,21 @@
         emergente login
 ---------------------------
 */
+section{
+	background-color: #ff5722;
+	height: auto;
+	margin-top: 20px;
+  }
 .sectionRegister{
 	background-color: #ff5722;
 	margin-top: 15px;
 }
+div .titulo h2{
+	text-align: center;
+}
 .registroUsuario{
 	text-align: center;
 }
-.login__container {
-	background-color: #EFEFEF;
-	width: 100%;
-	border-top: solid .10 rem #F39B53;
-	box-sizing: border-box;
-	padding: 3rem 0;
-	box-shadow: 0 0 .5rem #8A8C8C;
-}
-
 .login__top {
 	display: flex;
 	flex-direction: column;
@@ -84,11 +83,14 @@ input[type=text]:focus, [type=password]:focus {
 
 div .modal-content{
     width: 100%;
-}
+}/*LOGIN*/
 div .login__title{
     text-align:center;
 }
-
+div img.logo-login{
+	height: 120px;
+	position: absolute;
+}/*LOGIN*/
 @media(min-width:768px){
     div .modal-content{
         width: 100%;
@@ -98,7 +100,24 @@ div .login__title{
         top: 0px;
         left: 0px
         ;
-    }
+	}/*LOGIN*/
+	div img.logo-login{
+		top: 80px;
+		right: 0px;
+	}
+	div .form-check{
+		left: 205px;
+	}/*LOGIN*/
+}
+@media(min-width:1024px){
+	/*LOGIN*/
+	div img.logo-login{
+		position: relative;
+		top: 28px;
+	}
+	div .form-check{
+		left: 255px;
+	}/*LOGIN*/
 }
 div .botonMinPlus{
     justify-content: center;

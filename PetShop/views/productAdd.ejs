@@ -1,4 +1,3 @@
-
 <%- include('partials/head')  %>
 
 
@@ -11,64 +10,97 @@
                 <h5>Registro de productos</h5>
             </div>
             <div class="col-12 productosForm">
-                <form action="" method="POST" enctype="multipart/form-data">
+                <figure>
+                    <img id="vistaPrevia" src="" alt="" class="w-75" />
+                </figure>
+                <form id="productAdd" action="" method="POST" enctype="multipart/form-data">
                     <div class="grupo-form">
                         <label for="name">Nombre </label>
                         <br>
-                        <input type="text" class="cajaForm" id="name" name="name" required>
+                        <input class="form-control" id="name" name="name" required>
+                        <small class="text-danger bg-dark"
+                            id="errorNombre"><%= (typeof errors != 'undefined' && errors.nombre)?errors.nombre.msg: "" %>
+                        </small>
                     </div>
                     <div class="grupo-form">
                         <label for="marca">Marca </label>
                         <br>
-                        <input type="text" class="cajaForm" id="marca" name="marca" required>
+                        <input class="form-control" id="marca" name="marca" required>
+                        <small class="text-danger bg-dark"
+                            id="errorMarca"><%= (typeof errors != 'undefined' && errors.marca)?errors.marca.msg: "" %>
+                        </small>
                     </div>
                     <div class="grupo-form">
                         <label for="categoria">Seleccione la categoria </label>
                         <br>
-                        <select name="categoria" class="cajaForm" id="categoria">
-                            <option value="">Elige una opción</option>                   
+                        <select name="categoria" class="form-control" id="categoria">
+                            <option value="">Elige una opción</option>
                             <option value="Gatos">Gato</option>
                             <option value="Perros">Perro</option>
                         </select>
+                        <small class="text-danger bg-dark"
+                            id="errorCategoria"><%= (typeof errors != 'undefined' && errors.categoria)?errors.categoria.msg: "" %>
+                        </small>
                     </div>
                     <div class="grupo-form">
                         <label for="subcategoria">Seleccione la subcategoria </label>
                         <br>
-                        <select name="id_subcategoria" class="cajaForm" id="subcategoria">
-                          <option value="">Elige una opción</option>
-                          <% subCategorias.forEach(subcategorias => { %>
-                              <option value="<%= subcategorias.id %>"><%= subcategorias.name %></option>
-                          <%});%>
-                        </select>                        
+                        <select name="id_subcategoria" class="form-control" id="subcategoria">
+                            <option value="">Elige una opción</option>
+                            <% subCategorias.forEach(subcategorias => { %>
+                            <option value="<%= subcategorias.id %>"><%= subcategorias.name %></option>
+                            <%});%>
+                        </select>
+                        <small class="text-danger bg-dark"
+                            id="errorSubcategoria"><%= (typeof errors != 'undefined' && errors.subcategoria)?errors.subcategoria.msg: "" %>
+                        </small>
                     </div>
                     <div class="grupo-form">
                         <label for="precio">Precio </label>
                         <br>
-                        <input type="number" class="cajaForm" id="price" name="price" required>
+                        <input type="number" class="form-control" id="price" name="price" required>
+                        <small class="text-danger bg-dark"
+                            id="errorPrecio"><%= (typeof errors != 'undefined' && errors.precio)?errors.precio.msg: "" %>
+                        </small>
                     </div>
                     <div class="grupo-form">
                         <label for="peso">Peso </label>
                         <br>
-                        <input type="number" class="cajaForm" id="peso" name="peso" required>
+                        <input type="number" class="form-control" id="peso" name="peso" required>
+                        <small class="text-danger bg-dark"
+                            id="errorPeso"><%= (typeof errors != 'undefined' && errors.peso)?errors.peso.msg: "" %>
+                        </small>
                     </div>
                     <div class="grupo-form">
                         <label for="discount">Descuento </label>
                         <br>
-                        <input type="number" class="cajaForm" id="discount" name="discount" required>
-                    </div>                    
+                        <input type="number" class="form-control" id="discount" name="discount" required>
+                        <small class="text-danger bg-dark"
+                            id="errorDescuento"><%= (typeof errors != 'undefined' && errors.descuento)?errors.descuento.msg: "" %>
+                        </small>
+                    </div>
                     <div class="grupo-form">
                         <label for="description">Descripción </label>
                         <br>
-                        <textarea class="cajaForm" id="description" name="description" cols="30" rows="5" required></textarea>                        
+                        <textarea class="form-control" id="description" name="description" cols="30" rows="5"
+                            required></textarea>
+                        <small class="text-danger bg-dark"
+                            id="errorDescripcion"><%= (typeof errors != 'undefined' && errors.descripcion)?errors.descripcion.msg: "" %>
+                        </small>
                     </div>
                     <div class="grupo-form">
                         <label for="subirArchivo">Foto del producto</label>
                         <br>
                         <input type="file" class="form-control-file" id="image" name="image">
+                        <small class="text-danger bg-dark"
+                            id="errorImagen"><%= (typeof errors != 'undefined' && errors.imagen)?errors.imagen.msg: "" %>
+                        </small>
                     </div>
                     <div class="botones">
+                        <span id="errorSubmit" class="text-danger bg-dark"></span>
                         <button class="btn btn-success btn-cargaProducto" type="submit">Aceptar</button>
                         <button class="btn btn-success" type="button">Cancelar</button>
+                        
                     </div>
                 </form>
             </div>

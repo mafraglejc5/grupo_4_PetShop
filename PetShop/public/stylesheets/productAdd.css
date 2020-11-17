@@ -1,13 +1,20 @@
+@import "style.css";
+
+
 /*
 CAJA CON EL TITULO Y FORMULARIOS
 MOVIL
 */
+div form .grupo-form input, select{
+    width: 90%;
+}
 div h5{
     padding-top: 20px;
     text-align: center;
 }
 div .productosForm{
     width: 90%;
+    background-color: #ff5722;
 }
 div form label{
     font-size: 18px;
@@ -27,12 +34,22 @@ div form .form-control-file{
 div form .btn-cargaProducto{
     margin-right: 10px;
 }
+div form .grupo-form .form-control{
+    width: 90%;
+}
+div .productosForm .w-75{
+    width: 75% !important;
+    bottom: -6px;
+    position: relative;
+    margin: 25px;
+}
+
 /*
             VISTA TABLET
 */
 @media(min-width:768px){
-    div form .cajaForm{
-        width: 50%;
+    div form .grupo-form input, select, textarea{
+        width: 45%;
     }
     div form .botones{
         padding-top: 20px;
@@ -41,7 +58,24 @@ div form .btn-cargaProducto{
     }
     div .form-control-file{
         position: relative;
-        left: 182px;
+        left: 0px;
+    }
+    div form .form-control-file{
+        text-align: left;
+    }
+    div form .grupo-form .form-control{
+        width: 45%;
+    }
+    div .productosForm .w-75{
+        width: 40% !important;
+        position: absolute;
+        right: 60px;
+        bottom: 72px;
+    }
+    div .productosForm #errorSubmit{
+        position: relative;
+        left: 254px;
+        bottom: 40px;
     }
 }
 /*
@@ -49,8 +83,11 @@ div form .btn-cargaProducto{
 toma los valores de la tablet
 */
 @media(min-width:1024px){
-    div form .cajaForm{
-        width: 50%;
+    div form .grupo-form {
+        padding-left: 30px;
+    }
+    div form .grupo-form input, select, textarea{
+        width: 35%;
     }
     div form .botones{
         padding-top: 20px;
@@ -59,6 +96,28 @@ toma los valores de la tablet
     }
     div .form-control-file{
         position: relative;
-        left: 300px;
+        left: 0px;
+    }
+    div form .botones{
+        padding-top: 20px;
+        padding-left: 15px;
+        text-align: left;
+    }
+    div .form-control-file{
+        position: relative;
+        left: 0px;
+    }
+    div form .form-control-file{
+        text-align: left;
+    }
+    div .productosForm .w-75{
+        width: 40% !important;
+        position: absolute;
+        right: 60px;
+        bottom: 70px;
+    }
+    div .productosForm #errorSubmit{
+        position: absolute;
+        left: 45px;
     }
 }

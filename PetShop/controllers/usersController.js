@@ -51,7 +51,7 @@ module.exports = {
     login: function (req, res) {
         res.render('userLogin', {
             title: "Ingresá a tu cuenta",
-            css: 'index.css',
+            css: 'register.css',
             script : 'userlogin.js'
         })
     },
@@ -85,7 +85,7 @@ module.exports = {
         } else {
             res.render('userLogin', {
                 title: "Ingresá a tu cuenta",
-                css: "index.css",
+                css: "register.css",
                 errors: errors.mapped(),
                 old: req.body,
                 script : 'userlogin.js'

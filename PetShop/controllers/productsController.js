@@ -76,7 +76,8 @@ module.exports = {
         .then(subCategorias =>{
             res.render('productAdd',{
                 title:"Cargar producto",
-                css: "products.css",
+                css: "productAdd.css",
+                script: 'validarProducto.js',
                 subCategorias: subCategorias
             })
         })
@@ -202,7 +203,7 @@ module.exports = {
             }
         })
             .then(result=>{
-                res.render('/products')
+                res.redirect('/products')
             })
             .catch(error =>{
                 res.send(error)
