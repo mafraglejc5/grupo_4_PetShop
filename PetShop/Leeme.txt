@@ -1,0 +1,9 @@
+- Para poder logear como administrador, para cargar un producto, 
+eliminar o editar algun producto. Se debe ingresar con el siguiente dato: 
+
+Usuario: admin@gmail.com
+Password: Hola1234
+
+*************************************************************
+
+PREGUNTAR POR QUE NO VALIDA DESDE EL FRONT, EL CAMPO subCategoria.

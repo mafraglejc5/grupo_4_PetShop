@@ -47,6 +47,9 @@
                         <br>
                         <select name="id_subcategoria" class="form-control" id="subcategoria">
                             <option value="">Elige una opción</option>
+                            <% if (typeof oldCategoria != 'undefined') { %>
+                                <option value="<%= old.categoria %> " selected><%= oldCategoria %> </option>
+                            <% } %>
                             <% subCategorias.forEach(subcategorias => { %>
                             <option value="<%= subcategorias.id %>"><%= subcategorias.name %></option>
                             <%});%>

@@ -16,7 +16,7 @@ window.addEventListener('load',function(){
 
 
     inputEmail.addEventListener('blur',function(){
-
+        console.log(inputEmail.value.length);
         switch (true) {
             case this.value.length === 0:
                 errorEmail.innerHTML = "Para ingresar a PETSHOP VSG: El campo email es obligatorio";
@@ -61,8 +61,9 @@ window.addEventListener('load',function(){
         e.preventDefault();
         let elementos = formulario.elements
         let error = false
-        for (let index = 0; index < elementos.length-1; index++) {
+        for (let index = 0; index < 2; index++) {
             if(elementos[index].value == 0){
+                console.log(elementos[index].value);
                 elementos[index].classList.add('is-invalid');
                error = true;
             }

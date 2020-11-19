@@ -65,6 +65,7 @@ window.addEventListener('load', function () {
         inputSubcategoria.addEventListener('blur', function () {
             switch (true) {
                 case this.value.length === 0:
+                    console.log(this.value.length);
                     errorSubcategoria.innerHTML = "Debe seleccionar una subcategoria.";
                     this.classList.add('is-invalid');
                     break;
@@ -170,11 +171,22 @@ window.addEventListener('load', function () {
             e.preventDefault();
             let elementos = formulario.elements;
             let error = false;
-            for (let i = 0; i < elementos.length-1; i++) {
+            for (let i = 0; i < 8; i++) {
                 if(elementos[i].value == 0){
                     elementos[i].classList.add('is-invalid');
                     error = true;
                 }
+            }
+            if(elementos[0].value.length <4){
+                console.log("entro");
+                error = true
+                errorNombre.innerHTML = "Tenés que poner al menos 4 letras"
+                this.classList.add('is-invalid')
+            }
+            if(elementos[1].value.length <4){
+                error = true
+                errorMarca.innerHTML = "Tenés que poner al menos 4 letras"
+                this.classList.add('is-invalid')    
             }
             if(!error){
                 formulario.submit();

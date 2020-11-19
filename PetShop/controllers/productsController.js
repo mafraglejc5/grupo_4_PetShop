@@ -98,7 +98,7 @@ module.exports = {
                 peso: Number(req.body.peso),
                 price: Number(req.body.price),
                 description:req.body.description.trim(),
-                image: (req.files[0])?req.files[0].filename:"default.png",
+                image: req.files[0].filename,
                 discount: Number (req.body.discount),
                 id_subcategoria: req.body.id_subcategoria
             })
@@ -108,6 +108,21 @@ module.exports = {
             })
             .catch(error =>{
                 res.send(error)
+            })
+        }else{
+            //entra solamente en esta condicion...
+            db.Subcategorias.findAll({
+                order: [
+                    ['name','ASC']
+                ]
+            })
+            .then(subCategorias => {     
+                res.render('productAdd', {
+                    title: "Agregar Producto",
+                    css:'productAdd.css',
+                    subCategorias: subCategorias,
+                    errors: errors.mapped()
+                }) 
             })
         }
     },
