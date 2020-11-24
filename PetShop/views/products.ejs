@@ -32,7 +32,7 @@
           <% if(typeof user != 'undefined' && locals.user.id ==1){ %>
           <div class="btn-edicion-eliminar">
             <!--redirecciono a la pagina de edicion-->
-            <a href="/products/show/<%= producto.id %>"><button type="button"
+            <a href="/products/edit/<%= producto.id %>"><button type="button"
                 class="btn btn-success">Editar</button></a>
             <!--formulario, para poder eliminar el producto seleccionado-->
             <form action="/products/eliminar/<%= producto.id %>?_method=delete" method="POST">

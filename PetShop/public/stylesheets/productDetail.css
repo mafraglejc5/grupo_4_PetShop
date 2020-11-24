@@ -1,3 +1,4 @@
+@import "style.css";
 div.cuerpo{
     margin-top: 10px ;
 }
@@ -104,6 +105,30 @@ div .icono.derecho{
     color: gray;
     ;
 }
+/*-------------------------
+                   COMO FUNCIONA
+---------------------------
+*/
+
+.caja{
+    background-color: #ff5222;
+    margin-top: 30px;
+    width: auto;
+    height: auto;
+  }
+  .cinco{
+     text-align: center;
+     opacity: RGBA(164, 161, 160, 2)
+  }
+  
+  img{
+     align-content: center;
+  }
+  /*-------------------------
+                     CIERRE  COMO FUNCIONA
+  ---------------------------
+  */
+  
 /*
                     VISUALIZACION PARA TABLET (768PX)
 */

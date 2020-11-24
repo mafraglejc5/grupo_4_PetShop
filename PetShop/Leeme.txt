@@ -7,3 +7,4 @@ Password: Hola1234
 *************************************************************
 
 PREGUNTAR POR QUE NO VALIDA DESDE EL FRONT, EL CAMPO subCategoria.
+PREGUNTAR POR QUE EL CAMPO APARECE VACÍO, EN EDICIÓN DEL PRODUCTO.

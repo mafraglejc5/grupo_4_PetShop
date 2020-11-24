@@ -1,1 +1,1 @@
-SELECT * FROM petshopvsg.users;
+SELECT * FROM petshopvsg;

@@ -1,17 +1,18 @@
 window.addEventListener('load', function () {
     console.log('JS Vinculado...');
 
-    let formulario = document.querySelector('form#productAdd');
+    let formulario = document.querySelector('form#productEdit');
+ 
 
     let inputNombre = formulario.elements[0];
     let inputMarca = formulario.elements[1];
-    let inputCategoria = formulario.elements[2];
-    let inputSubcategoria = formulario.elements[3];
-    let inputPrecio = formulario.elements[4];
-    let inputPeso = formulario.elements[5];
-    let inputDescuento = formulario.elements[6];
-    let inputDescripcion = formulario.elements[7];
-    let inputImagen = formulario.elements[8];
+    let inputCategoria = formulario.elements[4];
+    let inputSubcategoria = formulario.elements[5];
+    let inputPrecio = formulario.elements[6];
+    let inputPeso = formulario.elements[7];
+    let inputDescuento = formulario.elements[8];
+    let inputDescripcion = formulario.elements[3];
+    let inputImagen = formulario.elements[2];
 
     let regExExtensions = /(.jpg|.jpeg|.png|.gif)$/i;
 
@@ -140,6 +141,7 @@ window.addEventListener('load', function () {
                     break;
             }
         }),
+        /*PREGUNTAR POR QUE APARECE VACÍO EL CAMPO CUANDO TIENE UNA IMAGEN CARGADA */
         inputImagen.addEventListener('change', function(e){
             switch (true) {
                 case !regExExtensions.exec(this.value) :
@@ -148,12 +150,7 @@ window.addEventListener('load', function () {
                     this.value = '';
                     vistaPrevia.src = "";
                 break;
-                case this.value.length<0:
-                    errorImagen.innerHTML = "Solo imagenes con extension jpg, jpeg, png, o gif";
-                    this.classList.add('is-invalid')
-                    this.value = '';
-                    vistaPrevia.src = "";
-                break;
+            
                 default:
                     this.classList.remove('is-invalid');
                     this.classList.add('is-valid');

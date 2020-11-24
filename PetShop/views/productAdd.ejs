@@ -19,7 +19,7 @@
                         <br>
                         <input class="form-control" id="name" name="name" required>
                         <small class="text-danger bg-dark"
-                            id="errorNombre"><%= (typeof errors != 'undefined' && errors.nombre)?errors.nombre.msg: "" %>
+                            id="errorNombre"><%= (typeof errors != 'undefined' && errors.name)?errors.name.msg: "" %>
                         </small>
                     </div>
                     <div class="grupo-form">
@@ -35,8 +35,8 @@
                         <br>
                         <select name="categoria" class="form-control" id="categoria">
                             <option value="">Elige una opción</option>
-                            <option value="Gatos">Gato</option>
-                            <option value="Perros">Perro</option>
+                            <option value="Gato">Gato</option>
+                            <option value="Perro">Perro</option>
                         </select>
                         <small class="text-danger bg-dark"
                             id="errorCategoria"><%= (typeof errors != 'undefined' && errors.categoria)?errors.categoria.msg: "" %>
@@ -46,10 +46,7 @@
                         <label for="subcategoria">Seleccione la subcategoria </label>
                         <br>
                         <select name="id_subcategoria" class="form-control" id="subcategoria">
-                            <option value="">Elige una opción</option>
-                            <% if (typeof oldCategoria != 'undefined') { %>
-                                <option value="<%= old.categoria %> " selected><%= oldCategoria %> </option>
-                            <% } %>
+                            <option value="">Elige una opción</option>                            
                             <% subCategorias.forEach(subcategorias => { %>
                             <option value="<%= subcategorias.id %>"><%= subcategorias.name %></option>
                             <%});%>
@@ -63,7 +60,7 @@
                         <br>
                         <input type="number" class="form-control" id="price" name="price" required>
                         <small class="text-danger bg-dark"
-                            id="errorPrecio"><%= (typeof errors != 'undefined' && errors.precio)?errors.precio.msg: "" %>
+                            id="errorPrecio"><%= (typeof errors != 'undefined' && errors.price)?errors.price.msg: "" %>
                         </small>
                     </div>
                     <div class="grupo-form">
@@ -79,7 +76,7 @@
                         <br>
                         <input type="number" class="form-control" id="discount" name="discount" required>
                         <small class="text-danger bg-dark"
-                            id="errorDescuento"><%= (typeof errors != 'undefined' && errors.descuento)?errors.descuento.msg: "" %>
+                            id="errorDescuento"><%= (typeof errors != 'undefined' && errors.discount)?errors.discount.msg: "" %>
                         </small>
                     </div>
                     <div class="grupo-form">
@@ -88,7 +85,7 @@
                         <textarea class="form-control" id="description" name="description" cols="30" rows="5"
                             required></textarea>
                         <small class="text-danger bg-dark"
-                            id="errorDescripcion"><%= (typeof errors != 'undefined' && errors.descripcion)?errors.descripcion.msg: "" %>
+                            id="errorDescripcion"><%= (typeof errors != 'undefined' && errors.description)?errors.description.msg: "" %>
                         </small>
                     </div>
                     <div class="grupo-form">

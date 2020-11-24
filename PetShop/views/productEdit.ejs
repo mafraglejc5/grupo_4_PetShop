@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="es">
+<%- include('partials/head') %>
+
+<%- include('partials/header') %>
+<div class="container">
+    <section class="perfilUsuario">
+        <div class="row perfil principal">
+
+            <div class="titulo col-12">
+                <h2>
+                    <%= title %>
+                </h2>
+            </div>
+
+            <div class="contenido text-left">
+                <!--            ***********************************************
+                                            VENTANA DE EDICION
+                                    ***********************************************-->
+
+                <form id="productEdit" action="/products/edit/<%= producto.id %>?_method=PUT" method="POST" enctype="multipart/form-data">
+                    <div class="row p-3">
+                        <div class="form-group col-6">
+                            <h6>Nombre:</h6>
+                            <input class="form-control" type="text" value="<%= producto.name%>" name="name">
+                            <small class="text-danger bg-dark"
+                                id="errorNombre"><%= (typeof errors != 'undefined' && errors.name)?errors.name.msg: "" %>
+                            </small>
+                        </div>
+                        <div class="form-group col-6">
+                            <h6>Marca:</h6>
+                            <input class="form-control" type="text" value="<%= producto.marca%>" name="marca">
+                            <small class="text-danger bg-dark"
+                                id="errorMarca"><%= (typeof errors != 'undefined' && errors.marca)?errors.marca.msg: "" %>
+                            </small>
+                        </div>
+                        <div class="col-12 col-md-4 col-xl-4 mt-3">
+                            <figure class="text-center">
+                                <img id="vistaPrevia" src="/images/productos/<%= producto.image %> " alt=""
+                                    class="img-fluid" />
+                            </figure>
+                            <input type="file" class="form-control" name="image">
+                            <small class="text-danger bg-dark"
+                                id="errorImagen"><%= (typeof errors != 'undefined' && errors.imagen)?errors.imagen.msg: "" %>
+                            </small>
+                        </div>
+                        <div class="form-group col-12 col-md-8 col-xl-8 mt-3">
+                            <h6>descripción:</h6>
+                            <textarea class="form-control" rows="7" name="description"
+                                id=""><%= producto.description %></textarea>
+                            <small class="text-danger bg-dark"
+                                id="errorDescripcion"><%= (typeof errors != 'undefined' && errors.description)?errors.description.msg: "" %>
+                            </small>
+                            <div class="row">
+                                <div class="form-group col-12 col-lg-4">
+                                    <!--modificado desde aca-->
+                                    <h6>Categoria: </h6>
+                                    <!--        APERTURA
+                                                MUESTRO LO QUE TIENE ASIGNADO EN LA CATEGORIA Y LUEGO MUESTRO PARA QUE PUEDA SELECCIONAR LA OTRA OPCION, SI ES QUE LA QUIERE CAMBIAR-->
+                                    <select name="categoria" id="" class="form-control">
+                                        <% if(producto.categoria =="Gato"){%>
+                                        <option value="<%= producto.categoria %>" selected>
+                                            <%= producto.categoria %></option>
+                                        <option value="<%= producto.categoria %>">Perro</option>
+                                        <% }else if(producto.categoria =="Perro"){ %>
+                                        <option value="<%= producto.categoria %>" selected>
+                                            <%= producto.categoria %></option>
+                                        <option value="<%= producto.categoria %>">Gato</option>
+                                        <% } %>
+                                    </select>
+                                    <small class="text-danger bg-dark"
+                                        id="errorCategoria"><%= (typeof errors != 'undefined' && errors.categoria)?errors.categoria.msg: "" %>
+                                    </small><!--           CIERRE              -->
+                                </div>
+                                <div class="form-group col-12 col-lg-4">
+                                    <!--                 APERTURA
+                                                MUESTRO LAS OPCION QUE ESTA SELECCIONADO DE LA subcategoria
+                                            -->
+                                    <h6>Subcategoria: </h6>
+                                    <select name="id_subcategoria" id="" class="form-control">
+                                        <option value="<%= producto.subcategoria.id %>">
+                                            <%= producto.subcategoria.name %></option>
+                                        <% idCategorias.forEach(element => {%>
+                                        <% if(element.name != producto.subcategoria.name) {%>
+                                        <option value="<%= element.id %>"> <%= element.name %></option>
+                                        <% } %>
+                                        <%}); %>
+                                    </select>
+                                    <small class="text-danger bg-dark"
+                                        id="errorSubcategoria"><%= (typeof errors != 'undefined' && errors.subcategoria)?errors.subcategoria.msg: "" %>
+                                    </small>
+                                    <!--            CIERRE          -->
+                                </div>
+                                <div class="form-group col-6 col-lg-4">
+                                    <h6>Precio:</h6>
+                                    <div class="input-group mb-2 mr-sm-2">
+                                        <div class="input-group-prepend">
+                                            <div class="input-group-text">$</div>
+                                        </div>
+
+                                        <input type="text" class="form-control" value="<%=producto.price%>"
+                                            name="price">
+                                        <small class="text-danger bg-dark"
+                                            id="errorPrecio"><%= (typeof errors != 'undefined' && errors.price)?errors.price.msg: "" %>
+                                        </small>
+                                    </div>
+                                </div>
+                                <div class="form-group col-6 col-lg-3">
+                                    <h6>Peso:</h6>
+                                    <div class="input-group mb-2 mr-sm-2">
+                                        <input type="text" class="form-control" value="<%=producto.peso%>" name="peso">
+                                        <small class="text-danger bg-dark"
+                                            id="errorPeso"><%= (typeof errors != 'undefined' && errors.peso)?errors.peso.msg: "" %>
+                                        </small>
+                                    </div>
+                                </div>
+                                <div class="col-6 col-lg-3">
+                                    <h6>Descuento:</h6>
+                                    <div class="input-group mb-2 mr-sm-2">
+
+                                        <input type="text" class="form-control" value="<%=producto.discount%>"
+                                            name="discount">
+                                        <div class="input-group-prepend">
+                                            <div class="input-group-text">%</div>
+                                        </div>
+                                    </div>
+                                    </span>
+                                    <small class="text-danger bg-dark"
+                                        id="errorDescuento"><%= (typeof errors != 'undefined' && errors.discount)?errors.discount.msg: "" %>
+                                    </small>
+                                </div>
+                                <div class="col-12 d-flex justify-content-end">
+                                    <a href="/products"><button class="btn btn-danger mr-2"
+                                            type="button">Cancelar</button></a>
+                                    <button class="btn btn-info" type="submit" name="id">Guardar</button>
+                                    <span id="errorSubmit" class="text-danger bg-dark"></span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+</div>
+</div>
+</section>
+</div>
+
+
+
+
+<%- include('partials/footer') %>

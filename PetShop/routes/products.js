@@ -11,6 +11,7 @@ const redirectAdmin = require('../middlewares/redirectAdmin');
 
 //VALIDACIONES
 const productValidator = require('../validations/productValidator.js')
+const productEditValidator = require('../validations/productEditValidator.js');
 
 /*MUESTRO LISTA, DETALLE DE CADA PRODUCTO Y BUSCO*/
 router.get('/',productsController.listar);
@@ -22,9 +23,11 @@ router.get('/search',productsController.search)
 router.get('/productAdd',redirectAdmin,productsController.agregar);
 router.post('/productAdd',upImagesProducts.any(),productValidator,productsController.publicar);
 
-router.get('/show/:id/:flap?',redirectAdmin,productsController.show);
+/*EDITO EL PRODUCTO SELECCIONADO */
+router.get('/edit/:id',redirectAdmin,productsController.editar);
+router.put('/edit/:id',upImagesProducts.any(),productEditValidator,productsController.editado);
 
-router.put('/edit/:id',redirectAdmin,upImagesProducts.any(),productsController.editar)
+/*ELIMINO EL PRODUCTO SELECCIONADO */
 router.delete('/eliminar/:id',redirectAdmin,productsController.eliminar)
 
 module.exports = router;
