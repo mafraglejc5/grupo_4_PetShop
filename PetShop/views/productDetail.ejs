@@ -20,7 +20,7 @@
                     <p class="tituloPrecio">Precio</p>
                     <p class="precioOff">
                         <strike>$<%= producto.price.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".") %></strike>
-                        <%= producto.discount %> % OFF -12%</p>
+                        <%= producto.discount %>% OFF</p>
                     <p class="precioTotal">
                     <h2>
                         $<%- (producto.price - producto.price * producto.discount / 100).toFixed(0).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".") %>

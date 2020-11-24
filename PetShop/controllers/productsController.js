@@ -9,6 +9,7 @@ const { validationResult } = require('express-validator');
 module.exports = {
     /*MUESTA LISTA DE PRODUCTOS DE LA BASE DE DATOS*/
     listar: function (req, res) {
+        
         //recorro la base de datos "productos, y envio todos los productos a su ruta"
         db.Productos.findAll()
             .then(producto => {
@@ -256,5 +257,18 @@ module.exports = {
             .catch(error => {
                 res.send(error)
             })
+    },
+    carrito: (req,res)=>{
+        db.Productos.findAll()
+        .then(producto => {
+            res.render('productCart', {
+                title: 'Carrito',
+                css: 'productCart.css',
+                productos: producto
+            })
+        })
+        .catch(error => {
+            res.send(error)
+        })
     }
 }

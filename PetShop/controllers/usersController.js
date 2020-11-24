@@ -93,6 +93,7 @@ module.exports = {
         }
     },
     profile: function (req, res) {
+        
         db.Users.findByPk(req.session.user.id)
             .then(user => {
                 res.render('userProfile', {
@@ -105,9 +106,11 @@ module.exports = {
             .catch(error => {
                 res.send(error)
             })
+
     },
     ///LOS DATOS SE ACTUALIZAN , PERO NO SE SINCRONIZA LA IMAGEN EN EL HEADER, SOLO HASTA QUE CIERRO LA SESSION
     editProfile: (req, res) => {
+        
         db.Users.update({
             nombre: req.body.nombre.trim(),
             apellido: req.body.apellido.trim(),

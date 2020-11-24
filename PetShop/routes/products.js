@@ -17,6 +17,8 @@ const productEditValidator = require('../validations/productEditValidator.js');
 router.get('/',productsController.listar);
 router.get('/detalle/:id',productsController.detalle);
 router.get('/search',productsController.search)
+/*CARRITO DE COMPRAS */
+router.get('/productCart',productsController.carrito);
 
 
 /*AGREGO PRODUCTOS Y MUESTRO LISTA ACTUALIZADA */        
@@ -29,5 +31,6 @@ router.put('/edit/:id',upImagesProducts.any(),productEditValidator,productsContr
 
 /*ELIMINO EL PRODUCTO SELECCIONADO */
 router.delete('/eliminar/:id',redirectAdmin,productsController.eliminar)
+
 
 module.exports = router;

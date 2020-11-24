@@ -8,7 +8,7 @@ LO REDIRECCIONA AL HOME SI QUIERE ENTRAR A LA RUTA /products/productAdd
 module.exports = function redirectAdmin(req,res,next){
     if(req.session.user){
         let usuario = req.session.user;
-        if(usuario.id!=1){
+        if(usuario.rol!='admin'){
             res.redirect('/')
         }
     }if(!req.session.user){

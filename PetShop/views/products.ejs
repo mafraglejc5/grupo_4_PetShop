@@ -28,8 +28,8 @@
             <p><%= producto.name %> </p>
             <i class="fas fa-truck"></i>
           </article>
-          <!--SI EL USUARIO ESTA LOGEADO Y ESTA EL ID ES IGUAL A 1, SE MUESTRA LOS BOTONES editar Y eliminar-->
-          <% if(typeof user != 'undefined' && locals.user.id ==1){ %>
+          <!--SI EL USUARIO ESTA LOGEADO Y ESTA EL rol ES IGUAL A admin, SE MUESTRA LOS BOTONES editar Y eliminar-->
+          <% if(typeof user != 'undefined' && locals.user.rol =='admin'){ %>
           <div class="btn-edicion-eliminar">
             <!--redirecciono a la pagina de edicion-->
             <a href="/products/edit/<%= producto.id %>"><button type="button"
@@ -40,7 +40,7 @@
             </form>
           </div>
           <% } %>
-          <!--SI EL USUARIO ESTA LOGEADO Y ESTA EL ID ES IGUAL A 1, SE MUESTRA LOS BOTONES editar Y eliminar-->
+          <!--SI EL USUARIO ESTA LOGEADO Y ESTA EL rol ES IGUAL A admin, SE MUESTRA LOS BOTONES editar Y eliminar-->
         </div>
       </div>
       <% }) %>
