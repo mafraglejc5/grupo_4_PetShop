@@ -19,12 +19,12 @@ module.exports = [
         min:1
     })
     .withMessage("La categoria es obligatorio."),
-    /*/desde aca marca el error, por mas que el campo subcategoria esté lleno.
-    check('subcategoria')
+    
+    check('id_subcategoria')
     .isInt({
         min:1
     })
-    .withMessage("La subcategoria es obligatorio."),*/
+    .withMessage("La subcategoria es obligatorio."),
 
     check('price')
     .isInt({

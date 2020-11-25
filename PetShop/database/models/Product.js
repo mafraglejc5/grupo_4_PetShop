@@ -30,7 +30,7 @@ module.exports = (sequelize,dataTypes) => {
         },
         image : {
             type : dataTypes.STRING(100),
-            allowNull : false
+            allowNull : true
         },
         discount : {
             type: dataTypes.INTEGER(11),

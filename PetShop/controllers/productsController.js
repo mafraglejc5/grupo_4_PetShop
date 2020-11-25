@@ -176,9 +176,12 @@ module.exports = {
     /*EDITO EL PRODUCTO SELECCIONADO*/
     editado: function (req, res) {
         //valido si hay errores
+        
         let errors = validationResult(req);
+        res.send(errors)
         //si no hay errores, entra y crea el nuevo producto
         if (errors.isEmpty()) {
+
             //USO LA FUNCION PARA ACTUALIZAR DATOS.
             db.Productos.update({
                 //GUARDO LOS DATOS NUEVOS EN CADA VARIBLE ASIGNADA.
@@ -245,6 +248,7 @@ module.exports = {
     },
     /*ELIMINO EL PRODUCTO SELECCIONADO*/
     eliminar: function (req, res) {
+        //db.Productos.findOne()
         //destruye el producto selecionado por id
         db.Productos.destroy({
             where: {

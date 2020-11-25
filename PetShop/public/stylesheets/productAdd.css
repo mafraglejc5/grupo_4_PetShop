@@ -5,6 +5,11 @@
 CAJA CON EL TITULO Y FORMULARIOS
 MOVIL
 */
+section{
+	background-color: #ff5722;
+	height: auto;
+	margin-top: 20px;
+}
 div form .grupo-form input, select{
     width: 90%;
 }

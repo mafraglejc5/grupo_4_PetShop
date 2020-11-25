@@ -174,10 +174,12 @@ window.addEventListener('load', function () {
             let elementos = formulario.elements;
             let error = false;
             for (let i = 0; i < 8; i++) {
-                if(elementos[i].value == 0){
-                    elementos[i].classList.add('is-invalid');
-                    error = true;
-                }
+                if(i!=2){
+                    if(elementos[i].value == 0){
+                        elementos[i].classList.add('is-invalid');
+                        error = true;
+                    }
+                }                
             }
             if(elementos[0].value.length <4){
                 console.log("entro");
