@@ -49,7 +49,7 @@ module.exports = [
         min:20
     })
     .withMessage("La descripción es obligatorio, minimo 20 caracteres"),
-
+    /*
     body('image')
     .custom((value,{req})=>{
         if(!req.files[0]){
@@ -66,5 +66,5 @@ module.exports = [
 
         return extension = '.jpg' || extension == '.jpeg' || extension == '.png' || extension == '.gif';
     })
-    .withMessage("El formato de la imagen debe ser: jpg, jpeg, png o gif")
+    .withMessage("El formato de la imagen debe ser: jpg, jpeg, png o gif")*/
 ]
