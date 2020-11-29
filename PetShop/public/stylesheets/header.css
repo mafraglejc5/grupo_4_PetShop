@@ -2,11 +2,12 @@
             APERTURA HEADER  
 */
 header{
-    background-color: #ff5722;
+background-image:url("../images/Imagenes-Estilo/BANNER.png");
     height: 100%;
     padding: 20px;
   }
   header .logo{
+    
     position: relative;
     display: flex;
     justify-content: center;
@@ -169,7 +170,7 @@ marquee{
       }
     /*cambio el tamaño del titulo*/
     header .contenedortitulo h1{
-      font-size: 28px;
+      font-size: 40px;
     }
     div .contenedortitulo {  
       bottom: -20px;

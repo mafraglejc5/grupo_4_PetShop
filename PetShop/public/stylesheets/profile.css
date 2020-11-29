@@ -6,17 +6,21 @@
 */
 section{
 	background-color: #ff5722;
+
 	height: auto;
 	margin-top: 20px;
   }
 .sectionRegister{
+	
 	background-color: #ff5722;
+
 	margin-top: 15px;
 }
 div .titulo h2{
 	text-align: center;
 }
 .registroUsuario{
+	
 	text-align: center;
 }
 .login__top {
@@ -88,6 +92,7 @@ div .login__title{
     text-align:center;
 }
 div img.logo-login{
+	
 	height: 120px;
 	position: absolute;
 }/*LOGIN*/

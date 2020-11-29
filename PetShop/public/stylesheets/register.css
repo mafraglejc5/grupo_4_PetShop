@@ -5,21 +5,24 @@
 ---------------------------
 */
 section{
-	background-color: #ff5722;
+
 	height: auto;
 	margin-top: 20px;
+	
   }
 .sectionRegister{
-	background-color: #ff5722;
+
 	margin-top: 15px;
 }
 div .titulo h2{
 	text-align: center;
 }
 .registroUsuario{
+
 	text-align: center;
 }
 .login__top {
+
 	display: flex;
 	flex-direction: column;
 	align-items: center;
@@ -34,6 +37,7 @@ div .titulo h2{
 }
 
 .login__img {
+
 	width: 8rem;
 	border-radius: 50%;
 }
@@ -88,6 +92,7 @@ div .login__title{
     text-align:center;
 }
 div img.logo-login{
+
 	height: 120px;
 	position: absolute;
 }/*LOGIN*/

@@ -65,7 +65,7 @@ Carrusel
 ------------------------------
 */
 section{
-  background-color: #ff5722;
+
   height: auto;
   margin-top: 20px;
 }
@@ -74,10 +74,11 @@ div h5.tituloProductos{
   color: #080808ab;
 }
 section .cuadroCategoria{
+
   padding: 10px;
 }
 section p{
-  color: white;
+  color:black;
 }
 /*centro las columnas dentro de las filas con margenes iguales determinados*/
 section .row{
@@ -250,7 +251,7 @@ div article i,span{
 */
 
 .caja{
-  background-color: #ff5222;
+  background-image:url("../images/Imagenes-Estilo/BANNER.png");
   margin-top: 30px;
   width: auto;
   height: auto;
