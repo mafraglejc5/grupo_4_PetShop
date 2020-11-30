@@ -65,10 +65,11 @@ background-image:url("../images/Imagenes-Estilo/BANNER.png");
     position: relative;
     bottom: 5px;
   }
-  header .menuUsuario a.usuarioLogo{
-    position: relative;
-    left: 25px;
-    top: -8px;
+  header a.usuarioLogoInvitado img{
+    border-radius: 60%;
+  }
+  header a.usuarioLogo img{
+    border-radius: 60%;
   }
   header .envios{
     text-align: center;
@@ -116,6 +117,12 @@ background-image:url("../images/Imagenes-Estilo/BANNER.png");
 marquee{
   width: 100%;  
 }
+header .avatar{
+  border-radius: 60%;
+  left: 50px;
+  position: relative;
+  bottom: 10px;
+}
 
   /* 
                    FINALIZA EL HEADER
@@ -158,16 +165,6 @@ marquee{
       display: block;
       bottom: -18px;
     }
-    header .menuUsuario a.usuarioLogo{
-      position: relative;
-      left: 0px;
-      top: -8px;
-    }
-    header .menuUsuario a.usuarioLogoInvitado{
-      position: relative;
-      left: 88px;
-      top: -4px;
-      }
     /*cambio el tamaño del titulo*/
     header .contenedortitulo h1{
       font-size: 40px;
@@ -199,7 +196,12 @@ marquee{
     header .dropdown-item:hover{
       background-color: rgb(202, 245, 238);
     }
-    
+    header .avatar{
+      border-radius: 60%;
+      left: 180px;
+      position: relative;
+      bottom: 40px;
+    }
   }
   
   @media(min-width:1024px){
@@ -213,11 +215,17 @@ marquee{
     }
     header .menuUsuario a.usuarioLogo{
       left: 57px;
-    }  
-    header .menuUsuario a.usuarioLogoInvitado{
-    position: relative;
-    left: 167px;
-    top: -8px;
+    }
+    header .avatar{
+      border-radius: 60%;
+      left: 300px;
+      position: relative;
+      bottom: 40px;
+    }
+    header p.nick{
+      margin-block-end: auto;
+      padding-left: 120px;
+      color: rebeccapurple;
     }
     
   }

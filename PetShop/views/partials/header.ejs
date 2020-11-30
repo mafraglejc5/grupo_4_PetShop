@@ -4,7 +4,7 @@
     <div class="row">
       <!--fila-->
       <div class="col-12 col-md-2 logo">
-        <a href="/"><img src="/images/Logo-PetShop.png"  alt="CatDog" title="CatDog"></a>
+        <a href="/"><img src="/images/Logo-PetShop.png" alt="CatDog" title="CatDog"></a>
       </div>
       <!--CIERRE LOGO-->
       <div class="col-12 col-md-6 buscador">
@@ -24,16 +24,20 @@
 
           <!--barra de menu que aparece a partir de la vesión de tablet-->
 
-          
-          <% if (typeof user != "undefined") { %>
-          <a class="usuarioLogo" href="/users/profile">
-            <h5 class="mr-2"><%= locals.user.nick%> </h5>
-          </a>
-          <a class="usuarioLogo" href="/users/profile"><img src="/images/users/<%= locals.user.avatar %> " alt="avatar" width="50px"
-              height="50px" class="avatar"></a>
-          <% } else{%>
-          <a class="usuarioLogoInvitado" href="/users/login">Invitado <img src="/images/users/default.png" alt="" width="50px" height="50px"></a>
-          <% } %>
+          <div class="usuario">
+            <% if (typeof user != "undefined") { %>
+            <a class="usuarioLogo" href="/users/profile">
+              <p class="nick"><%= locals.user.nick%> </p>
+            </a>
+            <img class="avatar" src="/images/users/<%= locals.user.avatar %> "
+                alt="avatar" width="50px" height="50px"></a>
+            <% } else{%>
+            <a class="usuarioLogo" href="/users/login"><p class="nick">Invitado </p></a>
+            <img class="avatar" src="/images/users/default.png" alt=""
+                width="50px" height="50px">
+            <% } %>
+          </div>
+
           <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <!--barra de menu izquierdo-->
             <ul class="navbar-nav mr-auto usuario">
