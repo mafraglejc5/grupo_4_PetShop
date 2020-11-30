@@ -31,7 +31,12 @@ right: 50px; /* Establecemos la barra en la izquierda */
 	.social ul li a:hover {
 		background:  #ff5722; /* Cambiamos el fondo cuando el usuario pase el mouse */
 		padding: 10px 30px; /* Hacemos mas grande el espacio cuando el usuario pase el mouse */
-	}
+  }
+  
+div.imagenEstilos{
+  position: relative;
+  align-content: center;
+}
 /*----------------------- 
 Carrusel
 -----------------------*/
@@ -120,9 +125,10 @@ section .row{
 section,img,p,button{
   text-align: center;
 }
-/*
-      USER
-*/
+div img.imagenEstilos{
+  width: 320px;
+  height: 160px;
+}
 
 /*
       VISUALIZACION TABLET
@@ -158,6 +164,10 @@ section,img,p,button{
   .form-check-label{
     position: absolute;
     left: 180px;    
+  }
+  div img.imagenEstilos{    
+    width: 690px;
+    height: 290px;
   }
 }
 /*
@@ -204,6 +214,11 @@ section,img,p,button{
   .form-check-label{
     position: absolute;
     left: 230px;    
+  }
+  div img.imagenEstilos{
+    position: relative;
+    width: 1090px;
+    height: 330px;
   }
 }
 
