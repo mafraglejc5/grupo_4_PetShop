@@ -80,7 +80,7 @@
                                     <select name="id_subcategoria" id="" class="form-control">
                                         <option value="<%= producto.subcategoria.id %>">
                                             <%= producto.subcategoria.name %></option>
-                                        <% idCategorias.forEach(element => {%>
+                                        <% subCategorias.forEach(element => {%>
                                         <% if(element.name != producto.subcategoria.name) {%>
                                         <option value="<%= element.id %>"> <%= element.name %></option>
                                         <% } %>

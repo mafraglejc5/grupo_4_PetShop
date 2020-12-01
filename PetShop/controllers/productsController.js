@@ -4,6 +4,9 @@ const db = require('../database/models');
 const { Sequelize } = require('../database/models');
 const Op = Sequelize.Op;
 const { validationResult } = require('express-validator');
+const fs = require('fs');
+const path = require('path');
+
 
 
 module.exports = {

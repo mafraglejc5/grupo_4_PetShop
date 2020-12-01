@@ -17,7 +17,8 @@
                     <div class="grupo-form">
                         <label for="name">Nombre </label>
                         <br>
-                        <input class="form-control" id="name" name="name" required>
+                        <input class="form-control  
+                        <%= (typeof old != 'undefined' && old.name)?"is-valid":(typeof errors != 'undefined' && errors.name)?"is-invalid": ""  %>" id="name" name="name" value="<%= (typeof old != 'undefined' && old.name)?old.name:'' %>">
                         <small class="text-danger bg-dark"
                             id="errorNombre"><%= (typeof errors != 'undefined' && errors.name)?errors.name.msg: "" %>
                         </small>
@@ -25,7 +26,7 @@
                     <div class="grupo-form">
                         <label for="marca">Marca </label>
                         <br>
-                        <input class="form-control" id="marca" name="marca" required>
+                        <input class="form-control <%= (typeof old != 'undefined' && old.marca)?"is-valid":(typeof errors != 'undefined' && errors.marca)?"is-invalid": ""  %>" id="marca" name="marca" value="<%= (typeof old != 'undefined' && old.name)?old.name:'' %>"  required>
                         <small class="text-danger bg-dark"
                             id="errorMarca"><%= (typeof errors != 'undefined' && errors.marca)?errors.marca.msg: "" %>
                         </small>
@@ -33,8 +34,11 @@
                     <div class="grupo-form">
                         <label for="categoria">Seleccione la categoria </label>
                         <br>
-                        <select name="categoria" class="form-control" id="categoria">
+                        <select name="categoria" class="form-control <%= (typeof old != 'undefined' && old.categoria)?"is-valid":(typeof errors != 'undefined' && errors.categoria)?"is-invalid": ""  %>" id="categoria">
                             <option value="">Elige una opción</option>
+                            <% if (typeof old != 'undefined') { %>
+                                <option value="<%= old.categoria %> " selected><%= old.categoria %> </option>
+                            <% } %>
                             <option value="Gato">Gato</option>
                             <option value="Perro">Perro</option>
                         </select>
@@ -58,7 +62,7 @@
                     <div class="grupo-form">
                         <label for="precio">Precio </label>
                         <br>
-                        <input type="number" class="form-control" id="price" name="price" required>
+                        <input type="number" class="form-control <%= (typeof old != 'undefined' && old.price)?"is-valid":(typeof errors != 'undefined' && errors.price)?"is-invalid": ""  %>" id="price" name="price" value="<%= (typeof old != 'undefined' && old.price)?old.price:'' %>" required>
                         <small class="text-danger bg-dark"
                             id="errorPrecio"><%= (typeof errors != 'undefined' && errors.price)?errors.price.msg: "" %>
                         </small>
@@ -66,7 +70,7 @@
                     <div class="grupo-form">
                         <label for="peso">Peso </label>
                         <br>
-                        <input type="number" class="form-control" id="peso" name="peso" required>
+                        <input type="number" class="form-control <%= (typeof old != 'undefined' && old.peso)?"is-valid":(typeof errors != 'undefined' && errors.peso)?"is-invalid": ""  %>" id="peso" name="peso" value="<%= (typeof old != 'undefined' && old.peso)?old.peso:'' %>"  required>
                         <small class="text-danger bg-dark"
                             id="errorPeso"><%= (typeof errors != 'undefined' && errors.peso)?errors.peso.msg: "" %>
                         </small>
@@ -74,7 +78,7 @@
                     <div class="grupo-form">
                         <label for="discount">Descuento </label>
                         <br>
-                        <input type="number" class="form-control" id="discount" name="discount" required>
+                        <input type="number" class="form-control <%= (typeof old != 'undefined' && old.discount)?"is-valid":(typeof errors != 'undefined' && errors.discount)?"is-invalid": ""  %>" value="<%= (typeof old != 'undefined' && old.discount)?old.discount:'' %>" id="discount" name="discount" required>
                         <small class="text-danger bg-dark"
                             id="errorDescuento"><%= (typeof errors != 'undefined' && errors.discount)?errors.discount.msg: "" %>
                         </small>
@@ -82,7 +86,7 @@
                     <div class="grupo-form">
                         <label for="description">Descripción </label>
                         <br>
-                        <textarea class="form-control" id="description" name="description" cols="30" rows="5"
+                        <textarea class="form-control <%= (typeof old != 'undefined' && old.description)?"is-valid":(typeof errors != 'undefined' && errors.description)?"is-invalid": ""  %>" value="<%= (typeof old != 'undefined' && old.description)?old.description:'' %>" id="description" name="description" cols="30" rows="5"
                             required></textarea>
                         <small class="text-danger bg-dark"
                             id="errorDescripcion"><%= (typeof errors != 'undefined' && errors.description)?errors.description.msg: "" %>
@@ -91,7 +95,7 @@
                     <div class="grupo-form">
                         <label for="subirArchivo">Foto del producto</label>
                         <br>
-                        <input type="file" class="form-control-file" id="image" name="image">
+                        <input type="file" class="form-control-file <%= (typeof old != 'undefined' && old.image)?"is-valid":(typeof errors != 'undefined' && errors.image)?"is-invalid": ""  %>" value="<%= (typeof old != 'undefined' && old.image)?old.image:'' %>" id="image" name="image">
                         <small class="text-danger bg-dark"
                             id="errorImagen"><%= (typeof errors != 'undefined' && errors.imagen)?errors.imagen.msg: "" %>
                         </small>

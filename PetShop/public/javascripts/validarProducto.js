@@ -17,11 +17,20 @@ window.addEventListener('load', function () {
 
     inputNombre.addEventListener('blur', function () {
         switch (true) {
-            case this.value.length === 0:
-                errorNombre.innerHTML = "El nombre es obligatorio";
+            case this.value.length < 4:
+                errorNombre.innerHTML = "Tenés que poner al menos 4 letras"
                 this.classList.add('is-invalid')
+                break
+            default:
+                this.classList.remove('is-invalid')
+                this.classList.add('is-valid')
+                errorNombre.innerHTML = ""
                 break;
-            case this.value.length < 5:
+        }
+    }),
+    inputNombre.addEventListener('keyup', function () {
+        switch (true) {
+            case this.value.length < 4:
                 errorNombre.innerHTML = "Tenés que poner al menos 4 letras"
                 this.classList.add('is-invalid')
                 break
@@ -38,7 +47,20 @@ window.addEventListener('load', function () {
                     errorMarca.innerHTML = "El nombre es obligatorio";
                     this.classList.add('is-invalid')
                     break;
-                case this.value.length < 5:
+                case this.value.length < 4:
+                    errorMarca.innerHTML = "Tenés que poner al menos 4 letras"
+                    this.classList.add('is-invalid')
+                    break
+                default:
+                    this.classList.remove('is-invalid')
+                    this.classList.add('is-valid')
+                    errorMarca.innerHTML = ""
+                    break;
+            }
+        }),
+        inputMarca.addEventListener('keyup', function () {
+            switch (true) {
+                case this.value.length < 4:
                     errorMarca.innerHTML = "Tenés que poner al menos 4 letras"
                     this.classList.add('is-invalid')
                     break
@@ -76,59 +98,59 @@ window.addEventListener('load', function () {
                     break;
             }
         }),
-        inputPrecio.addEventListener('blur',function(){
-            switch(true){
+        inputPrecio.addEventListener('blur', function () {
+            switch (true) {
                 case this.value.length === 0:
                     errorPrecio.innerHTML = "Debe ingresar el valor.";
                     this.classList.add('is-invalid');
                     break;
-                case this.value <=0:
+                case this.value <= 0:
                     errorPrecio.innerHTML = "Debe ingresar un numero positivo.";
                     this.classList.add('is-invalid');
                     break;
                 default:
                     this.classList.remove('is-invalid');
                     this.classList.add('is-valid');
-                    errorPrecio.innerHTML ="";
+                    errorPrecio.innerHTML = "";
                     break;
             }
         }),
-        inputPeso.addEventListener('blur',function(){
-            switch(true){
+        inputPeso.addEventListener('blur', function () {
+            switch (true) {
                 case this.value.length === 0:
                     errorPeso.innerHTML = "Debe ingresar el peso.";
                     this.classList.add('is-invalid');
                     break;
-                case this.value <0:
+                case this.value < 0:
                     errorPeso.innerHTML = "Debe ingresar un numero positivo.";
                     this.classList.add('is-invalid');
                     break;
                 default:
                     this.classList.remove('is-invalid');
                     this.classList.add('is-valid');
-                    errorPeso.innerHTML ="";
+                    errorPeso.innerHTML = "";
                     break;
             }
         }),
-        inputDescuento.addEventListener('blur',function(){
-            switch(true){
+        inputDescuento.addEventListener('blur', function () {
+            switch (true) {
                 case this.value.length === 0:
                     errorDescuento.innerHTML = "Debe rellentar este campo o ingrese 0.";
                     this.classList.add('is-invalid');
                     break;
-                case this.value <0:
+                case this.value < 0:
                     errorDescuento.innerHTML = "Debe ingresar un numero positivo.";
                     this.classList.add('is-invalid');
                     break;
                 default:
                     this.classList.remove('is-invalid');
                     this.classList.add('is-valid');
-                    errorDescuento.innerHTML ="";
+                    errorDescuento.innerHTML = "";
                     break;
             }
         }),
-        inputDescripcion.addEventListener('blur',function(){
-            switch(true){                
+        inputDescripcion.addEventListener('blur', function () {
+            switch (true) {
                 case this.value.length >= 0 && this.value.length <= 20:
                     errorDescripcion.innerHTML = "Debe rellentar este campo, minimo 20 caracteres.";
                     this.classList.add('is-invalid');
@@ -136,24 +158,37 @@ window.addEventListener('load', function () {
                 default:
                     this.classList.remove('is-invalid');
                     this.classList.add('is-valid');
-                    errorDescripcion.innerHTML ="";
+                    errorDescripcion.innerHTML = "";
                     break;
             }
         }),
-        inputImagen.addEventListener('change', function(e){
+        inputDescripcion.addEventListener('keyup', function () {
             switch (true) {
-                case !regExExtensions.exec(this.value) :
+                case this.value.length >= 0 && this.value.length <= 20:
+                    errorDescripcion.innerHTML = "Debe rellentar este campo, minimo 20 caracteres.";
+                    this.classList.add('is-invalid');
+                    break;
+                default:
+                    this.classList.remove('is-invalid');
+                    this.classList.add('is-valid');
+                    errorDescripcion.innerHTML = "";
+                    break;
+            }
+        }),
+        inputImagen.addEventListener('change', function (e) {
+            switch (true) {
+                case !regExExtensions.exec(this.value):
                     errorImagen.innerHTML = "Solo imagenes con extension jpg, jpeg, png, o gif";
                     this.classList.add('is-invalid')
                     this.value = '';
                     vistaPrevia.src = "";
-                break;
-                case this.value.length<0:
+                    break;
+                case this.value.length < 0:
                     errorImagen.innerHTML = "Solo imagenes con extension jpg, jpeg, png, o gif";
                     this.classList.add('is-invalid')
                     this.value = '';
                     vistaPrevia.src = "";
-                break;
+                    break;
                 default:
                     this.classList.remove('is-invalid');
                     this.classList.add('is-valid');
@@ -163,40 +198,40 @@ window.addEventListener('load', function () {
                     // Leemos el archivo subido y se lo pasamos a nuestro fileReader
                     reader.readAsDataURL(e.target.files[0]);
                     // Le decimos que cuando este listo ejecute el código interno
-                    reader.onload = function(){
-                    vistaPrevia.src = reader.result;
+                    reader.onload = function () {
+                        vistaPrevia.src = reader.result;
                     };
                     this.classList.remove('is-invalid');
                     this.classList.add('is-valid');
                     errorImagen.innerHTML = "";
-    
+
             }
         }),
-        formulario.addEventListener('submit',function(e){
+        formulario.addEventListener('submit', function (e) {
             e.preventDefault();
             let elementos = formulario.elements;
             let error = false;
             for (let i = 0; i < 8; i++) {
-                if(elementos[i].value == 0){
+                if (elementos[i].value == 0) {
                     elementos[i].classList.add('is-invalid');
                     error = true;
                 }
             }
-            if(elementos[0].value.length <4){
+            if (elementos[0].value.length < 4) {
                 console.log("entro");
                 error = true
                 errorNombre.innerHTML = "Tenés que poner al menos 4 letras"
                 this.classList.add('is-invalid')
             }
-            if(elementos[1].value.length <4){
+            if (elementos[1].value.length < 4) {
                 error = true
                 errorMarca.innerHTML = "Tenés que poner al menos 4 letras"
-                this.classList.add('is-invalid')    
+                this.classList.add('is-invalid')
             }
-            if(!error){
+            if (!error) {
                 formulario.submit();
             }
-            else{
+            else {
                 errorSubmit.innerHTML = "Los campos señalados son obligatorio."
             }
         })

@@ -37,7 +37,7 @@ module.exports = [
     .isInt({
         gt:-1
     })
-    .withMessage("El peso debe es obligatorio o ponga 0 si pesa menos de 1kg"),
+    .withMessage("El peso es obligatorio o ponga 0 si pesa menos de 1kg"),
 
     check('discount')
     .isInt({

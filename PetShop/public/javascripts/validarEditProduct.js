@@ -33,13 +33,39 @@ window.addEventListener('load', function () {
                 break;
         }
     }),
+    inputNombre.addEventListener('keyup', function () {
+        switch (true) {
+            case this.value.length < 4:
+                errorNombre.innerHTML = "Tenés que poner al menos 4 letras"
+                this.classList.add('is-invalid')
+                break
+            default:
+                this.classList.remove('is-invalid')
+                this.classList.add('is-valid')
+                errorNombre.innerHTML = ""
+                break;
+        }
+    }),
         inputMarca.addEventListener('blur', function () {
             switch (true) {
                 case this.value.length === 0:
                     errorMarca.innerHTML = "El nombre es obligatorio";
                     this.classList.add('is-invalid')
                     break;
-                case this.value.length < 5:
+                case this.value.length < 4:
+                    errorMarca.innerHTML = "Tenés que poner al menos 4 letras"
+                    this.classList.add('is-invalid')
+                    break
+                default:
+                    this.classList.remove('is-invalid')
+                    this.classList.add('is-valid')
+                    errorMarca.innerHTML = ""
+                    break;
+            }
+        }),
+        inputMarca.addEventListener('keyup', function () {
+            switch (true) {
+                case this.value.length < 4:
                     errorMarca.innerHTML = "Tenés que poner al menos 4 letras"
                     this.classList.add('is-invalid')
                     break
@@ -141,7 +167,19 @@ window.addEventListener('load', function () {
                     break;
             }
         }),
-        /*PREGUNTAR POR QUE APARECE VACÍO EL CAMPO CUANDO TIENE UNA IMAGEN CARGADA */
+        inputDescripcion.addEventListener('keyup',function(){
+            switch(true){                
+                case this.value.length >= 0 && this.value.length <= 20:
+                    errorDescripcion.innerHTML = "Debe rellentar este campo, minimo 20 caracteres.";
+                    this.classList.add('is-invalid');
+                    break;
+                default:
+                    this.classList.remove('is-invalid');
+                    this.classList.add('is-valid');
+                    errorDescripcion.innerHTML ="";
+                    break;
+            }
+        }),
         inputImagen.addEventListener('change', function(e){
             switch (true) {
                 case !regExExtensions.exec(this.value) :
