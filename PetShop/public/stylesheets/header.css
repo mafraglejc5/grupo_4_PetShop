@@ -75,7 +75,7 @@ background-image:url("../images/Imagenes-Estilo/BANNER.png");
     text-align: center;
   }
   /*edito los titulos p*/
-  header .tituloP{
+  header .tituloA{
     color: green;
     height: 50px;
   }

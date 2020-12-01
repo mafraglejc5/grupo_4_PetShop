@@ -9,34 +9,62 @@ const { validationResult } = require('express-validator');
 module.exports = {
     /*MUESTA LISTA DE PRODUCTOS DE LA BASE DE DATOS*/
     listar: function (req, res) {
-
+        idProducto = req.params.id;
         //recorro la base de datos "productos, y envio todos los productos a su ruta"
-        db.Productos.findAll()
-            .then(producto => {
+        let productos = db.Productos.findAll({
+        })
+        let subCategorias = db.Subcategorias.findAll()
+        Promise.all([productos, subCategorias])
+
+            .then(([productos, subCategorias]) => {
+                console.log("aca tambien");
                 res.render('products', {
                     title: 'Productos',
                     css: 'index.css',
-                    productos: producto
+                    productos: productos,
+                    subCategorias: subCategorias
                 })
             })
             .catch(error => {
+                console.log("entro");
                 res.send(error)
+            })
+    },
+    filtro: (req, res) => {
+        idsubcategoria = req.params.id;
+        let productos = db.Productos.findAll({
+            where: {
+                id_subcategoria: idsubcategoria
+            }
+        })
+        let subCategorias = db.Subcategorias.findAll()
+        Promise.all([productos, subCategorias])
+            .then(([productos, subCategorias]) => {
+                res.render('productsFilter', {
+                    title: 'Buscado por Filtro',
+                    css: 'index.css',
+                    productos: productos,
+                    subCategorias: subCategorias
+                })
             })
     },
     /*MUESTRO EL DETALLE DEL PRODUCTO*/
     detalle: function (req, res) {
         let idProducto = req.params.id;
         //busco en la base de datos el id del producto seleccionado.
-        db.Productos.findOne({
+        let producto = db.Productos.findOne({
             where: {
                 id: idProducto
             },
             include: [{ association: 'subcategoria' }]
         })
-            .then(producto => {
+        let subCategorias = db.Subcategorias.findAll()
+        Promise.all([producto, subCategorias])
+            .then(([producto, subCategorias]) => {
                 res.render("productDetail", {
                     title: "Detalle del producto",
                     css: "productDetail.css",
+                    subCategorias: subCategorias,
                     producto: producto
                 })
             })
@@ -48,18 +76,26 @@ module.exports = {
     search: function (req, res) {
         //guardo lo que ingresa en el buscador
         let busqueda = req.query.search;
-        db.Productos.findAll({
+        let productos = db.Productos.findAll({
             where: {
                 //busco esa palabra/letra en nombre de la tabla productos
-                name: { [Op.like]: `%${busqueda}%` }
+                [Op.or]: [
+                    { name: { [Op.substring]: busqueda } },
+                    { marca: { [Op.substring]: busqueda } },
+                    { categoria: { [Op.substring]: busqueda } },
+                    { price: { [Op.lte]: busqueda } }
+                ]
             }
         })
+        let subCategorias = db.Subcategorias.findAll()
+        Promise.all([productos, subCategorias])
             //devuelvo el array con el resultado de la busqueda.
-            .then(productos => {
+            .then(([productos, subCategorias]) => {
                 res.render('products', {
                     title: 'Resultado de la busqueda',
                     css: 'index.css',
-                    productos: productos
+                    productos: productos,
+                    subCategorias: subCategorias
                 })
             })
             .catch(error => {
@@ -69,7 +105,7 @@ module.exports = {
     /*AGREGO PRODUCTO*/
     agregar: function (req, res) {
         //guardo los nombres en subCategorias para despues mostrarlos y ordenar el nombre alfabeticamente.
-        let subCategorias = db.Subcategorias.findAll({
+        db.Subcategorias.findAll({
             order: [
                 ['name', 'ASC']
             ]
@@ -152,19 +188,19 @@ module.exports = {
         })
         //GUARDO LA CANTIDAD DE PRODUCTOS PARA PODES RECORRERLOS EN LA PESTAÑA "detalle del producto"
         let total = db.Productos.count();
-        //GUARDO TODO LOS DATOS DE LA TABLA EN idCategorias
-        let idCategorias = db.Subcategorias.findAll()
-        //LO PASO COMO PROMESA EN UNA LLAVE A LAS VARIABLES QUE VOY A USAR
-        Promise.all([producto, idCategorias, total])
 
-            .then(([producto, idCategorias, total]) => {
+        let subCategorias = db.Subcategorias.findAll()
+        //LO PASO COMO PROMESA EN UNA LLAVE A LAS VARIABLES QUE VOY A USAR
+        Promise.all([producto, subCategorias, total])
+
+            .then(([producto, subCategorias, total]) => {
                 //MUESTRO productShow Y LE PASO CADA VALOR PARA PODER MANIPULARLO EN DICHO ARCHIVO
                 res.render('productEdit', {
                     title: "Editar Producto",
                     css: 'productEdit.css',
                     script: 'validarEditProduct.js',
                     total: total,
-                    idCategorias: idCategorias,
+                    subCategorias: subCategorias,
                     producto: producto
                 })
             })
@@ -200,7 +236,7 @@ module.exports = {
                 })
                 .then(() => {
                     //REDIRECCIONO A LA LISTA DE PRODUCTOS.
-                    res.redirect('/products/edit/'+ req.params.id)
+                    res.redirect('/products/edit/' + req.params.id)
                 })
                 .catch(error => {
                     res.send(error)
@@ -223,18 +259,18 @@ module.exports = {
             //GUARDO LA CANTIDAD DE PRODUCTOS PARA PODES RECORRERLOS EN LA PESTAÑA "detalle del producto"
             let total = db.Productos.count();
             //GUARDO TODO LOS DATOS DE LA TABLA EN idCategorias
-            let idCategorias = db.Subcategorias.findAll()
+            let subCategorias = db.Subcategorias.findAll()
             //LO PASO COMO PROMESA EN UNA LLAVE A LAS VARIABLES QUE VOY A USAR
-            Promise.all([producto, idCategorias, total])
+            Promise.all([producto, subCategorias, total])
 
-                .then(([producto, idCategorias, total]) => {
+                .then(([producto, subCategorias, total]) => {
                     //MUESTRO productShow Y LE PASO CADA VALOR PARA PODER MANIPULARLO EN DICHO ARCHIVO
                     res.render('productEdit', {
                         title: "Editar Producto",
                         css: 'productEdit.css',
                         script: 'validarEditProduct.js',
                         total: total,
-                        idCategorias: idCategorias,
+                        subCategorias: subCategorias,
                         producto: producto
                     })
                 })
@@ -247,25 +283,33 @@ module.exports = {
     eliminar: function (req, res) {
         //db.Productos.findOne()
         //destruye el producto selecionado por id
-        db.Productos.destroy({
-            where: {
-                id: req.params.id
-            }
-        })
-            .then(result => {
-                res.redirect('/products')
+        db.Productos.findByPk(req.params.id)
+            .then(producto => {
+                fs.unlinkSync('./public/images/productos/' + producto.image);
+                db.Productos.destroy({
+                    where: {
+                        id: req.params.id
+                    }
+                })
+                    .then(result => {
+                        res.redirect('/products')
+                    })
+                    .catch(error => {
+                        res.send(error)
+                    })
             })
-            .catch(error => {
-                res.send(error)
-            })
+
     },
     carrito: (req, res) => {
-        db.Productos.findAll()
-            .then(producto => {
+        let productos = db.Productos.findAll()
+        let subCategorias = db.Subcategorias.findAll()
+        Promise.all(([productos, subCategorias]))
+            .then(([productos, subCategorias]) => {
                 res.render('productCart', {
                     title: 'Carrito',
                     css: 'productCart.css',
-                    productos: producto
+                    productos: productos,
+                    subCategorias: subCategorias
                 })
             })
             .catch(error => {

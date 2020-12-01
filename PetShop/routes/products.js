@@ -15,6 +15,8 @@ const productEditValidator = require('../validations/productEditValidator.js');
 
 /*MUESTRO LISTA, DETALLE DE CADA PRODUCTO Y BUSCO*/
 router.get('/',productsController.listar);
+router.get('/filtro/:id',productsController.filtro);
+
 router.get('/detalle/:id',productsController.detalle);
 router.get('/search',productsController.search)
 /*CARRITO DE COMPRAS */

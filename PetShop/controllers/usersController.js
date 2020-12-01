@@ -10,11 +10,24 @@ REQUERÍ LA BASE DE DATOS
 
 module.exports = {
     register: function (req, res) {
-        res.render('userRegister', {
-            title: "Registro de Usuario",
-            css: 'index.css',
-            script : 'userRegister.js'
+        //guardo los nombres en subCategorias para despues mostrarlos y ordenar el nombre alfabeticamente.
+        db.Subcategorias.findAll({
+            order: [
+                ['name', 'ASC']
+            ]
         })
+            .then(subCategorias => {
+                res.render('userRegister', {
+                    title: "Registro de Usuario",
+                    css: 'index.css',
+                    script: 'userRegister.js',
+                    subCategorias: subCategorias
+                })
+            })
+            .catch(error => {
+                res.send(error)
+            })
+
     },
     processRegister: function (req, res) {
         let errors = validationResult(req);
@@ -43,17 +56,25 @@ module.exports = {
                 css: "index.css",
                 errors: errors.mapped(),
                 old: req.body,
-                script : 'userRegister.js'
+                script: 'userRegister.js'
             })
         }
 
     },
     login: function (req, res) {
-        res.render('userLogin', {
-            title: "Ingresá a tu cuenta",
-            css: 'register.css',
-            script : 'userlogin.js'
+        db.Subcategorias.findAll({
+            order: [
+                ['name', 'ASC']
+            ]
         })
+            .then(subCategorias => {
+                res.render('userLogin', {
+                    title: "Ingresá a tu cuenta",
+                    css: 'register.css',
+                    script: 'userlogin.js',
+                    subCategorias: subCategorias
+                })
+            })
     },
     processLogin: function (req, res) {
         let errors = validationResult(req);
@@ -88,19 +109,26 @@ module.exports = {
                 css: "register.css",
                 errors: errors.mapped(),
                 old: req.body,
-                script : 'userlogin.js'
+                script: 'userlogin.js'
             })
         }
     },
     profile: function (req, res) {
-        
-        db.Users.findByPk(req.session.user.id)
-            .then(user => {
+        let subCategorias = db.Subcategorias.findAll({
+            order: [
+                ['name', 'ASC']
+            ]
+        })
+    
+        let user = db.Users.findByPk(req.session.user.id)
+        Promise.all(([subCategorias,user]))
+            .then(([subCategorias,user]) => {
                 res.render('userProfile', {
                     title: "Perfil de usuario",
                     css: "profile.css",
-                    script : "userProfile.js",
-                    usuario : user
+                    script: "userProfile.js",
+                    usuario: user,
+                    subCategorias: subCategorias
                 })
             })
             .catch(error => {
@@ -110,7 +138,7 @@ module.exports = {
     },
     ///LOS DATOS SE ACTUALIZAN , PERO NO SE SINCRONIZA LA IMAGEN EN EL HEADER, SOLO HASTA QUE CIERRO LA SESSION
     editProfile: (req, res) => {
-        
+
         db.Users.update({
             nombre: req.body.nombre.trim(),
             apellido: req.body.apellido.trim(),
@@ -120,16 +148,16 @@ module.exports = {
             provincia: req.body.provincia.trim(),
             fecha: req.body.fecha,
             avatar: (req.files[0]) ? req.files[0].filename : "default.png"
-        },{
-            where:{
+        }, {
+            where: {
                 id: req.params.id
             }
         })
-            .then(resultado =>{
+            .then(resultado => {
 
                 return res.redirect('/users/profile')
             })
-            .catch(error =>{
+            .catch(error => {
                 res.send(error)
             })
     },
