@@ -29,7 +29,7 @@
             <a class="usuarioLogo" href="/users/profile">
               <p class="nick"><%= locals.user.nick%> </p>
             </a>
-            <img class="avatar" src="/images/users/<%= locals.user.avatar %> "
+            <img class="avatar" src="/images/users/<%= user.avatar %> "
                 alt="avatar" width="50px" height="50px"></a>
             <% } else{%>
             <a class="usuarioLogo" href="/users/login"><p class="nick">Invitado </p></a>

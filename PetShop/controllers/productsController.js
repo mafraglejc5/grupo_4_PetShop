@@ -20,16 +20,15 @@ module.exports = {
         Promise.all([productos, subCategorias])
 
             .then(([productos, subCategorias]) => {
-                console.log("aca tambien");
                 res.render('products', {
                     title: 'Productos',
                     css: 'index.css',
+                    script:'btnEliminar.js',
                     productos: productos,
                     subCategorias: subCategorias
                 })
             })
             .catch(error => {
-                console.log("entro");
                 res.send(error)
             })
     },

@@ -51,13 +51,22 @@ module.exports = {
                 })
 
         } else {
-            res.render('userRegister', {
-                title: "Registro de Usuario",
-                css: "index.css",
-                errors: errors.mapped(),
-                old: req.body,
-                script: 'userRegister.js'
+            db.Subcategorias.findAll({
+                order: [
+                    ['name', 'ASC']
+                ]
             })
+                .then(subCategorias => {
+                    res.render('userRegister', {
+                        title: "Registro de Usuario",
+                        css: "index.css",
+                        errors: errors.mapped(),
+                        subCategorias: subCategorias,
+                        old: req.body,
+                        script: 'userRegister.js'
+                    })
+                })
+
         }
 
     },
@@ -104,13 +113,25 @@ module.exports = {
                 })
 
         } else {
-            res.render('userLogin', {
-                title: "Ingresá a tu cuenta",
-                css: "register.css",
-                errors: errors.mapped(),
-                old: req.body,
-                script: 'userlogin.js'
+            db.Subcategorias.findAll({
+                order: [
+                    ['name', 'ASC']
+                ]
             })
+                .then(subCategorias => {
+                    res.render('userLogin', {
+                        title: "Ingresá a tu cuenta",
+                        css: "register.css",
+                        errors: errors.mapped(),
+                        subCategorias: subCategorias,
+                        old: req.body,
+                        script: 'userlogin.js'
+                    })
+                })
+                .catch(error => {
+                    res.send(error)
+                })
+
         }
     },
     profile: function (req, res) {
@@ -119,10 +140,10 @@ module.exports = {
                 ['name', 'ASC']
             ]
         })
-    
+
         let user = db.Users.findByPk(req.session.user.id)
-        Promise.all(([subCategorias,user]))
-            .then(([subCategorias,user]) => {
+        Promise.all(([subCategorias, user]))
+            .then(([subCategorias, user]) => {
                 res.render('userProfile', {
                     title: "Perfil de usuario",
                     css: "profile.css",
@@ -168,19 +189,22 @@ module.exports = {
         return res.redirect('/')
     },
     eliminar: (req, res) => {
-        db.Users.destroy({
-            where: {
-                id: req.params.id
-            }
-        })
-            .then(result => {
-                req.session.destroy();
-                return res.redirect('/');
-            })
-            .catch(error => {
-                res.send(error);
+        db.Users.findByPk(req.params.id)
+            .then(user => {
+                fs.unlinkSync('./public/images/users/' + user.avatar);
+                db.Users.destroy({
+                    where: {
+                        id: req.params.id
+                    }
+                })
+                    .then(result => {
+                        req.session.destroy();
+                        return res.redirect('/');
+                    })
+                    .catch(error => {
+                        res.send(error);
+                    })
             })
     }
-
 
 }
