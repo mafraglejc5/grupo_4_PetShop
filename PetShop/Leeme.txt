@@ -4,6 +4,22 @@ eliminar o editar algun producto. Se debe ingresar con el siguiente dato:
 Usuario: admin@gmail.com
 Password: Hola1234
 
+Enlaces Fotos para inteligencia Artificial:
+ENLACE: https://www.facebook.com/media/set/?set=a.10158195501252991&type=3
+
+FOTO 1
+https://scontent-eze1-1.xx.fbcdn.net/v/t1.0-9/128260770_10158195501027991_5480225944323962712_n.jpg?_nc_cat=110&ccb=2&_nc_sid=0debeb&_nc_ohc=EfUWM_6igksAX-cDBkf&_nc_ht=scontent-eze1-1.xx&oh=69a4651972cebe5d45a82d991999cf7d&oe=5FEC0602
+FOTO 2
+https://scontent-eze1-1.xx.fbcdn.net/v/t1.0-9/128162535_10158195501012991_6494779504942664086_n.jpg?_nc_cat=101&ccb=2&_nc_sid=0debeb&_nc_ohc=SQBzHk4PQiAAX9v3xBG&_nc_ht=scontent-eze1-1.xx&oh=6232504effb0c0d5a8e9e8967224a114&oe=5FEDDBB6
+FOTO 3
+https://scontent-eze1-1.xx.fbcdn.net/v/t1.0-9/128548014_10158195553047991_7851765737107423001_o.jpg?_nc_cat=111&ccb=2&_nc_sid=0debeb&_nc_ohc=9Omrf97n41UAX9uefjS&_nc_ht=scontent-eze1-1.xx&oh=9a4e0bda51ce28f0ffb22e2bcdc34cac&oe=5FEABE0E
+FOTO 4
+https://scontent-eze1-1.xx.fbcdn.net/v/t1.0-9/128523900_10158195501037991_3047134835791168402_o.jpg?_nc_cat=108&ccb=2&_nc_sid=0debeb&_nc_ohc=uBzu2naQuocAX8en3Jj&_nc_ht=scontent-eze1-1.xx&oh=d19e760eab8f60fcd80a35422ba97e8c&oe=5FEB3431
+
+
+
+
+
 *************************************************************
 
 PREGUNTAR POR QUE NO VALIDA DESDE EL FRONT, EL CAMPO subCategoria.

@@ -28,5 +28,25 @@ module.exports = {
                 res.send(error)
             })
     },
+    mascota: function (req, res){
+        let producto = db.Productos.findAll()
+        //GUARDO LA CANTIDAD DE PRODUCTOS PARA PODES RECORRERLOS EN LA PESTAÑA "detalle del producto"
+        let total = db.Productos.count();
+        //GUARDO TODO LOS DATOS DE LA TABLA EN idCategorias
+        let subCategorias = db.Subcategorias.findAll()
+        //LO PASO COMO PROMESA EN UNA LLAVE A LAS VARIABLES QUE VOY A USAR
+        Promise.all([producto, subCategorias, total])
 
+            .then(([producto, subCategorias, total]) => {
+        res.render('DetectaMascota', {
+                    title: 'DetectaMascota',
+                    css: 'index.css',
+                    productos: producto,
+                    subCategorias: subCategorias,
+                    total: total
+                })
+            })
+    }
 }
+
+

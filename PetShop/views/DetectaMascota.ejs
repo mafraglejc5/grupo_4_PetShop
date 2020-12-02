@@ -1,0 +1,115 @@
+<!--HEAD MODULARIZADO-->
+<%- include('./partials/head.ejs')%>
+<!--HEADER MODULARIZADO-->
+<%-include('./partials/header.ejs')%>
+
+
+
+<script type="text/javascript">
+     // **********************************************
+        // *** procesamiento de imagen***
+        // **********************************************
+
+    function processImage() {
+        // **********************************************
+        // *** Pongo mi cuenta de Microsoft AZURE***
+        // **********************************************
+
+        var subscriptionKey = "12ad4870ae4e47abb4659e3181c5e343";
+        var endpoint = "https://petshop.cognitiveservices.azure.com/";
+        var uriBase = endpoint + "vision/v3.1/analyze";
+     
+        // agrego parametros a la ruta de Azure.
+        var params = {
+            "visualFeatures": "tags",
+            "details": "",
+            "language": "es",
+        };
+
+        // muestro la imagen
+        var sourceImageUrl = document.getElementById("inputImage").value;
+        document.querySelector("#sourceImage").src = sourceImageUrl;
+
+        // realizo la llamada a la API.
+        $.ajax({
+            url: uriBase + "?" + $.param(params),
+
+            // solicito encabezados.
+            beforeSend: function(xhrObj){
+                xhrObj.setRequestHeader("Content-Type","application/json");
+                xhrObj.setRequestHeader(
+                    "Ocp-Apim-Subscription-Key", subscriptionKey);
+            },
+
+            type: "POST",
+
+            // tomo la solicitud
+            data: '{"url": ' + '"' + sourceImageUrl + '"}',
+        })
+
+        .done(function(data) {
+            // Muestro JSON formateado en la página web.
+           
+     
+            let mascota = data.tags
+           console.log(mascota)
+            let prueba 
+          for (let index = 0; index < mascota.length; index++) {
+              if (index==0 || index==13  ) {
+                  console.log(mascota[index])
+
+                  $("#responseTextArea").val(JSON.stringify("Soy "   + mascota[0].name + " "+ "y mis caracteristicas son: "+ " "+mascota[12].name+ "  "+mascota[13].name, null, 2));
+              }
+         
+          }
+
+     
+        })
+
+        .fail(function(jqXHR, textStatus, errorThrown) {
+            // muestro errores.
+            var errorString = (errorThrown === "") ? "Error. " :
+                errorThrown + " (" + jqXHR.status + "): ";
+            errorString += (jqXHR.responseText === "") ? "" :
+                jQuery.parseJSON(jqXHR.responseText).message;
+            alert(errorString);
+        });
+    };
+</script>
+
+                        <h1>Nuestro Sistema de Inteligencia Artificial Te Ayuda</h1>
+Ingresá Una imagen de tu Red Social y luego apretá el boton <strong> ANALIZAR IMAGEN </strong>.
+<br><br>
+
+Enlace:
+<input type="text" name="inputImage" id="inputImage"
+
+    value="https://www.facebook.com/media/set/?set=a.10158195501252991&type=3" />
+
+        
+
+        </div>
+    </div>
+<button onclick="processImage()">ANALIZAR IMAGEN</button>
+<br><br>
+<div id="wrapper" style="width:1020px; display:table;">
+    <div id="jsonOutput" style="width:600px; display:table-cell;">
+        <br><br>
+        <textarea id="responseTextArea" class="UIInput"
+                  style="width:480px; height:100px;"></textarea>
+    </div>
+    
+    <div id="imageDiv" style="width:420px; display:table-cell;">
+        Tu Mascota:
+        <br><br>
+        <img id="sourceImage" width="400" />
+    </div>
+</div>
+<!--Apertura del como funciona-->
+<%- include('./partials/shipping.ejs') %>
+<!--CIERRE del como funciona-->
+
+<!--terminacion del como funciona-->
+<!--APERTURA-FOOTER-->
+<%- include('./partials/footer.ejs')%>
+<!--CIERRE-FOOTER-->
