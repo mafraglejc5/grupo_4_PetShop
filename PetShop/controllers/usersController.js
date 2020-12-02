@@ -142,10 +142,9 @@ module.exports = {
         db.Users.update({
             nombre: req.body.nombre.trim(),
             apellido: req.body.apellido.trim(),
-            email: req.body.email.trim(),
             direccion: req.body.direccion.trim(),
-            ciudad: req.body.ciudad.trim(),
-            provincia: req.body.provincia.trim(),
+            ciudad: req.body.ciudad,
+            provincia: req.body.provincia,
             fecha: req.body.fecha,
             avatar: (req.files[0]) ? req.files[0].filename : "default.png"
         }, {
