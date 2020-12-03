@@ -229,7 +229,26 @@ window.addEventListener('load', function () {
                 this.classList.add('is-invalid')
             }
             if (!error) {
-                formulario.submit();
+                /*MUESTO UN sweetAlert */
+                Swal.fire({
+                    title: '¿Quiere agregar este producto?',
+                    icon: '¡advertencia!',
+                    showCancelButton: true,
+                    confirmButtonColor: '#3085d6',
+                    cancelButtonColor: '#d33',
+                    confirmButtonText: 'Si, agregalo!'
+                }).then((result) => {
+                    if (result.isConfirmed) {
+                        Swal.fire(
+                            'Agregado..!',
+                            'Tu archivo ha sido agregado.',
+                            'success'
+                        )
+                            .then(() => {
+                                formulario.submit();
+                            })
+                    }
+                })
             }
             else {
                 errorSubmit.innerHTML = "Los campos señalados son obligatorio."

@@ -37,6 +37,14 @@ div.imagenEstilos{
   position: relative;
   align-content: center;
 }
+div img.sinStock{
+  height: 150px;
+  height: 200px;
+  border-radius: 60%;
+  left: -22px;
+  position: relative;
+}
+
 /*----------------------- 
 Carrusel
 -----------------------*/
@@ -169,6 +177,9 @@ div img.imagenEstilos{
     width: 690px;
     height: 290px;
   }
+  div img.sinStock{
+    left: -2px;
+  }
 }
 /*
       VISUALIZACION ESCRITORIO
@@ -219,6 +230,9 @@ div img.imagenEstilos{
     position: relative;
     width: 1090px;
     height: 330px;
+  }
+  div img.sinStock{
+    left: -60px;
   }
 }
 

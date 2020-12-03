@@ -85,7 +85,7 @@ module.exports = {
                     { name: { [Op.substring]: busqueda } },
                     { marca: { [Op.substring]: busqueda } },
                     { categoria: { [Op.substring]: busqueda } },
-                    { price: { [Op.lte]: busqueda } }
+                    { price: { [Op.eq]: busqueda } }
                 ]
             }
         })
