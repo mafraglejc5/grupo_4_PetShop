@@ -129,12 +129,16 @@
                                         id="errorDescuento"><%= (typeof errors != 'undefined' && errors.discount)?errors.discount.msg: "" %>
                                     </small>
                                 </div>
-                                <div class="col-12 d-flex justify-content-end">
+                                <div class="col-12 d-flex justify-content-end" >                                    
+                                    <a href="/products/detalle/<%= producto.id %>"><button class="btn btn-primary mr-2"
+                                        type="button">Detalle</button></a>
                                     <a href="/products"><button class="btn btn-danger mr-2"
                                             type="button">Cancelar</button></a>
-                                    <button class="btn btn-info" type="submit" name="id">Guardar</button>
-                                    <span id="errorSubmit" class="text-danger bg-dark"></span>
+                                    <button class="btn btn-primary" type="submit" name="id">Guardar</button>
+                                    <br>
+                                    
                                 </div>
+                                <small id="errorSubmit" class="text-danger bg-dark"></small>
                             </div>
                         </div>
                     </div>
